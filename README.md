@@ -26,14 +26,26 @@ python3 -m http.server 8080
 | File | Page |
 | --- | --- |
 | `index.html` | Buy a Car (home / landing) |
+| `search.html` | Search results (filters, sort, pagination) |
 | `listing.html` | Listing detail (vehicle page) |
 | `sell.html` | Sell a Car |
-| `dealers.html` | Dealer signup / levels |
+| `dealers.html` | Dealer overview / levels |
+| `dealer-signup.html` | Become a Dealer (application form) |
 | `dealer-basic.html` | Basic dealer profile (Prestige Performance Motors) |
 | `dealer-premium.html` | Premium dealer profile (Apex Motor Group) |
 | `dealer-premier.html` | Premier dealer profile (Rosso Performance) |
+| `dashboard.html` | Dealer ROI dashboard — **design concept only** (Founding Partner beta) |
 | `resources.html` | Resources hub |
-| `company.html` | Company / about |
+| `article.html` | Editorial article template |
+| `company.html` | Company |
+| `about.html` | About |
+| `contact.html` | Contact |
+| `privacy.html` | Privacy Policy |
+| `sitemap.html` | Sitemap |
+
+> `dashboard.html` is a **visual concept** to support the Founding Partner
+> conversation — it is not a functioning feature, and the underlying billing /
+> token / accounts systems are out of the current Phase 2/3 scope.
 
 The top navigation links all pages together, so you can click through the whole
 site from the home page.

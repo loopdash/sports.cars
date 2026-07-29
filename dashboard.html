@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dealer Dashboard (Concept) — Sports.Cars</title>
+  <meta name="description" content="Design concept for a lightweight dealer ROI dashboard — Founding Partner beta." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="dealers">
+  <div data-include="header"></div>
+
+  <div class="dash">
+    <!-- SIDEBAR -->
+    <aside class="dash__side">
+      <div class="dash__brand"><b>SPORTS</b>.CARS</div>
+      <div class="dash__dealer">Apex Motor Group · Founding Partner #7</div>
+      <nav class="dash__nav">
+        <a href="#" class="is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg> Overview</a>
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 17h14l-1.5-5.5A2 2 0 0 0 15.6 10H8.4a2 2 0 0 0-1.9 1.5z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg> Inventory</a>
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v12H8l-4 4z"/></svg> Leads</a>
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-7"/></svg> Reports</a>
+        <a href="#" style="opacity:0.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg> Billing · off</a>
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.4-2.3 1a7 7 0 0 0-1.7-1l-.3-2.5H9.4l-.3 2.5a7 7 0 0 0-1.7 1l-2.3-1-2 3.4L5 11a7 7 0 0 0 0 2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 1.7 1l.3 2.5h4.2l.3-2.5a7 7 0 0 0 1.7-1l2.3 1 2-3.4-2-1.5a7 7 0 0 0 .1-1z"/></svg> Settings</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dash__main">
+      <div class="dash__concept-flag">◆ Design concept — Founding Partner dashboard (not a built feature)</div>
+
+      <div class="dash__header">
+        <h1 class="dash__title">Performance overview</h1>
+        <div class="dash__period">July 2026 · updated 2 hours ago</div>
+      </div>
+
+      <!-- METRICS -->
+      <div class="metric-grid">
+        <div class="metric"><div class="metric__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1.5-5.5A2 2 0 0 0 15.6 10H8.4a2 2 0 0 0-1.9 1.5z"/></svg> Active inventory</div><div class="metric__val">142</div><div class="metric__delta" style="color:var(--text-muted)">6 added this month</div></div>
+        <div class="metric"><div class="metric__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.5"/></svg> Vehicle views</div><div class="metric__val">2,184</div><div class="metric__delta trend-up">+12.4% ↑</div></div>
+        <div class="metric"><div class="metric__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.4 2.4 1.2 3.6 1.2 3.6L8.1 9.9a16 16 0 0 0 6 6l2.6-2.2s1.2.8 3.6 1.2a2 2 0 0 1 1.7 2z"/></svg> Phone calls</div><div class="metric__val">31</div><div class="metric__delta trend-up">+4 vs last month</div></div>
+        <div class="metric"><div class="metric__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4z"/></svg> Lead forms</div><div class="metric__val">12</div><div class="metric__delta trend-up">+3 vs last month</div></div>
+      </div>
+
+      <!-- TOP VEHICLES + ACTIVITY -->
+      <div class="dash-cols">
+        <div class="dash-card">
+          <h3>Top performing vehicles</h3>
+          <div class="dash-row"><span class="dash-row__rank">1</span><div class="dash-row__thumb"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=150&q=60" alt=""></div><span class="dash-row__name">2022 Ferrari 488 Pista</span><span class="dash-row__stat">418 views</span><span class="dash-row__stat">5 leads</span></div>
+          <div class="dash-row"><span class="dash-row__rank">2</span><div class="dash-row__thumb"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=150&q=60" alt=""></div><span class="dash-row__name">2021 McLaren 720S</span><span class="dash-row__stat">356 views</span><span class="dash-row__stat">3 leads</span></div>
+          <div class="dash-row"><span class="dash-row__rank">3</span><div class="dash-row__thumb"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=150&q=60" alt=""></div><span class="dash-row__name">2023 Porsche 911 GT3</span><span class="dash-row__stat">301 views</span><span class="dash-row__stat">2 leads</span></div>
+          <div class="dash-row"><span class="dash-row__rank">4</span><div class="dash-row__thumb"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=150&q=60" alt=""></div><span class="dash-row__name">2020 Lamborghini Huracán STO</span><span class="dash-row__stat">288 views</span><span class="dash-row__stat">1 lead</span></div>
+          <div class="dash-row"><span class="dash-row__rank">5</span><div class="dash-row__thumb"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=60" alt=""></div><span class="dash-row__name">2021 Ferrari 812 Superfast</span><span class="dash-row__stat">254 views</span><span class="dash-row__stat">1 lead</span></div>
+        </div>
+
+        <div>
+          <div class="dash-card">
+            <h3>Sports.Cars performance score</h3>
+            <div class="score-ring">
+              <div class="score-ring__circle"><div class="score-ring__inner"><div class="score-ring__num">87<small>/ 100</small></div></div></div>
+              <div style="font-size:14px;color:var(--text-muted)">Your listings are engaging buyers better than <b style="color:var(--text)">82%</b> of dealers. Add more photos to your 8 lowest-scoring listings to improve.</div>
+            </div>
+          </div>
+          <div class="dash-card" style="margin-top:24px">
+            <h3>Recent activity</h3>
+            <div style="font-size:14px;color:var(--text-muted);line-height:2">
+              <div>🔔 New lead on <b style="color:var(--text)">488 Pista</b> · 2h ago</div>
+              <div>📞 Phone call on <b style="color:var(--text)">720S</b> · 5h ago</div>
+              <div>❤️ 911 GT3 saved 4 times · today</div>
+              <div>👁 812 Superfast passed 250 views · today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BETA VALUE PANEL -->
+      <div class="beta-panel">
+        <span class="beta-badge">★ Founding Partner beta</span>
+        <div class="beta-panel__label">Beta market value — July 2026</div>
+        <div class="beta-panel__value"><span class="beta-panel__strike">$437.50</span> &nbsp; <span class="beta-panel__cost">$0.00</span></div>
+        <p class="beta-panel__note">If Sports.Cars were billing under standard performance pricing, this month's activity would have been valued at $437.50. As a Founding Partner, your cost is $0.00.</p>
+      </div>
+    </main>
+  </div>
+
+  <div data-include="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

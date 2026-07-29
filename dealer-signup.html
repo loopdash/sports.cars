@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Become a Dealer — Sports.Cars</title>
+  <meta name="description" content="Apply to become a Sports.Cars dealer. Reach serious buyers and showcase your inventory." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="dealers">
+  <div data-include="header"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="split" style="grid-template-columns:0.9fr 1.1fr;align-items:start">
+        <!-- LEFT: pitch -->
+        <div class="reveal">
+          <p class="eyebrow">Dealer application</p>
+          <h1 class="display" style="font-size:clamp(34px,4.5vw,54px)">Become a dealer.</h1>
+          <p class="lead" style="margin-top:16px;max-width:40ch">Apply in a few minutes. Our team reviews every application to keep the marketplace trusted and high-quality.</p>
+          <ul class="feature-list" style="margin-top:28px;font-size:16px">
+            <li>Global exposure to qualified, ready-to-buy enthusiasts</li>
+            <li>Inventory tools and lead management</li>
+            <li>Verified dealer badge and profile</li>
+            <li>Flexible integration — API, CSV, or website feed</li>
+          </ul>
+          <div class="contact-bar" style="grid-template-columns:1fr;margin-top:30px;max-width:420px">
+            <div class="contact-bar__item"><span class="contact-bar__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><div class="contact-bar__label">Prefer to talk?</div><div class="contact-bar__val">(800) 555-0142</div></div></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: form -->
+        <div class="form-card reveal">
+          <h3>Tell us about your dealership</h3>
+          <p class="form-card__sub">Step 1 of 2 — business details.</p>
+          <form data-filter-form>
+            <div class="field"><input type="text" placeholder="Dealership name" /></div>
+            <div class="field-row"><div class="field"><input type="text" placeholder="Contact first name" /></div><div class="field"><input type="text" placeholder="Contact last name" /></div></div>
+            <div class="field-row"><div class="field"><input type="email" placeholder="Business email" /></div><div class="field"><input type="tel" placeholder="Phone number" /></div></div>
+            <div class="field"><input type="text" placeholder="Website (optional)" /></div>
+            <div class="field-row"><div class="field"><input type="text" placeholder="City" /></div><div class="field"><input type="text" placeholder="State" /></div></div>
+            <div class="field"><select><option>Dealer type</option><option>Independent dealer</option><option>Franchise dealer</option><option>Auction / wholesaler</option></select></div>
+            <div class="field"><select><option>Approx. active inventory</option><option>1–25 vehicles</option><option>26–100 vehicles</option><option>100+ vehicles</option></select></div>
+            <div class="field"><select><option>Plan you're interested in</option><option>Basic — $99/mo</option><option>Premium — $299/mo</option><option>Premier — $599/mo</option><option>Not sure yet</option></select></div>
+            <div class="field"><textarea placeholder="Anything else we should know? (optional)"></textarea></div>
+            <label class="filter-check" style="margin:6px 0 16px"><input type="checkbox"> I agree to the Terms of Service and Privacy Policy.</label>
+            <button type="submit" class="btn btn--primary btn--block btn--lg">Submit application</button>
+            <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:12px">We review applications within 2 business days.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO WALL -->
+  <section class="section--tight section section--alt">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center">Trusted by leading dealers</p>
+      <div class="logo-wall reveal" style="margin-top:24px">
+        <span>Velocity<small>MOTORS</small></span><span>Prestige<small>AUTO GALLERY</small></span><span>Summit<small>EXOTICS</small></span><span>Apex<small>MOTOR GROUP</small></span><span>Legendary<small>AUTOS</small></span>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="footer"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

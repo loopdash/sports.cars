@@ -61,12 +61,12 @@
               '<a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.65 4.75 6.1V24h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V24H8z"/></svg></a>' +
             '</div>' +
           '</div>' +
-          '<div class="footer__col"><h4>Marketplace</h4><a href="index.html">Buy a Car</a><a href="sell.html">Sell a Car</a><a href="dealers.html">Dealers</a><a href="index.html">Featured Cars</a><a href="index.html">Browse by Category</a></div>' +
-          '<div class="footer__col"><h4>Resources</h4><a href="resources.html">Car Guides</a><a href="resources.html">Market Insights</a><a href="resources.html">Buying Tips</a><a href="resources.html">Selling Tips</a><a href="resources.html">Help Center</a></div>' +
-          '<div class="footer__col"><h4>Company</h4><a href="company.html">About Us</a><a href="company.html">Our Team</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Contact Us</a></div>' +
-          '<div class="footer__col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Trust &amp; Safety</a><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>' +
+          '<div class="footer__col"><h4>Marketplace</h4><a href="index.html">Buy a Car</a><a href="search.html">Search Results</a><a href="sell.html">Sell a Car</a><a href="dealers.html">Dealers</a><a href="dealer-signup.html">Become a Dealer</a></div>' +
+          '<div class="footer__col"><h4>Resources</h4><a href="resources.html">Car Guides</a><a href="article.html">Articles</a><a href="resources.html">Market Insights</a><a href="resources.html">Buying Tips</a><a href="resources.html">Selling Tips</a></div>' +
+          '<div class="footer__col"><h4>Company</h4><a href="about.html">About Us</a><a href="company.html">Our Team</a><a href="contact.html">Contact Us</a><a href="#">Careers</a><a href="#">Press</a></div>' +
+          '<div class="footer__col"><h4>Support</h4><a href="contact.html">Help Center</a><a href="#">Trust &amp; Safety</a><a href="#">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="sitemap.html">Sitemap</a></div>' +
         '</div>' +
-        '<div class="footer__bottom"><span>© 2026 Sports.Cars. All rights reserved.</span><span>Privacy Policy · Terms of Service · Sitemap</span></div>' +
+        '<div class="footer__bottom"><span>© 2026 Sports.Cars. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="sitemap.html">Sitemap</a></span></div>' +
       '</div></footer>'
   };
 
@@ -88,6 +88,19 @@
     initFilters();
     initGallery();
     initTabs();
+    initSearchUI();
+  }
+
+  /* ---------- Search results: filter drawer + chip removal ---------- */
+  function initSearchUI() {
+    var toggle = document.getElementById("filterToggle");
+    var filters = document.getElementById("filters");
+    if (toggle && filters) {
+      toggle.addEventListener("click", function () { filters.classList.toggle("is-open"); });
+    }
+    document.querySelectorAll(".chip button").forEach(function (btn) {
+      btn.addEventListener("click", function () { btn.closest(".chip").remove(); });
+    });
   }
 
   /* ---------- Listing gallery: click thumb → swap main ---------- */
