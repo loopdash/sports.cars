@@ -103,20 +103,110 @@
     });
   }
 
-  /* ---------- Listing gallery: click thumb → swap main ---------- */
+  /* ---------- Listing gallery carousel ----------
+     Arrows + thumbnails + keyboard + swipe + gentle autoplay.
+     Cycles through ALL photos. Exposes window.__gallery.load(photos)
+     so the MarketCheck layer can feed live images. */
   function initGallery() {
     var main = document.getElementById("galleryMain");
-    var thumbs = document.querySelectorAll(".gallery__thumb");
-    if (!main || !thumbs.length) return;
-    thumbs.forEach(function (thumb) {
-      thumb.addEventListener("click", function () {
-        var img = thumb.querySelector("img");
-        if (!img) return;
-        main.src = img.src.replace(/w=300&q=60/, "w=1400&q=80");
-        thumbs.forEach(function (t) { t.classList.remove("is-active"); });
-        thumb.classList.add("is-active");
-      });
+    if (!main) return;
+    var mainWrap = main.closest(".gallery__main");
+    var root = mainWrap ? mainWrap.parentNode : main.parentNode;
+    var thumbsWrap = root.querySelector(".gallery__thumbs");
+    var countEl = mainWrap ? mainWrap.querySelector(".gallery__count") : null;
+
+    // Seed from existing thumbnails (static demo), upgrading to large size.
+    var photos = [];
+    root.querySelectorAll(".gallery__thumb img").forEach(function (img) {
+      var src = img.getAttribute("src") || "";
+      photos.push(src.replace(/w=300&q=60/, "w=1400&q=80"));
     });
+    if (!photos.length && main.getAttribute("src")) photos = [main.getAttribute("src")];
+
+    var idx = 0, timer = null, interacted = false;
+
+    function render() {
+      if (!photos.length) return;
+      main.src = photos[idx];
+      if (countEl) countEl.textContent = idx + 1 + " / " + photos.length;
+      var thumbs = thumbsWrap ? thumbsWrap.querySelectorAll(".gallery__thumb") : [];
+      thumbs.forEach(function (t, i) { t.classList.toggle("is-active", i === idx); });
+      var active = thumbs[idx];
+      if (active && active.scrollIntoView) {
+        active.scrollIntoView({ inline: "nearest", block: "nearest" });
+      }
+    }
+    function go(i) { idx = (i + photos.length) % photos.length; render(); }
+    function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+    function startAuto() {
+      stopAuto();
+      if (interacted || photos.length < 2) return;
+      timer = setInterval(function () { go(idx + 1); }, 4500);
+    }
+    function nav(fn) {
+      return function (e) {
+        if (e) e.preventDefault();
+        interacted = true;
+        stopAuto();
+        fn();
+      };
+    }
+
+    function buildThumbs() {
+      if (!thumbsWrap) return;
+      thumbsWrap.innerHTML = photos
+        .map(function (src, i) {
+          return (
+            '<div class="gallery__thumb' + (i === 0 ? " is-active" : "") +
+            '"><img src="' + src + '" alt="" loading="lazy"></div>'
+          );
+        })
+        .join("");
+      thumbsWrap.querySelectorAll(".gallery__thumb").forEach(function (t, i) {
+        t.addEventListener("click", nav(function () { go(i); }));
+      });
+    }
+
+    if (mainWrap) {
+      var prevBtn = mainWrap.querySelector(".gallery__nav--prev");
+      var nextBtn = mainWrap.querySelector(".gallery__nav--next");
+      if (prevBtn) prevBtn.addEventListener("click", nav(function () { go(idx - 1); }));
+      if (nextBtn) nextBtn.addEventListener("click", nav(function () { go(idx + 1); }));
+      mainWrap.addEventListener("mouseenter", stopAuto);
+      mainWrap.addEventListener("mouseleave", function () { if (!interacted) startAuto(); });
+
+      var sx = null;
+      mainWrap.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      mainWrap.addEventListener("touchend", function (e) {
+        if (sx == null) return;
+        var dx = e.changedTouches[0].clientX - sx;
+        sx = null;
+        if (Math.abs(dx) > 40) nav(function () { go(dx < 0 ? idx + 1 : idx - 1); })();
+      });
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (!document.getElementById("galleryMain")) return;
+      if (e.key === "ArrowLeft") nav(function () { go(idx - 1); })(e);
+      else if (e.key === "ArrowRight") nav(function () { go(idx + 1); })(e);
+    });
+
+    // Live loader for the MarketCheck layer.
+    window.__gallery = {
+      load: function (list) {
+        if (!list || !list.length) return;
+        photos = list.slice();
+        idx = 0;
+        interacted = false;
+        buildThumbs();
+        render();
+        startAuto();
+      },
+    };
+
+    buildThumbs();
+    render();
+    startAuto();
   }
 
   /* ---------- Tabs (dealer premier) ---------- */

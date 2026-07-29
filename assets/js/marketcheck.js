@@ -169,18 +169,14 @@
             .join("");
         }
 
-        // Gallery
-        var main = document.getElementById("galleryMain");
-        if (main && v.photos && v.photos.length) main.src = v.photos[0];
-        var thumbs = document.querySelectorAll(".gallery__thumb");
+        // Gallery — hand the full photo set to the carousel controller.
         if (v.photos && v.photos.length) {
-          thumbs.forEach(function (t, i) {
-            var img = t.querySelector("img");
-            if (img && v.photos[i]) img.src = v.photos[i];
-            t.style.display = v.photos[i] ? "" : "none";
-          });
-          var count = document.querySelector(".gallery__count");
-          if (count) count.textContent = "1 / " + v.photos.length;
+          if (window.__gallery && window.__gallery.load) {
+            window.__gallery.load(v.photos);
+          } else {
+            var main = document.getElementById("galleryMain");
+            if (main) main.src = v.photos[0];
+          }
         }
 
         // Dealer name + VDP link
