@@ -86,6 +86,41 @@
     initSliders();
     initFavorites();
     initFilters();
+    initGallery();
+    initTabs();
+  }
+
+  /* ---------- Listing gallery: click thumb → swap main ---------- */
+  function initGallery() {
+    var main = document.getElementById("galleryMain");
+    var thumbs = document.querySelectorAll(".gallery__thumb");
+    if (!main || !thumbs.length) return;
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        var img = thumb.querySelector("img");
+        if (!img) return;
+        main.src = img.src.replace(/w=300&q=60/, "w=1400&q=80");
+        thumbs.forEach(function (t) { t.classList.remove("is-active"); });
+        thumb.classList.add("is-active");
+      });
+    });
+  }
+
+  /* ---------- Tabs (dealer premier) ---------- */
+  function initTabs() {
+    document.querySelectorAll("[data-tabs]").forEach(function (group) {
+      var tabs = group.querySelectorAll(".tab");
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var target = tab.getAttribute("data-tab");
+          tabs.forEach(function (t) { t.classList.remove("is-active"); });
+          tab.classList.add("is-active");
+          group.querySelectorAll(".tab-panel").forEach(function (p) {
+            p.classList.toggle("is-active", p.getAttribute("data-panel") === target);
+          });
+        });
+      });
+    });
   }
 
   /* ---------- Active nav state ---------- */
