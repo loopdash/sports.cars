@@ -132,6 +132,8 @@ function buildSearchQuery(params) {
   else if (!model && !keyword) q.set("make", DEFAULT_MAKES);
   if (model) q.set("model", model);
   if (params.get("body_type")) q.set("body_type", params.get("body_type"));
+  if (params.get("transmission")) q.set("transmission", params.get("transmission"));
+  if (params.get("drivetrain")) q.set("drivetrain", params.get("drivetrain"));
   if (keyword) q.set("keyword", keyword);
 
   const pMin = params.get("price_min");
