@@ -37,10 +37,10 @@
           </div>
           <div class="filters__group">
             <div class="filters__label">Body style</div>
-            <label class="filter-check"><input type="checkbox" checked> Coupe</label>
-            <label class="filter-check"><input type="checkbox"> Convertible</label>
-            <label class="filter-check"><input type="checkbox"> Targa</label>
-            <label class="filter-check"><input type="checkbox"> Roadster</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Coupe"> Coupe</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Convertible"> Convertible</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Targa"> Targa</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Roadster"> Roadster</label>
           </div>
           <div class="filters__group">
             <div class="filters__label">Price range</div>
@@ -52,13 +52,13 @@
           </div>
           <div class="filters__group">
             <div class="filters__label">Transmission</div>
-            <label class="filter-check"><input type="checkbox"> Automatic / DCT</label>
-            <label class="filter-check"><input type="checkbox"> Manual</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="transmission" value="Automatic"> Automatic / DCT</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="transmission" value="Manual"> Manual</label>
           </div>
           <div class="filters__group">
             <div class="filters__label">Drivetrain</div>
-            <label class="filter-check"><input type="checkbox"> RWD</label>
-            <label class="filter-check"><input type="checkbox"> AWD</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="RWD"> RWD</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="AWD"> AWD</label>
           </div>
           <div class="filters__group" style="border-bottom:0">
             <button class="filters__clear">Clear all filters</button>
@@ -75,11 +75,7 @@
             </div>
           </div>
 
-          <div class="chips">
-            <span class="chip">Coupe <button aria-label="Remove">×</button></span>
-            <span class="chip">$100k–$500k <button aria-label="Remove">×</button></span>
-            <span class="chip">Nationwide <button aria-label="Remove">×</button></span>
-          </div>
+          <div class="chips" id="activeChips"></div>
 
           <div class="results-grid" id="resultsGrid">
             <a href="listing.html" class="car-card"><div class="car-card__media"><span class="car-card__tag">Featured</span><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2022 Ferrari 488 Pista</span><span class="car-card__price">$449,995</span></div><div class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></div></div></a>

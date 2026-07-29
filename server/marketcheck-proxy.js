@@ -172,18 +172,45 @@ function sendJSON(res, status, obj) {
   res.end(body);
 }
 
+// Round-robin interleave by make so a mixed-marque page isn't dominated
+// by the highest-volume brand (Porsche has ~10x the exotics' inventory).
+function diversifyByMake(listings) {
+  const byMake = {};
+  listings.forEach((v) => {
+    (byMake[v.make || "?"] = byMake[v.make || "?"] || []).push(v);
+  });
+  const buckets = Object.values(byMake);
+  const out = [];
+  let added = true;
+  while (added) {
+    added = false;
+    for (const b of buckets) {
+      if (b.length) { out.push(b.shift()); added = true; }
+    }
+  }
+  return out;
+}
+
 async function handleSearch(req, res, u) {
   if (!API_KEY) return sendJSON(res, 503, { error: "api_key_missing" });
-  const upstream = buildSearchQuery(u.searchParams);
-  const cacheKey = "s:" + upstream;
+  const sp = u.searchParams;
+  const requested = clampInt(sp.get("rows"), 12, 1, 50);
+  // "Default" browse = curated marques, no explicit narrowing by the user.
+  const isDefault = !sp.get("make") && !sp.get("model") && !sp.get("keyword");
+
+  // For the default mix, pull a bigger pool so we can balance across makes.
+  const poolParams = new URLSearchParams(sp);
+  if (isDefault) poolParams.set("rows", "50");
+  const upstream = buildSearchQuery(poolParams);
+
+  const cacheKey = "s:" + requested + ":" + upstream;
   const cached = cacheGet(cacheKey);
   if (cached) return sendJSON(res, 200, cached);
   try {
     const data = await mcFetch(upstream);
-    const out = {
-      num_found: data.num_found || 0,
-      listings: (data.listings || []).map(normalizeListing),
-    };
+    let listings = (data.listings || []).map(normalizeListing);
+    if (isDefault) listings = diversifyByMake(listings).slice(0, requested);
+    const out = { num_found: data.num_found || 0, listings };
     cacheSet(cacheKey, out);
     sendJSON(res, 200, out);
   } catch (e) {
@@ -233,6 +260,8 @@ function serveStatic(req, res, pathname) {
     }
     res.writeHead(200, {
       "Content-Type": MIME[path.extname(filePath)] || "application/octet-stream",
+      // Dev server: never cache, so code changes always show on refresh.
+      "Cache-Control": "no-cache, no-store, must-revalidate",
     });
     res.end(data);
   });

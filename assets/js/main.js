@@ -127,7 +127,11 @@
 
     function render() {
       if (!photos.length) return;
+      // Fade between photos so advancing is visible.
+      main.style.opacity = "0";
+      main.onload = function () { main.style.opacity = "1"; };
       main.src = photos[idx];
+      setTimeout(function () { main.style.opacity = "1"; }, 400);
       if (countEl) countEl.textContent = idx + 1 + " / " + photos.length;
       var thumbs = thumbsWrap ? thumbsWrap.querySelectorAll(".gallery__thumb") : [];
       thumbs.forEach(function (t, i) { t.classList.toggle("is-active", i === idx); });

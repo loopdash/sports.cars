@@ -49,59 +49,102 @@
     var controls = {
       make: document.getElementById("f-make"),
       model: document.getElementById("f-model"),
-      body: document.getElementById("f-body"),
       priceMin: document.getElementById("f-price-min"),
       priceMax: document.getElementById("f-price-max"),
       milesMax: document.getElementById("f-miles"),
       sort: document.getElementById("f-sort"),
       keyword: document.getElementById("f-keyword"),
     };
+    var facets = Array.prototype.slice.call(document.querySelectorAll(".f-facet"));
+    var chipsEl = document.getElementById("activeChips");
+    var clearBtn = document.querySelector(".filters__clear");
+
+    function val(el) {
+      return el && el.value && el.value.indexOf("Any") !== 0 ? el.value.trim() : "";
+    }
+    function digits(s) { return (s || "").replace(/[^\d]/g, ""); }
+    function facetVals(name) {
+      return facets
+        .filter(function (f) { return f.dataset.facet === name && f.checked; })
+        .map(function (f) { return f.value; });
+    }
+    function priceLabel(min, max) {
+      var f = function (n) { return "$" + Number(n).toLocaleString("en-US"); };
+      if (min && max) return f(min) + "–" + f(max);
+      if (min) return f(min) + "+";
+      return "Up to " + f(max);
+    }
 
     function params() {
       var p = new URLSearchParams();
       if (val(controls.make)) p.set("make", val(controls.make));
       if (val(controls.model)) p.set("model", val(controls.model));
-      if (val(controls.body)) p.set("body_type", val(controls.body));
-      if (val(controls.priceMin)) p.set("price_min", digits(val(controls.priceMin)));
-      if (val(controls.priceMax)) p.set("price_max", digits(val(controls.priceMax)));
+      ["body_type", "transmission", "drivetrain"].forEach(function (name) {
+        var v = facetVals(name);
+        if (v.length) p.set(name, v.join(","));
+      });
+      if (digits(val(controls.priceMin))) p.set("price_min", digits(val(controls.priceMin)));
+      if (digits(val(controls.priceMax))) p.set("price_max", digits(val(controls.priceMax)));
       if (val(controls.milesMax)) p.set("miles_max", digits(val(controls.milesMax)));
       if (val(controls.keyword)) p.set("keyword", val(controls.keyword));
       if (val(controls.sort)) p.set("sort", val(controls.sort));
       p.set("rows", "12");
       return p;
     }
-    function val(el) {
-      return el && el.value && el.value.indexOf("Any") !== 0 ? el.value.trim() : "";
+
+    // Active filters → chips (each removable).
+    function activeFilters() {
+      var out = [];
+      if (val(controls.make)) out.push({ label: val(controls.make), clear: function () { controls.make.selectedIndex = 0; } });
+      if (val(controls.model)) out.push({ label: val(controls.model), clear: function () { controls.model.selectedIndex = 0; } });
+      facets.forEach(function (f) {
+        if (f.checked) out.push({ label: f.value, clear: function () { f.checked = false; } });
+      });
+      var pmin = digits(val(controls.priceMin)), pmax = digits(val(controls.priceMax));
+      if (pmin || pmax) out.push({ label: priceLabel(pmin, pmax), clear: function () { controls.priceMin.value = ""; controls.priceMax.value = ""; } });
+      if (val(controls.milesMax)) out.push({ label: "Under " + Number(digits(val(controls.milesMax))).toLocaleString("en-US") + " mi", clear: function () { controls.milesMax.selectedIndex = 0; } });
+      if (val(controls.keyword)) out.push({ label: '"' + val(controls.keyword) + '"', clear: function () { controls.keyword.value = ""; } });
+      return out;
     }
-    function digits(s) {
-      return (s || "").replace(/[^\d]/g, "");
+    function renderChips() {
+      if (!chipsEl) return;
+      chipsEl.innerHTML = "";
+      activeFilters().forEach(function (f) {
+        var chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = f.label + " ";
+        var b = document.createElement("button");
+        b.setAttribute("aria-label", "Remove " + f.label);
+        b.textContent = "×";
+        b.addEventListener("click", function () { f.clear(); run(); });
+        chip.appendChild(b);
+        chipsEl.appendChild(chip);
+      });
     }
 
-    var busy = false;
+    var seq = 0;
     function run() {
-      if (busy) return;
-      busy = true;
+      var mySeq = ++seq;
       grid.style.opacity = "0.45";
+      renderChips();
       fetch("/api/search?" + params().toString())
         .then(function (r) {
           if (!r.ok) throw new Error("http " + r.status);
           return r.json();
         })
         .then(function (data) {
-          var list = data.listings || [];
+          if (mySeq !== seq) return; // a newer request superseded this one
           if (countEl) {
             countEl.innerHTML =
               "<b>" + (data.num_found || 0).toLocaleString("en-US") + "</b> vehicles found";
           }
-          if (list.length) {
-            grid.innerHTML = list.map(cardHTML).join("");
-          } else {
-            grid.innerHTML =
-              '<p style="color:var(--text-muted);grid-column:1/-1;padding:40px 0">No vehicles match these filters. Try widening your search.</p>';
-          }
+          var list = data.listings || [];
+          grid.innerHTML = list.length
+            ? list.map(cardHTML).join("")
+            : '<p style="color:var(--text-muted);grid-column:1/-1;padding:40px 0">No vehicles match these filters. Try widening your search.</p>';
         })
         .catch(function () {
-          // Leave the static demo cards in place; flag live data is off.
+          if (mySeq !== seq) return;
           if (countEl && !countEl.dataset.flagged) {
             countEl.dataset.flagged = "1";
             var note = document.createElement("span");
@@ -111,18 +154,27 @@
           }
         })
         .finally(function () {
-          grid.style.opacity = "";
-          busy = false;
+          if (mySeq === seq) grid.style.opacity = "";
         });
     }
 
-    // Re-run on any control change; debounce text inputs.
+    // Re-run on any change; debounce text inputs.
     Object.keys(controls).forEach(function (k) {
       var el = controls[k];
       if (!el) return;
       var ev = el.tagName === "SELECT" ? "change" : "input";
       el.addEventListener(ev, debounce(run, ev === "input" ? 450 : 0));
     });
+    facets.forEach(function (f) { f.addEventListener("change", run); });
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        [controls.make, controls.model, controls.milesMax, controls.sort].forEach(function (s) { if (s) s.selectedIndex = 0; });
+        [controls.priceMin, controls.priceMax, controls.keyword].forEach(function (i) { if (i) i.value = ""; });
+        facets.forEach(function (f) { f.checked = false; });
+        run();
+      });
+    }
 
     run();
   }
