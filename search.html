@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Results — Sports.Cars</title>
+  <meta name="description" content="Browse curated sports cars and exotics. Filter by make, model, price, body style, and more." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="buy">
+  <div data-include="header"></div>
+
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Back to home</a></div>
+  </div>
+
+  <section class="section" style="padding-top:8px">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:28px">
+        <h1 class="h2">Sports cars for sale</h1>
+      </div>
+
+      <div class="search-layout">
+        <!-- FILTERS -->
+        <aside class="filters" id="filters">
+          <div class="filters__group">
+            <div class="filters__label">Keyword</div>
+            <input type="text" id="f-keyword" placeholder="e.g. Pista, GT3…" />
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Make</div>
+            <select id="f-make"><option>Any make</option><option>Ferrari</option><option>Porsche</option><option>Lamborghini</option><option>McLaren</option><option>Aston Martin</option><option>Chevrolet</option><option>Nissan</option><option>BMW</option></select>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Model</div>
+            <select id="f-model"><option>Any model</option><option>488</option><option>911</option><option>720S</option><option>Huracan</option><option>Corvette</option><option>GT-R</option></select>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Body style</div>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Coupe"> Coupe</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Convertible"> Convertible</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Targa"> Targa</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Roadster"> Roadster</label>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Price range</div>
+            <div class="range-row"><input type="text" id="f-price-min" placeholder="Min"><input type="text" id="f-price-max" placeholder="Max"></div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Mileage</div>
+            <select id="f-miles"><option>Any mileage</option><option value="5000">Under 5,000</option><option value="10000">Under 10,000</option><option value="25000">Under 25,000</option><option value="50000">Under 50,000</option></select>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Transmission</div>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="transmission" value="Automatic"> Automatic / DCT</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="transmission" value="Manual"> Manual</label>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Drivetrain</div>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="RWD"> RWD</label>
+            <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="4WD"> AWD / 4WD</label>
+          </div>
+          <div class="filters__group" style="border-bottom:0">
+            <button class="filters__clear">Clear all filters</button>
+          </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <div>
+          <div class="results-toolbar">
+            <button class="btn btn--ghost filter-toggle" id="filterToggle">Filters</button>
+            <div class="results-count" id="resultsCount"><b>1,284</b> vehicles found</div>
+            <div class="sort-select">Sort by
+              <select id="f-sort"><option value="newest">Newest listings</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="miles_asc">Mileage: low to high</option><option value="miles_desc">Mileage: high to low</option></select>
+            </div>
+          </div>
+
+          <div class="chips" id="activeChips"></div>
+
+          <div class="results-grid" id="resultsGrid">
+            <a href="listing.html" class="car-card"><div class="car-card__media"><span class="car-card__tag">Featured</span><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2022 Ferrari 488 Pista</span><span class="car-card__price">$449,995</span></div><div class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2023 Porsche 911 GT3</span><span class="car-card__price">$185,000</span></div><div class="car-card__meta"><span>2,100 mi</span><span>Atlanta, GA</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2021 McLaren 720S</span><span class="car-card__price">$249,995</span></div><div class="car-card__meta"><span>3,100 mi</span><span>Dallas, TX</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2020 Lamborghini Huracán STO</span><span class="car-card__price">$299,995</span></div><div class="car-card__meta"><span>1,800 mi</span><span>Los Angeles, CA</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2021 Ferrari 812 Superfast</span><span class="car-card__price">$429,995</span></div><div class="car-card__meta"><span>3,100 mi</span><span>Atlanta, GA</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2019 Ferrari 488 GTB</span><span class="car-card__price">$329,995</span></div><div class="car-card__meta"><span>4,800 mi</span><span>Dallas, TX</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2020 Ferrari F8 Tributo</span><span class="car-card__price">$379,995</span></div><div class="car-card__meta"><span>2,300 mi</span><span>Miami, FL</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2022 Porsche 911 Turbo S</span><span class="car-card__price">$232,500</span></div><div class="car-card__meta"><span>5,400 mi</span><span>Chicago, IL</span></div></div></a>
+            <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2021 McLaren GT</span><span class="car-card__price">$198,000</span></div><div class="car-card__meta"><span>6,100 mi</span><span>Scottsdale, AZ</span></div></div></a>
+          </div>
+
+          <div class="pagination">
+            <a href="#">‹</a>
+            <span class="is-active">1</span>
+            <a href="#">2</a><a href="#">3</a><a href="#">4</a>
+            <span>…</span>
+            <a href="#">36</a>
+            <a href="#">›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="footer"></div>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/marketcheck.js"></script>
+</body>
+</html>
