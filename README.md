@@ -50,6 +50,39 @@ python3 -m http.server 8080
 The top navigation links all pages together, so you can click through the whole
 site from the home page.
 
+## Live MarketCheck inventory
+
+The **Search** and **Listing** pages can run on live MarketCheck inventory.
+
+The API key is a secret, so it is **never** placed in client-side code. Instead a
+small dependency-free Node proxy (`server/marketcheck-proxy.js`) holds the key
+server-side, serves the site same-origin (no CORS), normalizes MarketCheck
+responses, and short-lived-caches them. The front end (`assets/js/marketcheck.js`)
+calls `/api/search` and `/api/listing/:id`. This is the exact pattern that maps
+to WordPress later (a PHP endpoint in place of the Node proxy).
+
+### Run with live data
+
+The key lives in the 1Password **`sports.cars`** vault and is injected at
+runtime via `op run` — it never touches disk or git.
+
+```bash
+op signin            # once per session, if not already signed in
+./run.sh             # starts http://localhost:8080 with live inventory
+```
+
+`run.sh` resolves `marketcheck.env.tmpl` (which contains only `op://` references,
+no secrets) and launches the proxy. Without the key, the site still runs and the
+pages fall back to sample cards.
+
+**Endpoints:** `GET /api/search?make=&model=&price_min=&price_max=&miles_max=&sort=&rows=&start=`
+and `GET /api/listing/:id`. With no make/model/keyword, search defaults to a
+curated set of performance marques (a stand-in for the Phase 1 taxonomy layer).
+
+> The listing page's "Vehicle highlights" (hp, 0–60) are illustrative — those
+> come from the stored spec/taxonomy layer that gets merged with live inventory
+> at request time, not from MarketCheck's basic feed.
+
 ## Design language
 
 Hybrid of "refined dark" and "light & airy" — the Apple product-page model:

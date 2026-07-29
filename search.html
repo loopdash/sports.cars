@@ -25,15 +25,15 @@
         <aside class="filters" id="filters">
           <div class="filters__group">
             <div class="filters__label">Keyword</div>
-            <input type="text" placeholder="e.g. Pista, GT3…" />
+            <input type="text" id="f-keyword" placeholder="e.g. Pista, GT3…" />
           </div>
           <div class="filters__group">
             <div class="filters__label">Make</div>
-            <select><option>Any make</option><option>Ferrari</option><option>Porsche</option><option>Lamborghini</option><option>McLaren</option><option>Aston Martin</option></select>
+            <select id="f-make"><option>Any make</option><option>Ferrari</option><option>Porsche</option><option>Lamborghini</option><option>McLaren</option><option>Aston Martin</option><option>Chevrolet</option><option>Nissan</option><option>BMW</option></select>
           </div>
           <div class="filters__group">
             <div class="filters__label">Model</div>
-            <select><option>Any model</option><option>488 Pista</option><option>911 GT3</option><option>720S</option><option>Huracán STO</option></select>
+            <select id="f-model"><option>Any model</option><option>488</option><option>911</option><option>720S</option><option>Huracan</option><option>Corvette</option><option>GT-R</option></select>
           </div>
           <div class="filters__group">
             <div class="filters__label">Body style</div>
@@ -44,11 +44,11 @@
           </div>
           <div class="filters__group">
             <div class="filters__label">Price range</div>
-            <div class="range-row"><input type="text" placeholder="Min"><input type="text" placeholder="Max"></div>
+            <div class="range-row"><input type="text" id="f-price-min" placeholder="Min"><input type="text" id="f-price-max" placeholder="Max"></div>
           </div>
           <div class="filters__group">
             <div class="filters__label">Mileage</div>
-            <select><option>Any mileage</option><option>Under 5,000</option><option>Under 10,000</option><option>Under 25,000</option></select>
+            <select id="f-miles"><option>Any mileage</option><option value="5000">Under 5,000</option><option value="10000">Under 10,000</option><option value="25000">Under 25,000</option><option value="50000">Under 50,000</option></select>
           </div>
           <div class="filters__group">
             <div class="filters__label">Transmission</div>
@@ -69,9 +69,9 @@
         <div>
           <div class="results-toolbar">
             <button class="btn btn--ghost filter-toggle" id="filterToggle">Filters</button>
-            <div class="results-count"><b>1,284</b> vehicles found</div>
+            <div class="results-count" id="resultsCount"><b>1,284</b> vehicles found</div>
             <div class="sort-select">Sort by
-              <select><option>Newest listings</option><option>Price: low to high</option><option>Price: high to low</option><option>Mileage: low to high</option><option>Mileage: high to low</option></select>
+              <select id="f-sort"><option value="newest">Newest listings</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="miles_asc">Mileage: low to high</option><option value="miles_desc">Mileage: high to low</option></select>
             </div>
           </div>
 
@@ -81,7 +81,7 @@
             <span class="chip">Nationwide <button aria-label="Remove">×</button></span>
           </div>
 
-          <div class="results-grid">
+          <div class="results-grid" id="resultsGrid">
             <a href="listing.html" class="car-card"><div class="car-card__media"><span class="car-card__tag">Featured</span><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2022 Ferrari 488 Pista</span><span class="car-card__price">$449,995</span></div><div class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></div></div></a>
             <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2023 Porsche 911 GT3</span><span class="car-card__price">$185,000</span></div><div class="car-card__meta"><span>2,100 mi</span><span>Atlanta, GA</span></div></div></a>
             <a href="listing.html" class="car-card"><div class="car-card__media"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt=""><button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button></div><div class="car-card__body"><div class="car-card__row"><span class="car-card__name">2021 McLaren 720S</span><span class="car-card__price">$249,995</span></div><div class="car-card__meta"><span>3,100 mi</span><span>Dallas, TX</span></div></div></a>
@@ -108,5 +108,6 @@
 
   <div data-include="footer"></div>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/marketcheck.js"></script>
 </body>
 </html>
