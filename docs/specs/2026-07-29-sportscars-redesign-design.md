@@ -53,9 +53,7 @@ full-bleed moments (hero, gallery) where the car takes over the screen.
 
 ```
 /assets/css/styles.css      # tokens + all component/page styles
-/assets/js/main.js          # nav, includes, scroll motion, sliders
-/partials/header.html       # shared nav
-/partials/footer.html       # shared footer
+/assets/js/main.js          # shared header/footer, nav, scroll motion, sliders
 /index.html                 # Buy a Car (home/landing) — FLAGSHIP
 /listing.html               # Buy a Car listing detail
 /sell.html                  # Sell a Car
@@ -67,8 +65,10 @@ full-bleed moments (hero, gallery) where the car takes over the screen.
 /company.html               # Company / about
 ```
 
-Header/footer injected client-side via a tiny fetch include in `main.js`
-(`data-include="partials/header.html"`), keeping them single-sourced.
+Header/footer are single-sourced as strings in `main.js` and injected into
+`[data-include="header"]` / `[data-include="footer"]` placeholders. Kept in JS
+(not `fetch`ed) so the prototype works from `file://` with no server; maps 1:1
+to WP `header.php` / `footer.php` later.
 
 ## Pages (from prototypes, re-designed)
 
