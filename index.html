@@ -10,17 +10,28 @@
 <body data-page="buy">
   <div data-include="header"></div>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="hero__media">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=75" alt="Sports car on a coastal road at sunset" />
+  <!-- ============ HERO — image carousel ============ -->
+  <section class="hero" data-hero>
+    <div class="hero__slides">
+      <div class="hero__slide is-active">
+        <img src="assets/img/hero/monaco-sunset.jpg" alt="A fleet of exotics gathered on the Monaco harbourfront at sunset" />
+      </div>
+      <div class="hero__slide">
+        <img src="assets/img/hero/monaco-bugatti.jpg" alt="A Bugatti on the Monaco waterfront" />
+      </div>
+      <div class="hero__slide">
+        <img src="assets/img/hero/monaco-harbor.jpg" alt="Ferraris beside a superyacht in the Port of Monaco" />
+      </div>
     </div>
+
     <div class="hero__inner">
       <div class="container">
-        <h1 class="hero__title">Find the world's finest sports cars.</h1>
+        <p class="eyebrow hero__eyebrow">Curated exotics · Delivered worldwide</p>
+        <h1 class="hero__title">Find the world's<br>finest sports cars.</h1>
         <p class="hero__sub">A curated marketplace of exotics and performance machines — verified, and ready to drive.</p>
 
         <form class="searchbar" data-filter-form action="search.html">
+          <div class="searchbar__fields">
           <div class="searchbar__field">
             <label for="f-make">Make</label>
             <select id="f-make">
@@ -40,13 +51,25 @@
             <label for="f-body">Body style</label>
             <select id="f-body"><option>Any body</option><option>Coupe</option><option>Convertible</option><option>Targa</option></select>
           </div>
-          <div class="searchbar__field">
+          <div class="searchbar__field searchbar__field--wide">
             <label for="f-loc">Location</label>
             <input id="f-loc" type="text" placeholder="Nationwide" />
           </div>
-          <button type="submit" class="btn btn--primary btn--lg searchbar__submit">Search</button>
-          <div class="searchbar__advanced"><a href="search.html">Advanced search →</a></div>
+          </div><!-- /.searchbar__fields -->
+          <div class="searchbar__actions">
+            <button type="submit" class="btn btn--primary searchbar__submit">Search</button>
+            <div class="searchbar__advanced"><a href="search.html">Advanced search →</a></div>
+          </div>
         </form>
+      </div>
+    </div>
+
+    <div class="hero__controls container">
+      <div class="hero__counter"><span data-hero-current>01</span><span class="hero__counter-sep">—</span><span>03</span></div>
+      <div class="hero__dots">
+        <button class="hero__dot is-active" data-hero-dot aria-label="Show slide 1"></button>
+        <button class="hero__dot" data-hero-dot aria-label="Show slide 2"></button>
+        <button class="hero__dot" data-hero-dot aria-label="Show slide 3"></button>
       </div>
     </div>
   </section>
@@ -59,9 +82,7 @@
           <p class="eyebrow">Explore</p>
           <h2>Browse by category</h2>
         </div>
-        <a href="#" class="link-arrow">View all categories
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <a href="#" class="link-arrow">View all categories <span class="link-arrow__arr">→</span></a>
       </div>
 
       <div class="cat-grid reveal">
@@ -119,88 +140,142 @@
           <p class="eyebrow">Handpicked</p>
           <h2>Featured sports cars</h2>
         </div>
-        <a href="search.html" class="link-arrow">View all inventory
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <a href="search.html" class="link-arrow">View all inventory <span class="link-arrow__arr">→</span></a>
       </div>
 
-      <div class="car-grid reveal">
+      <div class="car-grid car-grid--3 reveal">
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt="2022 Ferrari 488 Pista" />
-            <button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2022 Ferrari 488 Pista</span>
+              <span class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></span>
+            </div>
           </div>
-          <div class="car-card__body">
-            <div class="car-card__row"><span class="car-card__name">2022 Ferrari 488 Pista</span><span class="car-card__price">$449,995</span></div>
-            <div class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$449,995</span>
           </div>
         </a>
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt="2023 Porsche 911 GT3" />
-            <button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2023 Porsche 911 GT3</span>
+              <span class="car-card__meta"><span>2,100 mi</span><span>Atlanta, GA</span></span>
+            </div>
           </div>
-          <div class="car-card__body">
-            <div class="car-card__row"><span class="car-card__name">2023 Porsche 911 GT3</span><span class="car-card__price">$185,000</span></div>
-            <div class="car-card__meta"><span>2,100 mi</span><span>Atlanta, GA</span></div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$185,000</span>
           </div>
         </a>
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt="2021 McLaren 720S" />
-            <button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2021 McLaren 720S</span>
+              <span class="car-card__meta"><span>3,100 mi</span><span>Dallas, TX</span></span>
+            </div>
           </div>
-          <div class="car-card__body">
-            <div class="car-card__row"><span class="car-card__name">2021 McLaren 720S</span><span class="car-card__price">$249,995</span></div>
-            <div class="car-card__meta"><span>3,100 mi</span><span>Dallas, TX</span></div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$249,995</span>
           </div>
         </a>
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=70" alt="2020 Lamborghini Huracán STO" />
-            <button class="car-card__fav" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2020 Lamborghini Huracán STO</span>
+              <span class="car-card__meta"><span>1,800 mi</span><span>Los Angeles, CA</span></span>
+            </div>
           </div>
-          <div class="car-card__body">
-            <div class="car-card__row"><span class="car-card__name">2020 Lamborghini Huracán STO</span><span class="car-card__price">$299,995</span></div>
-            <div class="car-card__meta"><span>1,800 mi</span><span>Los Angeles, CA</span></div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$299,995</span>
+          </div>
+        </a>
+        <a href="listing.html" class="car-card">
+          <div class="car-card__media">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=70" alt="2021 Aston Martin Vantage" />
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2021 Aston Martin Vantage</span>
+              <span class="car-card__meta"><span>3,400 mi</span><span>Scottsdale, AZ</span></span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$164,900</span>
+          </div>
+        </a>
+        <a href="listing.html" class="car-card">
+          <div class="car-card__media">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=70" alt="2022 Chevrolet Corvette Z06" />
+            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="car-card__overlay">
+              <span class="car-card__name">2022 Chevrolet Corvette Z06</span>
+              <span class="car-card__meta"><span>1,200 mi</span><span>Chicago, IL</span></span>
+            </div>
+          </div>
+          <div class="car-card__footer">
+            <span class="car-card__plabel">Price</span>
+            <span class="car-card__price">$135,000</span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ WHY SPORTS.CARS (dark) ============ -->
-  <section class="section section--dark">
+  <!-- ============ THE STANDARD — editorial ruled list (dark, racing checker) ============ -->
+  <section class="section section--dark standard">
+    <div class="standard__media"><img src="assets/img/hero/monaco-bugatti.jpg" alt="" /></div>
     <div class="container">
-      <div class="section-head center reveal">
+      <div class="section-head reveal">
         <p class="eyebrow">The standard</p>
-        <h2 class="h2">Every car, held to a higher bar.</h2>
+        <h2 class="h2">Every car,<br>held to a higher bar.</h2>
       </div>
-      <div class="feature-row reveal">
-        <div class="feature">
-          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div class="feature__title">Verified listings</div>
-          <p class="feature__text">Every car is reviewed for accuracy and authenticity before it goes live.</p>
+      <div class="standard-list reveal">
+        <div class="standard-row">
+          <span class="standard-row__num">1</span>
+          <h3 class="standard-row__title">Verified listings</h3>
+          <p class="standard-row__text">Every car is reviewed for accuracy and authenticity before it goes live.</p>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-          <div class="feature__title">Secure transactions</div>
-          <p class="feature__text">Encrypted payments and buyer protection you can trust, end to end.</p>
+        <div class="standard-row">
+          <span class="standard-row__num">2</span>
+          <h3 class="standard-row__title">Secure transactions</h3>
+          <p class="standard-row__text">Encrypted payments and buyer protection you can trust, end to end.</p>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/></svg></div>
-          <div class="feature__title">Global reach</div>
-          <p class="feature__text">Buy and sell premium performance cars from anywhere in the world.</p>
+        <div class="standard-row">
+          <span class="standard-row__num">3</span>
+          <h3 class="standard-row__title">Global reach</h3>
+          <p class="standard-row__text">Buy and sell premium performance cars from anywhere in the world.</p>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 13a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-1v-6h3M7 13H4v6h1a2 2 0 0 0 2-2z"/></svg></div>
-          <div class="feature__title">Expert support</div>
-          <p class="feature__text">A team of specialists is here to help at every step of the way.</p>
+        <div class="standard-row">
+          <span class="standard-row__num">4</span>
+          <h3 class="standard-row__title">Expert support</h3>
+          <p class="standard-row__text">A team of specialists is here to help at every step of the way.</p>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 .8-3.8 2-5"/></svg></div>
-          <div class="feature__title">Passionate community</div>
-          <p class="feature__text">Join thousands of enthusiasts who live and breathe performance.</p>
+        <div class="standard-row">
+          <span class="standard-row__num">5</span>
+          <h3 class="standard-row__title">Passionate community</h3>
+          <p class="standard-row__text">Join thousands of enthusiasts who live and breathe performance.</p>
+        </div>
+      </div>
+      <div class="standard-press reveal">
+        <p class="eyebrow standard-press__label">Trusted by experts at</p>
+        <div class="standard-press__logos">
+          <span>TopGear</span>
+          <span>duPont REGISTRY</span>
+          <span>HAGERTY</span>
+          <span>Forbes</span>
+          <span>ROAD&amp;TRACK</span>
+          <span>CAR and DRIVER</span>
         </div>
       </div>
     </div>
@@ -214,33 +289,33 @@
           <p class="eyebrow">Marques</p>
           <h2>Find by brand</h2>
         </div>
-        <a href="#" class="link-arrow">View all brands
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <a href="#" class="link-arrow">View all brands <span class="link-arrow__arr">→</span></a>
       </div>
       <div class="brand-grid reveal">
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.02em">Ferrari</span><span class="brand-chip__name">128 listings</span></a>
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.02em">Porsche</span><span class="brand-chip__name">214 listings</span></a>
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.02em">Lamborghini</span><span class="brand-chip__name">96 listings</span></a>
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.02em">McLaren</span><span class="brand-chip__name">74 listings</span></a>
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:19px;font-weight:700;letter-spacing:.02em">Aston Martin</span><span class="brand-chip__name">61 listings</span></a>
-        <a href="#" class="brand-chip"><span class="brand-chip__logo" style="font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:.02em">Corvette</span><span class="brand-chip__name">142 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/ferrari.png" alt="Ferrari" /></span><span class="brand-chip__name">128 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/porsche.png" alt="Porsche" /></span><span class="brand-chip__name">214 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/lamborghini.png" alt="Lamborghini" /></span><span class="brand-chip__name">96 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/mclaren.png" alt="McLaren" /></span><span class="brand-chip__name">74 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/aston-martin.png" alt="Aston Martin" /></span><span class="brand-chip__name">61 listings</span></a>
+        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/bugatti.png" alt="Bugatti" /></span><span class="brand-chip__name">142 listings</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ============ CLOSING CTA ============ -->
+  <!-- ============ NEWSLETTER SIGNUP (blurry image + overlay, SOMO-style) ============ -->
   <section class="cta-band">
     <div class="cta-band__media">
-      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2000&q=75" alt="" />
+      <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=2000&q=75" alt="" />
     </div>
     <div class="container">
       <div class="cta-band__inner reveal">
-        <h2 class="cta-band__title">Ready to find your dream car?</h2>
-        <p class="cta-band__text">Browse the inventory or save a search and we'll tell you the moment the right one arrives.</p>
-        <div class="cta-band__actions">
-          <a href="search.html" class="btn btn--primary btn--lg">Browse inventory</a>
-          <a href="#" class="btn btn--ghost-light btn--lg">Save a search</a>
+        <h2 class="cta-band__title">Every arrival, in your inbox.</h2>
+        <div class="cta-band__signup">
+          <p class="cta-band__text">Be first to see new listings and market moves.</p>
+          <form class="signup" data-signup>
+            <input type="email" class="signup__input" placeholder="Enter your email" aria-label="Email address" />
+            <button type="submit" class="btn btn--light signup__btn">Sign Up</button>
+          </form>
         </div>
       </div>
     </div>
