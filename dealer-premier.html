@@ -64,9 +64,9 @@
     <div class="container">
       <div class="section-bar reveal">
         <div><p class="eyebrow">The collection</p><h2>Featured inventory</h2></div>
-        <a href="index.html" class="link-arrow">View all inventory</a>
+        <a href="index.html" class="link-arrow" data-dealer-viewall>View all inventory</a>
       </div>
-      <div class="car-grid reveal">
+      <div class="car-grid reveal" data-dealer-inventory data-dealer-id="1001097">
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt="2022 Ferrari 488 Pista" />
@@ -223,5 +223,6 @@
 
   <div data-include="footer"></div>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/marketcheck.js"></script>
 </body>
 </html>
