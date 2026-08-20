@@ -21,7 +21,8 @@
       </div>
 
       <div class="search-layout">
-        <!-- FILTERS -->
+        <!-- FILTERS (make/model/generation options are populated from the
+             curated taxonomy in assets/data/taxonomy.js on load) -->
         <aside class="filters" id="filters">
           <div class="filters__group">
             <div class="filters__label">Keyword</div>
@@ -29,11 +30,19 @@
           </div>
           <div class="filters__group">
             <div class="filters__label">Make</div>
-            <select id="f-make"><option>Any make</option><option>Ferrari</option><option>Porsche</option><option>Lamborghini</option><option>McLaren</option><option>Aston Martin</option><option>Chevrolet</option><option>Nissan</option><option>BMW</option></select>
+            <select id="f-make"><option value="">Any make</option></select>
           </div>
           <div class="filters__group">
             <div class="filters__label">Model</div>
-            <select id="f-model"><option>Any model</option><option>488</option><option>911</option><option>720S</option><option>Huracan</option><option>Corvette</option><option>GT-R</option></select>
+            <select id="f-model" disabled><option value="">Any model</option></select>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Generation</div>
+            <select id="f-generation" disabled><option value="">Any generation</option></select>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Production year</div>
+            <div class="range-row"><input type="text" inputmode="numeric" id="f-year-min" placeholder="From"><input type="text" inputmode="numeric" id="f-year-max" placeholder="To"></div>
           </div>
           <div class="filters__group">
             <div class="filters__label">Body style</div>
@@ -41,14 +50,6 @@
             <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Convertible"> Convertible</label>
             <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Targa"> Targa</label>
             <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="body_type" value="Roadster"> Roadster</label>
-          </div>
-          <div class="filters__group">
-            <div class="filters__label">Price range</div>
-            <div class="range-row"><input type="text" id="f-price-min" placeholder="Min"><input type="text" id="f-price-max" placeholder="Max"></div>
-          </div>
-          <div class="filters__group">
-            <div class="filters__label">Mileage</div>
-            <select id="f-miles"><option>Any mileage</option><option value="5000">Under 5,000</option><option value="10000">Under 10,000</option><option value="25000">Under 25,000</option><option value="50000">Under 50,000</option></select>
           </div>
           <div class="filters__group">
             <div class="filters__label">Transmission</div>
@@ -59,6 +60,18 @@
             <div class="filters__label">Drivetrain</div>
             <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="RWD"> RWD</label>
             <label class="filter-check"><input type="checkbox" class="f-facet" data-facet="drivetrain" value="4WD"> AWD / 4WD</label>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Horsepower</div>
+            <div class="range-row"><input type="text" inputmode="numeric" id="f-hp-min" placeholder="Min hp"><input type="text" inputmode="numeric" id="f-hp-max" placeholder="Max hp"></div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Price range</div>
+            <div class="range-row"><input type="text" inputmode="numeric" id="f-price-min" placeholder="Min"><input type="text" inputmode="numeric" id="f-price-max" placeholder="Max"></div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Mileage range</div>
+            <div class="range-row"><input type="text" inputmode="numeric" id="f-miles-min" placeholder="Min mi"><input type="text" inputmode="numeric" id="f-miles-max" placeholder="Max mi"></div>
           </div>
           <div class="filters__group" style="border-bottom:0">
             <button class="filters__clear">Clear all filters</button>
@@ -71,7 +84,7 @@
             <button class="btn btn--ghost filter-toggle" id="filterToggle">Filters</button>
             <div class="results-count" id="resultsCount"><b>1,284</b> vehicles found</div>
             <div class="sort-select">Sort by
-              <select id="f-sort"><option value="newest">Newest listings</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="miles_asc">Mileage: low to high</option><option value="miles_desc">Mileage: high to low</option></select>
+              <select id="f-sort"><option value="newest">Newest listings</option><option value="oldest">Oldest listings</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option><option value="miles_asc">Mileage: low to high</option><option value="miles_desc">Mileage: high to low</option></select>
             </div>
           </div>
 
@@ -207,14 +220,7 @@
             </a>
           </div>
 
-          <div class="pagination">
-            <a href="#">‹</a>
-            <span class="is-active">1</span>
-            <a href="#">2</a><a href="#">3</a><a href="#">4</a>
-            <span>…</span>
-            <a href="#">36</a>
-            <a href="#">›</a>
-          </div>
+          <div class="pagination" id="pagination"></div>
         </div>
       </div>
     </div>
@@ -222,6 +228,7 @@
 
   <div data-include="footer"></div>
   <script src="assets/js/main.js"></script>
+  <script src="assets/data/taxonomy.js"></script>
   <script src="assets/js/marketcheck.js"></script>
 </body>
 </html>

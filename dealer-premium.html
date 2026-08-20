@@ -40,10 +40,10 @@
   <section class="section" id="inventory">
     <div class="container">
       <div class="section-bar reveal">
-        <div><p class="eyebrow">Featured inventory</p><h2>142 vehicles available</h2></div>
-        <a href="index.html" class="link-arrow">View all inventory</a>
+        <div><p class="eyebrow">Featured inventory</p><h2><span data-dealer-count>142</span> vehicles available</h2></div>
+        <a href="index.html" class="link-arrow" data-dealer-viewall>View all inventory</a>
       </div>
-      <div class="car-grid reveal">
+      <div class="car-grid reveal" data-dealer-inventory data-dealer-id="1101095">
         <a href="listing.html" class="car-card">
           <div class="car-card__media">
             <span class="car-card__tag">Featured</span>
@@ -177,5 +177,6 @@
 
   <div data-include="footer"></div>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/marketcheck.js"></script>
 </body>
 </html>

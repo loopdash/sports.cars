@@ -75,13 +75,31 @@ op signin            # once per session, if not already signed in
 no secrets) and launches the proxy. Without the key, the site still runs and the
 pages fall back to sample cards.
 
-**Endpoints:** `GET /api/search?make=&model=&price_min=&price_max=&miles_max=&sort=&rows=&start=`
-and `GET /api/listing/:id`. With no make/model/keyword, search defaults to a
-curated set of performance marques (a stand-in for the Phase 1 taxonomy layer).
+**Endpoints:**
+`GET /api/search?keyword=&make=&model=&generation=&year_min=&year_max=&body_type=&transmission=&drivetrain=&hp_min=&hp_max=&price_min=&price_max=&miles_min=&miles_max=&sort=&rows=&start=`
+and `GET /api/listing/:id`. `sort` is one of `newest | oldest | price_asc |
+price_desc | miles_asc | miles_desc`. With no make/model/keyword/generation,
+search defaults to a curated set of performance marques.
 
-> The listing page's "Vehicle highlights" (hp, 0–60) are illustrative — those
-> come from the stored spec/taxonomy layer that gets merged with live inventory
-> at request time, not from MarketCheck's basic feed.
+### Taxonomy + spec merge
+
+The curated Phase 1 taxonomy lives in **`assets/data/taxonomy.js`** — makes →
+models → generations, each with a production-year range, horsepower range, and
+body styles. It is the single source that (1) populates the search page's
+make / model / generation dropdowns and (2) is merged into live inventory at
+request time by the proxy, which adds the `generation` and `hp` that
+MarketCheck's basic feed doesn't carry. `generation` and `hp_min`/`hp_max`
+filters are resolved against this layer (generation → year window upstream, hp
+as a post-filter on the merged results).
+
+The file is written so it loads in the browser (`window.TAXONOMY`) **and** is
+`require`-able by the Node proxy, so both sides share one source and it works
+straight from `file://` with no fetch.
+
+> When the proxy/API is unavailable, the search page falls back to a demo
+> inventory **generated from this same taxonomy** and runs the identical
+> filter / sort / paginate logic client-side — so every filter is demonstrable
+> with or without a live key.
 
 ## Design language
 

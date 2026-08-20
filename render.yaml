@@ -1,0 +1,14 @@
+# Render Blueprint — deploys the Sports.Cars site + MarketCheck proxy as one
+# same-origin Node web service. Point Render at this repo, then set the single
+# secret (MARKETCHECK_API_KEY) in the dashboard. The proxy honors Render's PORT.
+services:
+  - type: web
+    name: sports-cars
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/marketcheck-proxy.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: MARKETCHECK_API_KEY
+        sync: false

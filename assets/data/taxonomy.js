@@ -1,0 +1,307 @@
+/* ============================================================
+   Sports.Cars — curated taxonomy (Phase 1 layer)
+   ------------------------------------------------------------
+   The single source of truth for what the marketplace considers
+   an enthusiast / performance car. Drives:
+     - the make / model / generation filter dropdowns
+     - the production-year and horsepower bounds
+     - the request-time spec merge in the MarketCheck proxy
+       (live inventory is enriched with the generation + hp that
+       the basic feed doesn't carry)
+
+   Shape:
+     makes[] = { make, models[] }
+     model   = { model, generations[] }
+     gen     = { gen, years:[start, end|null], hp:[min, max], body:[] }
+       - years end = null  →  still in production (treated as current year)
+       - hp is the range across the generation's trims (bhp)
+       - body = the body styles this generation was sold in
+
+   Works in the browser (sets window.TAXONOMY) and in Node
+   (module.exports) so the proxy and the front end share one file.
+   ============================================================ */
+(function (root) {
+  "use strict";
+
+  var TAXONOMY = {
+    makes: [
+      {
+        make: "Ferrari",
+        models: [
+          { model: "488", generations: [
+            { gen: "488 GTB / Spider", years: [2015, 2019], hp: [661, 661], body: ["Coupe", "Convertible"] },
+            { gen: "488 Pista", years: [2018, 2020], hp: [710, 710], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "F8", generations: [
+            { gen: "F8 Tributo / Spider", years: [2019, 2023], hp: [710, 710], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "812", generations: [
+            { gen: "812 Superfast / GTS", years: [2017, 2023], hp: [789, 819], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "296", generations: [
+            { gen: "296 GTB / GTS", years: [2021, null], hp: [819, 819], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "SF90", generations: [
+            { gen: "SF90 Stradale / Spider", years: [2019, null], hp: [986, 986], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "Roma", generations: [
+            { gen: "Roma", years: [2020, null], hp: [612, 612], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "Porsche",
+        models: [
+          { model: "911", generations: [
+            { gen: "992", years: [2019, null], hp: [379, 640], body: ["Coupe", "Convertible", "Targa"] },
+            { gen: "991", years: [2012, 2019], hp: [350, 700], body: ["Coupe", "Convertible", "Targa"] },
+            { gen: "997", years: [2005, 2012], hp: [321, 620], body: ["Coupe", "Convertible", "Targa"] },
+          ] },
+          { model: "718 Cayman", generations: [
+            { gen: "982", years: [2016, null], hp: [300, 500], body: ["Coupe"] },
+          ] },
+          { model: "718 Boxster", generations: [
+            { gen: "982", years: [2016, null], hp: [300, 400], body: ["Convertible", "Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Lamborghini",
+        models: [
+          { model: "Huracán", generations: [
+            { gen: "LP610 / EVO", years: [2014, 2023], hp: [602, 640], body: ["Coupe", "Convertible"] },
+            { gen: "STO / Tecnica", years: [2020, 2024], hp: [631, 631], body: ["Coupe"] },
+          ] },
+          { model: "Aventador", generations: [
+            { gen: "LP700 / SVJ", years: [2011, 2022], hp: [691, 770], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "Gallardo", generations: [
+            { gen: "Gallardo", years: [2003, 2013], hp: [493, 570], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "Revuelto", generations: [
+            { gen: "Revuelto", years: [2023, null], hp: [1001, 1001], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "McLaren",
+        models: [
+          { model: "720S", generations: [
+            { gen: "720S / 765LT", years: [2017, 2023], hp: [710, 755], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "570S", generations: [
+            { gen: "Sports Series", years: [2015, 2021], hp: [562, 592], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "GT", generations: [
+            { gen: "GT", years: [2019, 2023], hp: [612, 612], body: ["Coupe"] },
+          ] },
+          { model: "Artura", generations: [
+            { gen: "Artura", years: [2021, null], hp: [671, 690], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "Aston Martin",
+        models: [
+          { model: "Vantage", generations: [
+            { gen: "AMR / 2018+", years: [2018, null], hp: [503, 656], body: ["Coupe", "Convertible"] },
+            { gen: "V8 / V12 Vantage", years: [2005, 2017], hp: [380, 565], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "DB11", generations: [
+            { gen: "DB11", years: [2016, 2023], hp: [503, 630], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "DBS", generations: [
+            { gen: "DBS Superleggera", years: [2018, 2023], hp: [715, 759], body: ["Coupe", "Convertible"] },
+          ] },
+        ],
+      },
+      {
+        make: "Chevrolet",
+        models: [
+          { model: "Corvette", generations: [
+            { gen: "C8", years: [2020, null], hp: [490, 670], body: ["Coupe", "Convertible"] },
+            { gen: "C7", years: [2014, 2019], hp: [455, 755], body: ["Coupe", "Convertible"] },
+            { gen: "C6", years: [2005, 2013], hp: [400, 638], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "Camaro", generations: [
+            { gen: "6th gen", years: [2016, 2024], hp: [275, 650], body: ["Coupe", "Convertible"] },
+          ] },
+        ],
+      },
+      {
+        make: "Nissan",
+        models: [
+          { model: "GT-R", generations: [
+            { gen: "R35", years: [2007, null], hp: [480, 600], body: ["Coupe"] },
+          ] },
+          { model: "Z", generations: [
+            { gen: "RZ34", years: [2023, null], hp: [400, 420], body: ["Coupe"] },
+            { gen: "370Z (Z34)", years: [2009, 2020], hp: [332, 350], body: ["Coupe", "Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Toyota",
+        models: [
+          { model: "Supra", generations: [
+            { gen: "A90 (GR)", years: [2019, null], hp: [255, 382], body: ["Coupe"] },
+            { gen: "A80", years: [1993, 2002], hp: [220, 320], body: ["Coupe"] },
+          ] },
+          { model: "GR86", generations: [
+            { gen: "GR86", years: [2022, null], hp: [228, 228], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "BMW",
+        models: [
+          { model: "M4", generations: [
+            { gen: "G82", years: [2021, null], hp: [473, 543], body: ["Coupe", "Convertible"] },
+            { gen: "F82", years: [2014, 2020], hp: [425, 500], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "M2", generations: [
+            { gen: "G87", years: [2023, null], hp: [453, 473], body: ["Coupe"] },
+          ] },
+          { model: "Z4", generations: [
+            { gen: "G29", years: [2019, null], hp: [197, 382], body: ["Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Audi",
+        models: [
+          { model: "R8", generations: [
+            { gen: "Type 4S", years: [2016, 2023], hp: [532, 602], body: ["Coupe", "Convertible"] },
+            { gen: "Type 42", years: [2007, 2015], hp: [420, 550], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "TT RS", generations: [
+            { gen: "8S", years: [2016, 2022], hp: [394, 394], body: ["Coupe", "Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Mercedes-Benz",
+        models: [
+          { model: "AMG GT", generations: [
+            { gen: "C190", years: [2015, 2021], hp: [469, 720], body: ["Coupe", "Roadster"] },
+          ] },
+          { model: "SLS AMG", generations: [
+            { gen: "C197", years: [2010, 2014], hp: [563, 622], body: ["Coupe", "Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Acura",
+        models: [
+          { model: "NSX", generations: [
+            { gen: "NC1 (2nd gen)", years: [2016, 2022], hp: [573, 600], body: ["Coupe"] },
+            { gen: "NA1/NA2 (1st gen)", years: [1990, 2005], hp: [270, 290], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "Lotus",
+        models: [
+          { model: "Emira", generations: [
+            { gen: "Emira", years: [2021, null], hp: [360, 400], body: ["Coupe"] },
+          ] },
+          { model: "Evora", generations: [
+            { gen: "Evora", years: [2009, 2021], hp: [276, 430], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "Ford",
+        models: [
+          { model: "Mustang", generations: [
+            { gen: "S650", years: [2024, null], hp: [315, 500], body: ["Coupe", "Convertible"] },
+            { gen: "S550", years: [2015, 2023], hp: [310, 760], body: ["Coupe", "Convertible"] },
+          ] },
+          { model: "GT", generations: [
+            { gen: "2nd gen", years: [2017, 2022], hp: [647, 660], body: ["Coupe"] },
+          ] },
+        ],
+      },
+      {
+        make: "Dodge",
+        models: [
+          { model: "Challenger", generations: [
+            { gen: "LC/LA", years: [2008, 2023], hp: [305, 807], body: ["Coupe"] },
+          ] },
+          { model: "Viper", generations: [
+            { gen: "VX (5th gen)", years: [2013, 2017], hp: [640, 645], body: ["Coupe", "Roadster"] },
+          ] },
+        ],
+      },
+      {
+        make: "Jaguar",
+        models: [
+          { model: "F-Type", generations: [
+            { gen: "X152", years: [2013, 2024], hp: [296, 575], body: ["Coupe", "Convertible"] },
+          ] },
+        ],
+      },
+    ],
+  };
+
+  /* ---------- helpers shared by front end + proxy ---------- */
+  var CURRENT_YEAR = 2026;
+
+  // Flatten to a lookup list of { make, model, gen, yStart, yEnd, hpMin, hpMax, body }
+  function flatten(tax) {
+    var rows = [];
+    (tax.makes || []).forEach(function (mk) {
+      (mk.models || []).forEach(function (md) {
+        (md.generations || []).forEach(function (g) {
+          rows.push({
+            make: mk.make,
+            model: md.model,
+            gen: g.gen,
+            yStart: g.years[0],
+            yEnd: g.years[1] == null ? CURRENT_YEAR : g.years[1],
+            hpMin: g.hp[0],
+            hpMax: g.hp[1],
+            body: g.body || [],
+          });
+        });
+      });
+    });
+    return rows;
+  }
+
+  // Find the generation row for a live listing (by make + model + year).
+  // Model match is loose (MarketCheck model strings vary, e.g. "911 Carrera").
+  function matchGeneration(rows, make, model, year) {
+    if (!make || !model) return null;
+    var mk = String(make).toLowerCase();
+    var md = String(model).toLowerCase();
+    var cands = rows.filter(function (r) {
+      var rMk = r.make.toLowerCase();
+      var rMd = r.model.toLowerCase();
+      var makeOk = rMk === mk || mk.indexOf(rMk) === 0 || rMk.indexOf(mk) === 0;
+      var modelOk = md === rMd || md.indexOf(rMd) === 0 || rMd.indexOf(md) === 0;
+      return makeOk && modelOk;
+    });
+    if (!cands.length) return null;
+    if (year) {
+      var inYear = cands.filter(function (r) { return year >= r.yStart && year <= r.yEnd; });
+      if (inYear.length) return inYear[0];
+    }
+    return cands[0];
+  }
+
+  var api = {
+    data: TAXONOMY,
+    makes: TAXONOMY.makes,
+    currentYear: CURRENT_YEAR,
+    flatten: flatten,
+    matchGeneration: matchGeneration,
+    rows: flatten(TAXONOMY),
+  };
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = api;
+  } else {
+    root.TAXONOMY = api;
+  }
+})(typeof self !== "undefined" ? self : this);
