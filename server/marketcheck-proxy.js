@@ -414,7 +414,17 @@ const MIME = {
   ".svg": "image/svg+xml",
   ".png": "image/png",
   ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".gif": "image/gif",
   ".ico": "image/x-icon",
+  // Fonts must carry the correct Content-Type or browsers behind a CDN/HTTPS
+  // edge (e.g. Render) refuse to apply them.
+  ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".ttf": "font/ttf",
+  ".otf": "font/otf",
+  ".txt": "text/plain; charset=utf-8",
 };
 function serveStatic(req, res, pathname) {
   let rel = decodeURIComponent(pathname);
