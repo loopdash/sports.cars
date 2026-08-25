@@ -131,7 +131,7 @@
 .c3-hero__scrim--side { background: linear-gradient(to right, rgba(13,14,21,.5) 0%, rgba(13,14,21,.1) 40%, transparent 64%); }
 .c3-hero__inner { position: relative; width: 100%; padding-bottom: 60px; }
 .c3-hero__eyebrow { font-family: var(--c3-mono); font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(233,233,237,.9); }
-.c3-hero__title { max-width: 16ch; margin: 0 0 22px; font-family: var(--c3-display); font-variation-settings: "wdth" 118; font-size: 82px; font-weight: 700; line-height: .94; letter-spacing: -.03em; color: #fff; text-wrap: pretty; }
+.c3-hero__title { max-width: 20ch; margin: 0 0 22px; font-family: var(--c3-display); font-variation-settings: "wdth" 118; font-size: 82px; font-weight: 700; line-height: .94; letter-spacing: -.03em; color: #fff; text-wrap: pretty; }
 .c3-hero__sub { max-width: 48ch; margin: 0 0 44px; font-family: var(--c3-display); font-variation-settings: "wdth" 110; font-size: 18px; font-weight: 400; line-height: 1.5; letter-spacing: -.005em; color: rgba(233,233,237,.72); }
 
 /* ---------- search bar ---------- */
