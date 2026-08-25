@@ -64,7 +64,7 @@
 /* :where() keeps these at zero specificity so component classes below win */
 .c3 :where(a) { color: inherit; text-decoration: none; }
 .c3 :where(a:hover) { color: #fff; }
-.c3 h1, .c3 h2, .c3 h3, .c3 h4, .c3 p { margin: 0; }
+.c3 :where(h1, h2, h3, h4, p) { margin: 0; }
 .c3 img { display: block; }
 .c3 ::selection { background: color-mix(in oklab, var(--c3-red) 40%, transparent); }
 .c3 :focus-visible { outline: 2px solid var(--c3-lift); outline-offset: 2px; }
