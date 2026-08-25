@@ -120,7 +120,7 @@
 .c3-nav__signin:hover { border-color: var(--c3-red); color: #fff; }
 
 /* ---------- hero ---------- */
-.c3-hero { position: relative; min-height: 966px; height: 94vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: var(--c3-ink); }
+.c3-hero { position: relative; min-height: 740px; height: 94vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: var(--c3-ink); }
 .c3-hero__slides { position: absolute; inset: 0; }
 .c3-hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.1s ease; }
 .c3-hero__slide.is-active { opacity: 1; }
