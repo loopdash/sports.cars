@@ -4,324 +4,436 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Buy a Car — Sports.Cars</title>
-  <meta name="description" content="Find the world's finest sports cars and exotics. Curated, verified listings from trusted dealers." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="A curated marketplace of exotics and performance machines — documented, and ready to drive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/concept3.css" />
 </head>
-<body data-page="buy">
-  <div data-include="header"></div>
+<body data-page="buy" class="c3">
 
-  <!-- ============ HERO — image carousel ============ -->
-  <section class="hero" data-hero>
-    <div class="hero__slides">
-      <div class="hero__slide is-active">
-        <img src="assets/img/hero/monaco-sunset.jpg" alt="A fleet of exotics gathered on the Monaco harbourfront at sunset" />
-      </div>
-      <div class="hero__slide">
-        <img src="assets/img/hero/monaco-bugatti.jpg" alt="A Bugatti on the Monaco waterfront" />
-      </div>
-      <div class="hero__slide">
-        <img src="assets/img/hero/monaco-harbor.jpg" alt="Ferraris beside a superyacht in the Port of Monaco" />
+  <header class="c3-nav">
+    <div class="c3__container c3-nav__inner">
+      <a href="index.html" class="c3-wordmark" aria-label="Sports.Cars home"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+      <nav class="c3-nav__links" aria-label="Primary">
+        <a href="index.html" class="c3-nav__link is-active">Buy a Car</a>
+        <a href="sell.html" class="c3-nav__link">Sell a Car</a>
+        <a href="dealers.html" class="c3-nav__link">Dealers</a>
+        <a href="resources.html" class="c3-nav__link">Journal</a>
+        <a href="company.html" class="c3-nav__link">Company</a>
+      </nav>
+      <div class="c3-nav__actions">
+        <a href="search.html" class="c3-nav__link">Search</a>
+        <a href="#" class="c3-nav__signin">Sign in</a>
       </div>
     </div>
+  </header>
 
-    <div class="hero__inner">
-      <div class="container">
-        <p class="eyebrow hero__eyebrow">Curated exotics · Delivered worldwide</p>
-        <h1 class="hero__title">Find the world's<br>finest sports cars.</h1>
-        <p class="hero__sub">A curated marketplace of exotics and performance machines — verified, and ready to drive.</p>
+  <!-- ============ HERO — carousel + search ============ -->
+  <section class="c3-hero" data-c3-hero>
+    <div class="c3-hero__slides">
+      <div class="c3-hero__slide is-active"><img src="assets/img/hero/porsche-hybrid-wheel-dusk.avif" alt="A hybrid sports car wheel and rear haunch lit by low sun at dusk" /></div>
+      <div class="c3-hero__slide"><img src="assets/img/hero/corvette-stingray-city.jpg" alt="A white Corvette Stingray convertible at speed through a city street" /></div>
+      <div class="c3-hero__slide c3-hero__slide--bugatti"><img src="assets/img/hero/monaco-bugatti.jpg" alt="A white Bugatti on the Monaco waterfront" /></div>
+      <div class="c3-hero__slide"><img src="assets/img/hero/acura-nsx-red.avif" alt="A red Acura NSX cornering on a tree-lined road" /></div>
+      <div class="c3-hero__slide"><img src="assets/img/hero/porsche-911-targa-coast.avif" alt="A sage green Porsche 911 Targa 4S on a coastal cliff road" /></div>
+      <div class="c3-hero__slide"><img src="assets/img/hero/porsche-911-gts-mountain.jpg" alt="A grey Porsche 911 GTS on a mountain road at golden hour" /></div>
+      <div class="c3-hero__slide"><img src="assets/img/hero/corvette-zr1-summit.avif" alt="A yellow Corvette ZR1 on a mountain road above the clouds" /></div>
+      <div class="c3-hero__scrim"></div>
+      <div class="c3-hero__scrim c3-hero__scrim--side"></div>
+    </div>
 
-        <form class="searchbar" data-filter-form action="search.html">
-          <div class="searchbar__fields">
-          <div class="searchbar__field">
-            <label for="f-make">Make</label>
-            <select id="f-make">
-              <option>Any make</option><option>Ferrari</option><option>Porsche</option>
-              <option>Lamborghini</option><option>McLaren</option><option>Aston Martin</option>
-            </select>
+    <div class="c3-hero__inner">
+      <div class="c3__container">
+        <p class="c3-kicker c3-hero__eyebrow">Curated exotics · Delivered worldwide</p>
+        <h1 class="c3-hero__title">Find the sports car you can't stop thinking about.</h1>
+        <p class="c3-hero__sub">A curated marketplace of exotics and performance machines — documented, and ready to drive.</p>
+
+        <form class="c3-search" data-c3-filter action="search.html">
+          <div class="c3-field" data-c3-field="make">
+            <span class="c3-label">Make</span>
+            <button type="button" class="c3-field__button" data-c3-toggle>
+              <span data-c3-value>Any make</span>
+              <svg class="c3-field__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <input type="hidden" name="make" value="" />
+            <div class="c3-field__panel" role="listbox">
+              <button type="button" class="c3-field__opt is-active" data-c3-opt="Any make"><span>Any make</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Ferrari"><span>Ferrari</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Porsche"><span>Porsche</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Lamborghini"><span>Lamborghini</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="McLaren"><span>McLaren</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Aston Martin"><span>Aston Martin</span></button>
+            </div>
           </div>
-          <div class="searchbar__field">
-            <label for="f-model">Model</label>
-            <select id="f-model"><option>Any model</option><option>488 Pista</option><option>911 GT3</option><option>720S</option></select>
+          <div class="c3-field" data-c3-field="model">
+            <span class="c3-label">Model</span>
+            <button type="button" class="c3-field__button" data-c3-toggle>
+              <span data-c3-value>Any model</span>
+              <svg class="c3-field__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <input type="hidden" name="model" value="" />
+            <div class="c3-field__panel" role="listbox">
+              <button type="button" class="c3-field__opt is-active" data-c3-opt="Any model"><span>Any model</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="488 Pista"><span>488 Pista</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="911 GT3"><span>911 GT3</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="720S"><span>720S</span></button>
+            </div>
           </div>
-          <div class="searchbar__field">
-            <label for="f-price">Price</label>
-            <select id="f-price"><option>Any price</option><option>Under $100k</option><option>$100k–$250k</option><option>$250k+</option></select>
+          <div class="c3-field" data-c3-field="price">
+            <span class="c3-label">Price</span>
+            <button type="button" class="c3-field__button" data-c3-toggle>
+              <span data-c3-value>Any price</span>
+              <svg class="c3-field__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <input type="hidden" name="price" value="" />
+            <div class="c3-field__panel" role="listbox">
+              <button type="button" class="c3-field__opt is-active" data-c3-opt="Any price"><span>Any price</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Under $100k"><span>Under $100k</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="$100k–$250k"><span>$100k–$250k</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="$250k+"><span>$250k+</span></button>
+            </div>
           </div>
-          <div class="searchbar__field">
-            <label for="f-body">Body style</label>
-            <select id="f-body"><option>Any body</option><option>Coupe</option><option>Convertible</option><option>Targa</option></select>
+          <div class="c3-field" data-c3-field="body">
+            <span class="c3-label">Body style</span>
+            <button type="button" class="c3-field__button" data-c3-toggle>
+              <span data-c3-value>Any body</span>
+              <svg class="c3-field__caret" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            </button>
+            <input type="hidden" name="body" value="" />
+            <div class="c3-field__panel" role="listbox">
+              <button type="button" class="c3-field__opt is-active" data-c3-opt="Any body"><span>Any body</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Coupe"><span>Coupe</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Convertible"><span>Convertible</span></button>
+              <button type="button" class="c3-field__opt" data-c3-opt="Targa"><span>Targa</span></button>
+            </div>
           </div>
-          <div class="searchbar__field searchbar__field--wide">
-            <label for="f-loc">Location</label>
-            <input id="f-loc" type="text" placeholder="Nationwide" />
+          <div class="c3-field">
+            <label class="c3-label" for="f-loc">Location</label>
+            <input id="f-loc" class="c3-field__input" type="text" placeholder="Nationwide" />
           </div>
-          </div><!-- /.searchbar__fields -->
-          <div class="searchbar__actions">
-            <button type="submit" class="btn btn--primary searchbar__submit">Search</button>
-            <div class="searchbar__advanced"><a href="search.html">Advanced search →</a></div>
+          <button type="submit" class="c3-search__submit">Search cars</button>
+        </form>
+
+        <div class="c3-hero__controls">
+          <a href="search.html" class="c3-mono-link" style="border:0;padding:0">Advanced search →</a>
+          <p class="c3-hero__note" data-c3-note></p>
+          <div class="c3-hero__meta">
+            <span class="c3-hero__counter"><span data-c3-current>001</span> / 007</span>
+            <div class="c3-hero__dots">
+              <button class="c3-hero__dot is-active" data-c3-dot aria-label="Show slide 1"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 2"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 3"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 4"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 5"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 6"></button>
+              <button class="c3-hero__dot" data-c3-dot aria-label="Show slide 7"></button>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORE — index list + sticky preview ============ -->
+  <section class="c3-section" id="explore">
+    <div class="c3__container c3__container--wide">
+      <div class="c3-section__bar">
+        <div>
+          <p class="c3-kicker c3-eyebrow">Explore</p>
+          <h2 class="c3-h2" style="max-width:20ch">Explore the world of sports cars</h2>
+        </div>
+        <a href="#" class="c3-mono-link">View all categories →</a>
+      </div>
+
+      <div class="c3-explore" data-c3-explore>
+        <div>
+          <div class="c3-explore__head"><span></span><span>IDX</span><span>CATEGORY</span><span>ACTION</span></div>
+          <a href="search.html" class="c3-exprow is-active" data-c3-row="0">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">001</span>
+            <span class="c3-exprow__name">Exotics</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+          <a href="search.html" class="c3-exprow" data-c3-row="1">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">002</span>
+            <span class="c3-exprow__name">Supercars</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+          <a href="search.html" class="c3-exprow" data-c3-row="2">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">003</span>
+            <span class="c3-exprow__name">Track Cars</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+          <a href="search.html" class="c3-exprow" data-c3-row="3">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">004</span>
+            <span class="c3-exprow__name">Classic Sports Cars</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+          <a href="search.html" class="c3-exprow" data-c3-row="4">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">005</span>
+            <span class="c3-exprow__name">Modern Performance</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+          <a href="search.html" class="c3-exprow" data-c3-row="5">
+            <span class="c3-exprow__bar"></span>
+            <span class="c3-exprow__idx">006</span>
+            <span class="c3-exprow__name">Rare &amp; Collectible</span>
+            <span class="c3-exprow__action">Shop now →</span>
+          </a>
+        </div>
+        <div class="c3-preview">
+          <div class="c3-frame c3-preview__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-preview__img is-active" data-c3-pane="0" src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=72" alt="Exotics" />
+            <img class="c3-preview__img" data-c3-pane="1" src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1200&q=72" alt="Supercars" />
+            <img class="c3-preview__img" data-c3-pane="2" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=72" alt="Track Cars" />
+            <img class="c3-preview__img" data-c3-pane="3" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=72" alt="Classic Sports Cars" />
+            <img class="c3-preview__img" data-c3-pane="4" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=72" alt="Modern Performance" />
+            <img class="c3-preview__img" data-c3-pane="5" src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=1200&q=72" alt="Rare &amp; Collectible" />
+            <div class="c3-preview__scrim"></div>
+          </div>
+          <div class="c3-preview__readout">
+            <span class="c3-preview__idx"><span data-c3-pidx>001</span> / 006</span>
+            <span class="c3-preview__name" data-c3-pname>EXOTICS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INVENTORY ============ -->
+  <section class="c3-section" id="inventory" style="padding-top:8px">
+    <div class="c3__container c3__container--wide">
+      <div class="c3-section__bar">
+        <div>
+          <p class="c3-kicker c3-eyebrow">Handpicked</p>
+          <h2 class="c3-h2">Cars worth discovering</h2>
+        </div>
+        <a href="search.html" class="c3-mono-link">View all inventory →</a>
+      </div>
+
+      <div class="c3-cars">
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=75" alt="2022 Chevrolet Corvette Z06" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2022 Chevrolet Corvette Z06</span>
+              <span class="c3-car__meta">1,200 mi · Chicago, IL</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$135,000</span>
+          </div>
+        </a>
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=75" alt="2023 Porsche 911 GT3" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2023 Porsche 911 GT3</span>
+              <span class="c3-car__meta">2,100 mi · Atlanta, GA</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$185,000</span>
+          </div>
+        </a>
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&q=75" alt="2021 McLaren 720S" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2021 McLaren 720S</span>
+              <span class="c3-car__meta">3,100 mi · Dallas, TX</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$249,995</span>
+          </div>
+        </a>
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1400&q=75" alt="2022 Ferrari 488 Pista" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2022 Ferrari 488 Pista</span>
+              <span class="c3-car__meta">1,950 mi · Miami, FL</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$449,995</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top:92px">
+        <hr class="c3-rule" />
+        <div class="c3-section__bar" style="margin:34px 0">
+          <div>
+            <p class="c3-label" style="margin-bottom:12px">Marques</p>
+            <h3 class="c3-h3" style="font-size:27px">Find by brand</h3>
+          </div>
+          <a href="#" class="c3-mono-link">View all brands →</a>
+        </div>
+        <div class="c3-brands">
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/ferrari.png" alt="Ferrari" /><span class="c3-brand__count">128 listings</span></a>
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/porsche.png" alt="Porsche" /><span class="c3-brand__count">214 listings</span></a>
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/lamborghini.png" alt="Lamborghini" /><span class="c3-brand__count">96 listings</span></a>
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/mclaren.png" alt="McLaren" /><span class="c3-brand__count">74 listings</span></a>
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/aston-martin.png" alt="Aston Martin" /><span class="c3-brand__count">61 listings</span></a>
+          <a href="search.html" class="c3-brand"><img src="assets/img/brands/bugatti.png" alt="Bugatti" /><span class="c3-brand__count">142 listings</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNAL ============ -->
+  <section class="c3-section c3-journal" id="journal">
+    <div class="c3__container">
+      <div class="c3-section__bar">
+        <div>
+          <p class="c3-kicker c3-eyebrow">The Journal</p>
+          <h2 class="c3-h2" style="color:#fff">The Sports.cars Journal</h2>
+        </div>
+        <a href="resources.html" class="c3-mono-link">All stories →</a>
+      </div>
+      <div class="c3-posts">
+        <a href="article.html" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Buyer's guide</p>
+          <h3 class="c3-post__title">The honest guide to your first performance coupe</h3>
+          <p class="c3-post__dek">Which cars reward a first-time owner, and which ones quietly punish one.</p>
+        </a>
+        <a href="article.html" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Comparison</p>
+          <h3 class="c3-post__title">488 Pista vs 720S: two answers, one question</h3>
+          <p class="c3-post__dek">Two mid-engined benchmarks, driven back to back on the same roads.</p>
+        </a>
+        <a href="article.html" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Market insight</p>
+          <h3 class="c3-post__title">Why documented cars are pulling away from the rest</h3>
+          <p class="c3-post__dek">Paperwork is quietly becoming the most valuable option on the car.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE STANDARD — the one light band ============ -->
+  <section class="c3-section c3-trust" id="trust">
+    <div class="c3__container c3-trust__grid">
+      <div class="c3-frame c3-frame--light c3-trust__frame"><span class="c3-frame__mark"></span>
+        <img src="assets/img/hero/monaco-bugatti.jpg" alt="A Bugatti on the Monaco waterfront" />
+      </div>
+      <div>
+        <p class="c3-kicker c3-eyebrow">The standard</p>
+        <h2 class="c3-trust__title">Built for people who love cars. Built on trust.</h2>
+        <div class="c3-std">
+          <span class="c3-std__num">001</span>
+          <div>
+            <h4 class="c3-std__title">Accuracy</h4>
+            <p class="c3-std__text">Every listing is reviewed against the seller's own documentation before it goes live, and corrections are reviewed before publication.</p>
+          </div>
+        </div>
+        <div class="c3-std">
+          <span class="c3-std__num">002</span>
+          <div>
+            <h4 class="c3-std__title">Transparency</h4>
+            <p class="c3-std__text">Paid placement, sponsorship and advertising are labelled wherever they appear. Photography is never altered in a way that misrepresents a car.</p>
+          </div>
+        </div>
+        <div class="c3-std">
+          <span class="c3-std__num">003</span>
+          <div>
+            <h4 class="c3-std__title">Community knowledge</h4>
+            <p class="c3-std__text">Buying guides, comparisons and model histories written by people who own and drive these cars.</p>
+          </div>
+        </div>
+        <div class="c3-trust__links">
+          <a href="#">Trust &amp; Accuracy →</a>
+          <a href="contact.html">Report an error →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="c3-cta">
+    <div class="c3-cta__media"><img src="assets/img/hero/monaco-sunset.jpg" alt="" /></div>
+    <div class="c3-cta__scrim"></div>
+    <div class="c3__container">
+      <div class="c3-cta__inner">
+        <div>
+          <h2 class="c3-h3">Every arrival, in your inbox.</h2>
+          <p class="c3-cta__text">Be first to see new listings and market moves.</p>
+        </div>
+        <form class="c3-signup" data-c3-signup>
+          <input type="email" class="c3-signup__input" placeholder="Enter your email" aria-label="Email address" />
+          <button type="submit" class="c3-signup__btn">Sign Up</button>
         </form>
       </div>
     </div>
+  </section>
 
-    <div class="hero__controls container">
-      <div class="hero__counter"><span data-hero-current>01</span><span class="hero__counter-sep">—</span><span>03</span></div>
-      <div class="hero__dots">
-        <button class="hero__dot is-active" data-hero-dot aria-label="Show slide 1"></button>
-        <button class="hero__dot" data-hero-dot aria-label="Show slide 2"></button>
-        <button class="hero__dot" data-hero-dot aria-label="Show slide 3"></button>
+  <!-- ============ SELL / DEALERS ============ -->
+  <section class="c3-split" id="sell">
+    <div class="c3__container c3-split__grid">
+      <div class="c3-half">
+        <h3 class="c3-h3 c3-half__title">Sell your car</h3>
+        <p class="c3-half__text">List with the people who already know what your car is worth.</p>
+        <a href="sell.html" class="c3-half__cta">Start a listing →</a>
+      </div>
+      <div class="c3-half">
+        <h3 class="c3-h3 c3-half__title">For dealers</h3>
+        <p class="c3-half__text">Put your inventory in front of buyers who came here to shop.</p>
+        <a href="dealer-signup.html" class="c3-half__cta">Dealer enquiries →</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ BROWSE BY CATEGORY ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-bar reveal">
+  <footer class="c3-footer">
+    <div class="c3__container">
+      <div class="c3-footer__top">
         <div>
-          <p class="eyebrow">Explore</p>
-          <h2>Browse by category</h2>
+          <a href="index.html" class="c3-wordmark"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+          <p class="c3-footer__tagline">A marketplace and journal for people who love extraordinary cars.</p>
         </div>
-        <a href="#" class="link-arrow">View all categories <span class="link-arrow__arr">→</span></a>
+        <div class="c3-footer__col"><h4>Buy</h4><a href="search.html">All inventory</a><a href="#explore">By category</a><a href="search.html">By brand</a><a href="search.html">Search</a></div>
+        <div class="c3-footer__col"><h4>Sell</h4><a href="sell.html">Sell a car</a><a href="sell.html">How it works</a><a href="dealer-signup.html">Become a dealer</a></div>
+        <div class="c3-footer__col"><h4>Explore</h4><a href="#explore">Categories</a><a href="resources.html">The Journal</a><a href="resources.html">Buying guides</a><a href="resources.html">Comparisons</a></div>
+        <div class="c3-footer__col"><h4>Sports.cars</h4><a href="about.html">About</a><a href="company.html">Company</a><a href="contact.html">Contact</a></div>
+        <div class="c3-footer__col"><h4>Legal</h4><a href="#">Terms</a><a href="privacy.html">Privacy</a><a href="#">Trust &amp; Accuracy</a><a href="contact.html">Report an Error</a></div>
       </div>
-
-      <div class="cat-grid reveal">
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=900&q=70" alt="Exotics" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Exotics</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=70" alt="Supercars" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Supercars</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=900&q=70" alt="Track cars" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Track Cars</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=70" alt="Classic sports cars" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Classic Sports Cars</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=900&q=70" alt="Modern performance" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Modern Performance</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
-        <a href="search.html" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1600712242805-5f78671b24da?auto=format&fit=crop&w=900&q=70" alt="Rare & collectible" />
-          <div class="cat-card__overlay">
-            <span class="cat-card__title">Rare &amp; Collectible</span>
-            <span class="cat-card__link">Shop now →</span>
-          </div>
-        </a>
+      <div class="c3-footer__bottom">
+        <span>Paid placement, sponsorship and advertising are labelled wherever they appear.</span>
+        <span>© 2026 Sports.cars</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ============ FEATURED SPORTS CARS ============ -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-bar reveal">
-        <div>
-          <p class="eyebrow">Handpicked</p>
-          <h2>Featured sports cars</h2>
-        </div>
-        <a href="search.html" class="link-arrow">View all inventory <span class="link-arrow__arr">→</span></a>
-      </div>
-
-      <div class="car-grid car-grid--3 reveal">
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt="2022 Ferrari 488 Pista" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2022 Ferrari 488 Pista</span>
-              <span class="car-card__meta"><span>1,950 mi</span><span>Miami, FL</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$449,995</span>
-          </div>
-        </a>
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt="2023 Porsche 911 GT3" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2023 Porsche 911 GT3</span>
-              <span class="car-card__meta"><span>2,100 mi</span><span>Atlanta, GA</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$185,000</span>
-          </div>
-        </a>
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt="2021 McLaren 720S" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2021 McLaren 720S</span>
-              <span class="car-card__meta"><span>3,100 mi</span><span>Dallas, TX</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$249,995</span>
-          </div>
-        </a>
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=70" alt="2020 Lamborghini Huracán STO" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2020 Lamborghini Huracán STO</span>
-              <span class="car-card__meta"><span>1,800 mi</span><span>Los Angeles, CA</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$299,995</span>
-          </div>
-        </a>
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=70" alt="2021 Aston Martin Vantage" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2021 Aston Martin Vantage</span>
-              <span class="car-card__meta"><span>3,400 mi</span><span>Scottsdale, AZ</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$164,900</span>
-          </div>
-        </a>
-        <a href="listing.html" class="car-card">
-          <div class="car-card__media">
-            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=70" alt="2022 Chevrolet Corvette Z06" />
-            <button class="car-card__fav" aria-label="Save this car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-            <div class="car-card__overlay">
-              <span class="car-card__name">2022 Chevrolet Corvette Z06</span>
-              <span class="car-card__meta"><span>1,200 mi</span><span>Chicago, IL</span></span>
-            </div>
-          </div>
-          <div class="car-card__footer">
-            <span class="car-card__plabel">Price</span>
-            <span class="car-card__price">$135,000</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ THE STANDARD — editorial ruled list (dark, racing checker) ============ -->
-  <section class="section section--dark standard">
-    <div class="standard__media"><img src="assets/img/hero/monaco-bugatti.jpg" alt="" /></div>
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">The standard</p>
-        <h2 class="h2">Every car,<br>held to a higher bar.</h2>
-      </div>
-      <div class="standard-list reveal">
-        <div class="standard-row">
-          <span class="standard-row__num">1</span>
-          <h3 class="standard-row__title">Verified listings</h3>
-          <p class="standard-row__text">Every car is reviewed for accuracy and authenticity before it goes live.</p>
-        </div>
-        <div class="standard-row">
-          <span class="standard-row__num">2</span>
-          <h3 class="standard-row__title">Secure transactions</h3>
-          <p class="standard-row__text">Encrypted payments and buyer protection you can trust, end to end.</p>
-        </div>
-        <div class="standard-row">
-          <span class="standard-row__num">3</span>
-          <h3 class="standard-row__title">Global reach</h3>
-          <p class="standard-row__text">Buy and sell premium performance cars from anywhere in the world.</p>
-        </div>
-        <div class="standard-row">
-          <span class="standard-row__num">4</span>
-          <h3 class="standard-row__title">Expert support</h3>
-          <p class="standard-row__text">A team of specialists is here to help at every step of the way.</p>
-        </div>
-        <div class="standard-row">
-          <span class="standard-row__num">5</span>
-          <h3 class="standard-row__title">Passionate community</h3>
-          <p class="standard-row__text">Join thousands of enthusiasts who live and breathe performance.</p>
-        </div>
-      </div>
-      <div class="standard-press reveal">
-        <p class="eyebrow standard-press__label">Trusted by experts at</p>
-        <div class="standard-press__logos">
-          <span>TopGear</span>
-          <span>duPont REGISTRY</span>
-          <span>HAGERTY</span>
-          <span>Forbes</span>
-          <span>ROAD&amp;TRACK</span>
-          <span>CAR and DRIVER</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FIND BY BRAND ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-bar reveal">
-        <div>
-          <p class="eyebrow">Marques</p>
-          <h2>Find by brand</h2>
-        </div>
-        <a href="#" class="link-arrow">View all brands <span class="link-arrow__arr">→</span></a>
-      </div>
-      <div class="brand-grid reveal">
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/ferrari.png" alt="Ferrari" /></span><span class="brand-chip__name">128 listings</span></a>
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/porsche.png" alt="Porsche" /></span><span class="brand-chip__name">214 listings</span></a>
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/lamborghini.png" alt="Lamborghini" /></span><span class="brand-chip__name">96 listings</span></a>
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/mclaren.png" alt="McLaren" /></span><span class="brand-chip__name">74 listings</span></a>
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/aston-martin.png" alt="Aston Martin" /></span><span class="brand-chip__name">61 listings</span></a>
-        <a href="search.html" class="brand-chip"><span class="brand-chip__logo"><img src="assets/img/brands/bugatti.png" alt="Bugatti" /></span><span class="brand-chip__name">142 listings</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NEWSLETTER SIGNUP (blurry image + overlay, SOMO-style) ============ -->
-  <section class="cta-band">
-    <div class="cta-band__media">
-      <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=2000&q=75" alt="" />
-    </div>
-    <div class="container">
-      <div class="cta-band__inner reveal">
-        <h2 class="cta-band__title">Every arrival, in your inbox.</h2>
-        <div class="cta-band__signup">
-          <p class="cta-band__text">Be first to see new listings and market moves.</p>
-          <form class="signup" data-signup>
-            <input type="email" class="signup__input" placeholder="Enter your email" aria-label="Email address" />
-            <button type="submit" class="btn btn--light signup__btn">Sign Up</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div data-include="footer"></div>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/concept3.js"></script>
 </body>
 </html>
