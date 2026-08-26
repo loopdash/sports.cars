@@ -44,7 +44,7 @@
     if (v.location) metaBits += "<span>" + esc(v.location) + "</span>";
     return (
       '<a href="' + link + '" class="car-card">' +
-      '<div class="car-card__media">' + media + fav +
+      '<div class="car-card__media c3-frame"><span class="c3-frame__mark"></span>' + media + fav +
       '<div class="car-card__overlay">' +
       '<span class="car-card__name">' + esc(v.title || "Vehicle") + "</span>" +
       '<span class="car-card__meta">' + metaBits + "</span>" +
