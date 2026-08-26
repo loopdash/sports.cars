@@ -5,106 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Company — Sports.Cars</title>
   <meta name="description" content="Built on passion. Driven by trust. Building the future home of sports car culture." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/concept3.css" />
+  <link rel="stylesheet" href="assets/css/concept3-pages.css" />
 </head>
-<body data-page="company">
-  <div data-include="header"></div>
+<body data-page="company" class="c3">
 
-  <!-- HERO -->
-  <section class="subhero subhero--tall">
-    <div class="subhero__media"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2000&q=75" alt="Sports car" /></div>
-    <div class="subhero__inner">
-      <div class="container">
-        <h1 class="subhero__title">Company.</h1>
-        <p class="subhero__sub">Built on passion. Driven by trust. Building the future home of sports car culture.</p>
+  <header class="c3-nav">
+    <div class="c3__container c3-nav__inner">
+      <a href="index.html" class="c3-wordmark" aria-label="Sports.Cars home"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+      <nav class="c3-nav__links" aria-label="Primary">
+        <a href="index.html" class="c3-nav__link">Buy a Car</a>
+        <a href="sell.html" class="c3-nav__link">Sell a Car</a>
+        <a href="dealers.html" class="c3-nav__link">Dealers</a>
+        <a href="resources.html" class="c3-nav__link">Journal</a>
+        <a href="company.html" class="c3-nav__link is-active">Company</a>
+      </nav>
+      <div class="c3-nav__actions">
+        <a href="search.html" class="c3-nav__search"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg><span>Search</span></a>
+        <a href="#" class="c3-nav__signin">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="c3-subhero c3-subhero--tall">
+    <div class="c3-subhero__media"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2000&q=75" alt="Sports car" /></div>
+    <div class="c3-subhero__scrim"></div>
+    <div class="c3-subhero__inner">
+      <div class="c3__container">
+        <h1 class="c3-subhero__title">Company.</h1>
+        <p class="c3-subhero__sub">Built on passion. Driven by trust. Building the future home of sports car culture.</p>
       </div>
     </div>
   </section>
 
-  <!-- MISSION + STORY -->
-  <section class="section">
-    <div class="container">
-      <div class="split" style="align-items:start">
+  <!-- ============ MISSION + STORY ============ -->
+  <section class="c3-section">
+    <div class="c3__container">
+      <div class="c3-split2" style="align-items:start">
         <div class="reveal">
-          <p class="eyebrow">Our mission</p>
-          <h2 class="h2">Connecting enthusiasts. Celebrating performance.</h2>
+          <p class="c3-kicker c3-eyebrow">Our mission</p>
+          <h2 class="c3-h2" style="max-width:none">Connecting enthusiasts. Celebrating performance.</h2>
           <div class="prose"><p>At Sports.Cars, our mission is to unite the world's most passionate buyers, sellers, and collectors of exotics and sports cars. We deliver a trusted, transparent, and exhilarating marketplace experience — where every interaction is driven by integrity and a love for performance.</p></div>
-          <div style="margin-top:20px"><a href="#" class="link-arrow">Learn more about us</a></div>
+          <div style="margin-top:22px"><a href="#" class="c3-link-arrow">Learn more about us →</a></div>
         </div>
         <div class="reveal">
-          <p class="eyebrow">Our story</p>
-          <h2 class="h2">From enthusiasts to industry leaders.</h2>
-          <div class="prose"><p>Founded by lifelong car lovers, Sports.Cars was created to reimagine how sports cars are bought and sold online. What began as a simple idea among friends has grown into the world's premier marketplace for exotics and performance vehicles — trusted by enthusiasts and dealers in over 120 countries.</p></div>
-          <div style="margin-top:20px"><a href="#" class="link-arrow">Our journey</a></div>
+          <p class="c3-kicker c3-eyebrow">Our story</p>
+          <h2 class="c3-h2" style="max-width:none">From enthusiasts to industry leaders.</h2>
+          <div class="prose"><p>Founded by lifelong car lovers, Sports.Cars was created to reimagine how sports cars are bought and sold online. What began as a simple idea among friends has grown into a marketplace for exotics and performance vehicles — connecting enthusiasts and dealers.</p></div>
+          <div style="margin-top:22px"><a href="#" class="c3-link-arrow">Our journey →</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="section--tight section section--dark">
-    <div class="container">
-      <div class="stats stats--bordered reveal">
-        <div class="stat"><div class="stat__num">50,000+</div><div class="stat__label">Active listings</div></div>
-        <div class="stat"><div class="stat__num">2.5M+</div><div class="stat__label">Monthly visitors</div></div>
-        <div class="stat"><div class="stat__num">120+</div><div class="stat__label">Countries</div></div>
-        <div class="stat"><div class="stat__num">250,000+</div><div class="stat__label">Successful transactions</div></div>
+  <!-- ============ STATS ============ -->
+  <section class="c3-section c3-section--alt" style="padding: 72px 0">
+    <div class="c3__container">
+      <div class="c3-stats reveal">
+        <div class="c3-stat"><div class="c3-stat__num">50,000+</div><div class="c3-stat__label">Active listings</div></div>
+        <div class="c3-stat"><div class="c3-stat__num">2.5M+</div><div class="c3-stat__label">Monthly visitors</div></div>
+        <div class="c3-stat"><div class="c3-stat__num">120+</div><div class="c3-stat__label">Countries</div></div>
+        <div class="c3-stat"><div class="c3-stat__num">250,000+</div><div class="c3-stat__label">Successful transactions</div></div>
       </div>
     </div>
   </section>
 
-  <!-- COMMUNITY BAND -->
-  <section class="cta-band">
-    <div class="cta-band__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=75" alt=""></div>
-    <div class="container">
-      <div class="cta-band__inner reveal">
-        <h2 class="cta-band__title">A global community united by passion.</h2>
-        <p class="cta-band__text">Whether you're chasing horsepower, heritage, or the next great drive — Sports.Cars is where your journey begins.</p>
-        <div class="cta-band__actions"><a href="index.html" class="btn btn--primary btn--lg">Explore the experience</a></div>
+  <!-- ============ COMMUNITY BAND ============ -->
+  <section class="c3-cta">
+    <div class="c3-cta__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=75" alt="" /></div>
+    <div class="c3-cta__scrim"></div>
+    <div class="c3__container">
+      <div class="c3-cta__inner c3-cta__inner--close">
+        <div>
+          <h2 class="c3-h3">A global community united by passion.</h2>
+          <p class="c3-cta__text">Whether you're chasing horsepower, heritage, or the next great drive — Sports.Cars is where your journey begins.</p>
+        </div>
+        <div class="close-cta__actions">
+          <a href="index.html" class="btn btn--primary btn--lg">Explore the experience</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
-  <section class="section">
-    <div class="container">
-      <div class="section-bar reveal"><div><p class="eyebrow">Leadership</p><h2>The team behind the wheel.</h2></div><a href="#" class="link-arrow">Meet the team</a></div>
-      <div class="leaders reveal">
-        <div class="leader"><div class="leader__photo"><img src="https://i.pravatar.cc/400?img=13" alt=""></div><div class="leader__name">Brad Hylan</div><div class="leader__role">CEO &amp; Co-Founder</div><p class="leader__bio">Visionary leader with a passion for performance and innovation.</p></div>
-        <div class="leader"><div class="leader__photo"><img src="https://i.pravatar.cc/400?img=45" alt=""></div><div class="leader__name">Susan Hylan</div><div class="leader__role">COO &amp; Co-Founder</div><p class="leader__bio">Operations expert dedicated to building exceptional experiences.</p></div>
-        <div class="leader"><div class="leader__photo"><img src="https://i.pravatar.cc/400?img=52" alt=""></div><div class="leader__name">Daniel Hughes</div><div class="leader__role">CTO</div><p class="leader__bio">Technology innovator focused on scaling trust and performance.</p></div>
-        <div class="leader"><div class="leader__photo"><img src="https://i.pravatar.cc/400?img=44" alt=""></div><div class="leader__name">Maya Patel</div><div class="leader__role">CMO</div><p class="leader__bio">Brand strategist connecting passion with a global community.</p></div>
+  <!-- ============ LEADERSHIP ============ -->
+  <section class="c3-section">
+    <div class="c3__container">
+      <div class="c3-section__bar reveal">
+        <div><p class="c3-kicker c3-eyebrow">Leadership</p><h2 class="c3-h2">The team behind the wheel.</h2></div>
+        <a href="#" class="c3-link-arrow">Meet the team →</a>
+      </div>
+      <div class="c3-leaders reveal">
+        <div class="c3-leader"><div class="c3-frame c3-leader__photo"><span class="c3-frame__mark"></span><img src="https://i.pravatar.cc/400?img=13" alt=""></div><div class="c3-leader__name">Brad Hylan</div><div class="c3-leader__role">CEO &amp; Co-Founder</div><p class="c3-leader__bio">Visionary leader with a passion for performance and innovation.</p></div>
+        <div class="c3-leader"><div class="c3-frame c3-leader__photo"><span class="c3-frame__mark"></span><img src="https://i.pravatar.cc/400?img=45" alt=""></div><div class="c3-leader__name">Susan Hylan</div><div class="c3-leader__role">COO &amp; Co-Founder</div><p class="c3-leader__bio">Operations expert dedicated to building exceptional experiences.</p></div>
+        <div class="c3-leader"><div class="c3-frame c3-leader__photo"><span class="c3-frame__mark"></span><img src="https://i.pravatar.cc/400?img=52" alt=""></div><div class="c3-leader__name">Daniel Hughes</div><div class="c3-leader__role">CTO</div><p class="c3-leader__bio">Technology innovator focused on scaling trust and performance.</p></div>
+        <div class="c3-leader"><div class="c3-frame c3-leader__photo"><span class="c3-frame__mark"></span><img src="https://i.pravatar.cc/400?img=44" alt=""></div><div class="c3-leader__name">Maya Patel</div><div class="c3-leader__role">CMO</div><p class="c3-leader__bio">Brand strategist connecting passion with a global community.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- VALUES -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-head reveal"><p class="eyebrow">Our values</p><h2 class="h2">What drives us.</h2></div>
-      <div class="feature-row reveal">
-        <div class="feature"><div class="feature__num">01</div><div class="feature__title">Trust &amp; safety</div><p class="feature__text">Verified listings, secure transactions, and buyer protection you can rely on.</p></div>
-        <div class="feature"><div class="feature__num">02</div><div class="feature__title">Passion</div><p class="feature__text">We live and breathe sports cars — just like you do.</p></div>
-        <div class="feature"><div class="feature__num">03</div><div class="feature__title">Community</div><p class="feature__text">Uniting enthusiasts and dealers in a global community.</p></div>
-        <div class="feature"><div class="feature__num">04</div><div class="feature__title">Performance</div><p class="feature__text">Driven to deliver the best experience at every turn.</p></div>
-        <div class="feature"><div class="feature__num">05</div><div class="feature__title">Global reach</div><p class="feature__text">Connecting the world's best cars with the right enthusiasts.</p></div>
+  <!-- ============ VALUES ============ -->
+  <section class="c3-section c3-section--alt">
+    <div class="c3__container">
+      <div class="c3-section-head reveal">
+        <p class="c3-kicker c3-eyebrow">Our values</p>
+        <h2 class="c3-h2">What drives us.</h2>
+      </div>
+      <div class="c3-feature-grid c3-feature-grid--5 reveal">
+        <div class="c3-feature"><div class="c3-feature__num">01</div><div class="c3-feature__title">Trust &amp; safety</div><p class="c3-feature__text">Verified listings, secure transactions, and buyer protection you can rely on.</p></div>
+        <div class="c3-feature"><div class="c3-feature__num">02</div><div class="c3-feature__title">Passion</div><p class="c3-feature__text">We live and breathe sports cars — just like you do.</p></div>
+        <div class="c3-feature"><div class="c3-feature__num">03</div><div class="c3-feature__title">Community</div><p class="c3-feature__text">Uniting enthusiasts and dealers in a global community.</p></div>
+        <div class="c3-feature"><div class="c3-feature__num">04</div><div class="c3-feature__title">Performance</div><p class="c3-feature__text">Driven to deliver the best experience at every turn.</p></div>
+        <div class="c3-feature"><div class="c3-feature__num">05</div><div class="c3-feature__title">Global reach</div><p class="c3-feature__text">Connecting the world's best cars with the right enthusiasts.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section--tight section section--dark" style="text-align:center">
-    <div class="container container--narrow">
-      <h2 class="h2 reveal">Let's drive the future — together.</h2>
-      <p class="lead reveal" style="margin:16px auto 0;max-width:52ch">Join the most trusted marketplace for exotics &amp; sports cars. Whether you're buying, selling, or partnering with us, we're built for what moves you.</p>
-      <div class="reveal" style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+  <!-- ============ CTA ============ -->
+  <section class="c3-section" style="text-align:center">
+    <div class="c3__container" style="max-width:760px">
+      <h2 class="c3-h2 reveal" style="max-width:none">Let's drive the future — together.</h2>
+      <p class="reveal" style="margin:18px auto 0;max-width:52ch;color:var(--c3-dim);font-size:16px;line-height:1.6">Join the marketplace for exotics &amp; sports cars. Whether you're buying, selling, or partnering with us, we're built for what moves you.</p>
+      <div class="reveal" style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
         <a href="index.html" class="btn btn--primary btn--lg">Browse inventory</a>
-        <a href="dealers.html" class="btn btn--ghost-light btn--lg">Partner with us</a>
+        <a href="dealers.html" class="btn btn--ghost btn--lg">Partner with us</a>
       </div>
     </div>
   </section>
 
-  <div data-include="footer"></div>
+  <footer class="c3-footer">
+    <div class="c3__container">
+      <div class="c3-footer__top">
+        <div>
+          <a href="index.html" class="c3-wordmark"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+          <p class="c3-footer__tagline">A marketplace and journal for people who love extraordinary cars.</p>
+        </div>
+        <div class="c3-footer__col"><h4>Buy</h4><a href="search.html">All inventory</a><a href="index.html#explore">By category</a><a href="search.html">By brand</a><a href="search.html">Search</a></div>
+        <div class="c3-footer__col"><h4>Sell</h4><a href="sell.html">Sell a car</a><a href="sell.html#how">How it works</a><a href="dealer-signup.html">Become a dealer</a></div>
+        <div class="c3-footer__col"><h4>Explore</h4><a href="index.html#explore">Categories</a><a href="resources.html">The Journal</a><a href="resources.html">Buying guides</a><a href="resources.html">Comparisons</a></div>
+        <div class="c3-footer__col"><h4>Sports.cars</h4><a href="about.html">About</a><a href="company.html">Company</a><a href="contact.html">Contact</a></div>
+        <div class="c3-footer__col"><h4>Legal</h4><a href="#">Terms</a><a href="privacy.html">Privacy</a><a href="#">Trust &amp; Accuracy</a><a href="contact.html">Report an Error</a></div>
+      </div>
+      <div class="c3-footer__bottom">
+        <span>Paid placement, sponsorship and advertising are labelled wherever they appear.</span>
+        <span>© 2026 Sports.cars</span>
+      </div>
+    </div>
+  </footer>
+
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/concept3.js"></script>
 </body>
 </html>
