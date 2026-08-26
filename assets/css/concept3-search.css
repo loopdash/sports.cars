@@ -17,7 +17,7 @@
 
 /* ---------- breadcrumb ---------- */
 .breadcrumb { background: var(--c3-ink); border-bottom: 1px solid var(--c3-line); }
-.breadcrumb__inner { padding: 18px 0; }
+.breadcrumb__inner { padding-top: 18px; padding-bottom: 18px; }
 
 /* ---------- head ---------- */
 .search-section { padding-top: 40px; }
@@ -28,21 +28,23 @@
 .search-layout { display: grid; grid-template-columns: 272px 1fr; gap: 48px; align-items: start; }
 
 /* ---------- filters sidebar ---------- */
-.filters { background: var(--c3-charcoal); border: 1px solid var(--c3-line); padding: 8px 28px; position: sticky; top: 88px; }
-.filters__group { padding: 20px 0; border-bottom: 1px solid var(--c3-line); }
+/* white panel, matching the hero search module on the homepage — the
+   ink values are the same rgba(10,11,16,*) ramp used there */
+.filters { background: #fff; border: 1px solid rgba(10,11,16,.14); padding: 8px 28px; position: sticky; top: calc(var(--c3-navh) + 12px); }
+.filters__group { padding: 20px 0; border-bottom: 1px solid rgba(10,11,16,.12); }
 .filters__group--last { border-bottom: 0; }
-.filters__label { font-family: var(--c3-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--c3-faint); margin-bottom: 12px; }
+.filters__label { font-family: var(--c3-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(10,11,16,.78); margin-bottom: 12px; }
 .filters select,
-.filters input[type="text"] { width: 100%; padding: 10px 12px; border: 1px solid var(--c3-line); border-radius: 4px; font-family: inherit; font-size: 13.5px; background: var(--c3-bg); color: var(--c3-text); }
+.filters input[type="text"] { width: 100%; padding: 10px 12px; border: 1px solid rgba(10,11,16,.28); border-radius: 4px; font-family: inherit; font-size: 13.5px; background: #fff; color: #0a0b10; }
 .filters select:focus,
 .filters input[type="text"]:focus { outline: none; border-color: var(--c3-red); }
-.filters input::placeholder { color: var(--c3-faint); }
-.filter-check { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13.5px; color: var(--c3-dim); cursor: pointer; }
-.filter-check:hover { color: var(--c3-text); }
+.filters input::placeholder { color: rgba(10,11,16,.66); }
+.filter-check { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13.5px; color: rgba(10,11,16,.8); cursor: pointer; }
+.filter-check:hover { color: #0a0b10; }
 .filter-check input { accent-color: var(--c3-red); width: 15px; height: 15px; }
 .range-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .filters__clear { font-family: var(--c3-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--c3-red); background: none; border: none; padding: 0; cursor: pointer; }
-.filters__clear:hover { color: var(--c3-lift); }
+.filters__clear:hover { color: #a80517; }
 .filter-toggle { display: none; }
 
 /* ---------- toolbar ---------- */

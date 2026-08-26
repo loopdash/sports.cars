@@ -175,7 +175,7 @@
 .c3-hero__sub { max-width: 48ch; margin: 0 0 44px; font-family: var(--c3-display); font-variation-settings: "wdth" 110; font-size: 18px; font-weight: 400; line-height: 1.5; letter-spacing: -.005em; color: rgba(233,233,237,.72); }
 
 /* ---------- search bar (black on white) ---------- */
-.c3-search { background: #fff; border: 1px solid rgba(10,11,16,.14); box-shadow: 0 26px 64px rgba(0,0,0,.46); padding: 20px 22px; display: grid; grid-template-columns: 1.05fr 1.05fr 1fr 1fr 1.25fr auto; gap: 0 28px; align-items: end; }
+.c3-search { background: #fff; border: 1px solid rgba(10,11,16,.14); box-shadow: 0 26px 64px rgba(0,0,0,.46); padding: 20px 22px; display: grid; grid-template-columns: 1.1fr 1.1fr 1fr 1.35fr auto; gap: 0 28px; align-items: end; }
 .c3-search .c3-label { color: rgba(10,11,16,.78); }
 .c3-field { position: relative; display: flex; flex-direction: column; gap: 8px; }
 .c3-field__input, .c3-field__button { background: transparent; border: 0; border-bottom: 1px solid rgba(10,11,16,.42); color: #0a0b10; font-size: 15px; padding: 0 0 9px; font-family: inherit; }
@@ -246,21 +246,21 @@
 .c3-car:hover { color: var(--c3-text); }
 .c3-car__frame { aspect-ratio: 16 / 10; }
 .c3-car__img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: lighten; transition: transform 1s var(--c3-ease), filter .6s ease; }
-.c3-car__scrim { position: absolute; inset: 0; opacity: .85; background: linear-gradient(to top, rgba(13,14,21,.88), rgba(13,14,21,0) 54%); transition: opacity .5s ease; }
 .c3-car__tag { position: absolute; top: 16px; left: 16px; z-index: 4; font-family: var(--c3-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--c3-red); padding: 5px 10px; }
 .c3-car__fav { position: absolute; top: 16px; right: 16px; z-index: 4; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: rgba(13,14,21,.55); border: 1px solid rgba(233,233,237,.2); border-radius: 999px; cursor: pointer; color: rgba(233,233,237,.9); }
 .c3-car__fav svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .c3-car__fav.is-active { color: var(--c3-lift); }
 .c3-car__fav.is-active svg { fill: var(--c3-red); }
-.c3-car__overlay { position: absolute; left: 24px; right: 24px; bottom: 20px; z-index: 2; transition: transform .55s var(--c3-ease); }
-.c3-car__name { display: block; font-family: var(--c3-display); font-variation-settings: "wdth" 114; font-size: 22px; font-weight: 600; letter-spacing: -.015em; color: #fff; }
-.c3-car__meta { display: block; margin-top: 5px; font-size: 13px; color: rgba(233,233,237,.66); }
-.c3-car__footer { position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--c3-line); }
+/* name and details sit below the photo — same treatment as the search
+   page cards, so contrast never depends on the car in the picture */
+.c3-car__body { padding-top: 16px; }
+.c3-car__name { display: block; font-family: var(--c3-display); font-variation-settings: "wdth" 114; font-size: 22px; font-weight: 600; letter-spacing: -.015em; color: var(--c3-text); transition: color .2s ease; }
+.c3-car:hover .c3-car__name { color: #fff; }
+.c3-car__meta { display: block; margin-top: 5px; font-size: 13px; color: var(--c3-dim); }
+.c3-car__footer { position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-top: 14px; margin-top: 14px; border-top: 1px solid var(--c3-line); }
 .c3-car__footer::after { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: var(--c3-red); transform: scaleX(0); transform-origin: left; transition: transform .55s var(--c3-ease); }
 .c3-car__price { font-family: var(--c3-display); font-variation-settings: "wdth" 116; font-size: 22px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .c3-car:hover .c3-car__img { transform: scale(1.045); filter: brightness(1.07); }
-.c3-car:hover .c3-car__scrim { opacity: 1; }
-.c3-car:hover .c3-car__overlay { transform: translateY(-6px); }
 .c3-car:hover .c3-car__footer::after { transform: scaleX(1); }
 
 /* ---------- brands ---------- */
