@@ -96,6 +96,3 @@
 .pagination .is-active { border-color: var(--c3-red); color: #fff; }
 
 /* ---------- buttons (filter-toggle only needs the base; hidden at this width) ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--c3-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; padding: 13px 26px; border: 1px solid transparent; border-radius: 4px; cursor: pointer; transition: background .2s ease, border-color .2s ease, color .2s ease; }
-.btn--ghost { background: transparent; color: var(--c3-text); border-color: var(--c3-line); }
-.btn--ghost:hover { border-color: rgba(233,233,237,.4); color: #fff; }

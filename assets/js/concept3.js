@@ -19,6 +19,8 @@
     var slides = [].slice.call(hero.querySelectorAll(".c3-hero__slide"));
     var dots = [].slice.call(hero.querySelectorAll("[data-c3-dot]"));
     var cur = hero.querySelector("[data-c3-current]");
+    var total = hero.querySelector("[data-c3-total]");
+    if (total) total.textContent = pad(slides.length);
     if (slides.length < 2) return;
 
     var idx = 0, timer = null, DELAY = 3000;

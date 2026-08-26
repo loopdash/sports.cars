@@ -69,7 +69,7 @@
 .c3 img { display: block; }
 .c3 ::selection { background: color-mix(in oklab, var(--c3-red) 40%, transparent); }
 .c3 :focus-visible { outline: 2px solid var(--c3-lift); outline-offset: 2px; }
-.c3 button { font: inherit; }
+.c3 :where(button) { font: inherit; }
 
 .c3__container { max-width: 1320px; margin: 0 auto; padding: 0 56px; }
 .c3__container--wide { max-width: 1680px; padding: 0 32px; }
@@ -124,6 +124,22 @@
 .c3-frame--light::before, .c3-frame--light::after,
 .c3-frame--light > .c3-frame__mark::before, .c3-frame--light > .c3-frame__mark::after { border-color: rgba(20, 21, 28, .4); }
 
+/* ---------- buttons ----------
+   The shared button system. Lives here so every page that loads
+   concept3.css gets it; the page stylesheets used to each carry their
+   own copy, which is how the hero grew a one-off submit button. */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--c3-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; padding: 13px 26px; border: 1px solid transparent; border-radius: var(--radius-btn, 4px); cursor: pointer; text-align: center; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.btn--lg { padding: 15px 28px; font-size: 11px; }
+.btn--block { width: 100%; }
+.btn--primary { background: var(--c3-red); color: #fff; border-color: var(--c3-red); }
+.btn--primary:hover { background: var(--c3-lift); border-color: var(--c3-lift); color: #fff; }
+.btn--ghost { background: transparent; color: var(--c3-text); border-color: var(--c3-line); }
+.btn--ghost:hover { border-color: rgba(233,233,237,.4); color: #fff; }
+.btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
+.btn--ghost-light:hover { background: #fff; color: #14151c; border-color: #fff; }
+.btn--secondary { background: var(--c3-charcoal); color: var(--c3-text); border: 1px solid var(--c3-line); }
+.btn--secondary:hover { border-color: rgba(233,233,237,.4); color: #fff; }
+
 /* ---------- nav ---------- */
 .c3-nav { position: sticky; top: 0; z-index: 60; background: rgba(10, 11, 16, .95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(233, 233, 237, .22); }
 .c3-nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; height: var(--c3-navh); }
@@ -158,26 +174,25 @@
 .c3-hero__title { max-width: 20ch; margin: 0 0 22px; font-family: var(--c3-display); font-variation-settings: "wdth" 118; font-size: 82px; font-weight: 700; line-height: .94; letter-spacing: -.03em; color: #fff; text-wrap: pretty; }
 .c3-hero__sub { max-width: 48ch; margin: 0 0 44px; font-family: var(--c3-display); font-variation-settings: "wdth" 110; font-size: 18px; font-weight: 400; line-height: 1.5; letter-spacing: -.005em; color: rgba(233,233,237,.72); }
 
-/* ---------- search bar (white UI on the hero) ---------- */
-.c3-search { background: rgba(255,255,255,.96); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.72); box-shadow: 0 26px 64px rgba(0,0,0,.42); padding: 20px 22px; display: grid; grid-template-columns: 1.05fr 1.05fr 1fr 1fr 1.25fr auto; gap: 0 28px; align-items: end; }
-.c3-search .c3-label { color: rgba(20,21,28,.55); }
+/* ---------- search bar (black on white) ---------- */
+.c3-search { background: #fff; border: 1px solid rgba(10,11,16,.14); box-shadow: 0 26px 64px rgba(0,0,0,.46); padding: 20px 22px; display: grid; grid-template-columns: 1.05fr 1.05fr 1fr 1fr 1.25fr auto; gap: 0 28px; align-items: end; }
+.c3-search .c3-label { color: rgba(10,11,16,.78); }
 .c3-field { position: relative; display: flex; flex-direction: column; gap: 8px; }
-.c3-field__input, .c3-field__button { background: transparent; border: 0; border-bottom: 1px solid rgba(20,21,28,.22); color: #14151c; font-size: 15px; padding: 0 0 9px; font-family: inherit; }
-.c3-field__input::placeholder { color: rgba(20,21,28,.42); }
-.c3-field__button { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left; cursor: pointer; color: rgba(20,21,28,.56); transition: border-color .2s ease; }
-.c3-field__button.is-set { color: #14151c; }
+.c3-field__input, .c3-field__button { background: transparent; border: 0; border-bottom: 1px solid rgba(10,11,16,.42); color: #0a0b10; font-size: 15px; padding: 0 0 9px; font-family: inherit; }
+.c3-field__input::placeholder { color: rgba(10,11,16,.66); }
+.c3-field__button { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left; cursor: pointer; color: rgba(10,11,16,.72); transition: border-color .2s ease; }
+.c3-field__button.is-set { color: #0a0b10; }
+.c3-field__input:focus, .c3-field__button:focus-visible { border-bottom-color: #0a0b10; }
 .c3-field.is-open .c3-field__button { border-bottom-color: var(--c3-red); }
 .c3-field__caret { flex-shrink: 0; transition: transform .2s ease; }
 .c3-field.is-open .c3-field__caret { transform: rotate(180deg); }
-.c3-field__panel { position: absolute; top: 100%; left: 0; right: 0; z-index: 30; margin-top: 8px; background: #fff; border: 1px solid rgba(20,21,28,.14); box-shadow: 0 20px 44px rgba(0,0,0,.24); padding: 5px 0; display: none; }
+.c3-field__panel { position: absolute; top: 100%; left: 0; right: 0; z-index: 30; margin-top: 8px; background: #fff; border: 1px solid rgba(10,11,16,.28); box-shadow: 0 20px 44px rgba(0,0,0,.28); padding: 5px 0; display: none; }
 .c3-field.is-open .c3-field__panel { display: block; }
-.c3-field__opt { display: flex; align-items: center; gap: 11px; width: 100%; background: transparent; border: 0; padding: 9px 14px; color: rgba(20,21,28,.62); font-size: 14px; text-align: left; cursor: pointer; }
-.c3-field__opt:hover { background: rgba(20,21,28,.06); }
+.c3-field__opt { display: flex; align-items: center; gap: 11px; width: 100%; background: transparent; border: 0; padding: 9px 14px; color: rgba(10,11,16,.8); font-size: 14px; text-align: left; cursor: pointer; }
+.c3-field__opt:hover { background: rgba(10,11,16,.08); color: #0a0b10; }
 .c3-field__opt::before { content: ""; width: 2px; height: 13px; background: transparent; flex-shrink: 0; }
-.c3-field__opt.is-active { color: #14151c; }
+.c3-field__opt.is-active { color: #0a0b10; font-weight: 600; }
 .c3-field__opt.is-active::before { background: var(--c3-red); }
-.c3-search__submit { background: var(--c3-red); color: #fff; border: 0; border-radius: 4px; padding: 13px 32px; font-family: var(--c3-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; transition: background .2s ease; }
-.c3-search__submit:hover { background: var(--c3-lift); }
 
 /* ---------- search dock: the hero search clips under the nav on scroll ---------- */
 .c3-searchdock { position: relative; }
@@ -193,7 +208,7 @@
 .c3-searchdock.is-docked .c3-field { gap: 0; }
 .c3-searchdock.is-docked .c3-field__input,
 .c3-searchdock.is-docked .c3-field__button { font-size: 14px; padding-bottom: 7px; }
-.c3-searchdock.is-docked .c3-search__submit { padding: 11px 26px; }
+.c3-searchdock.is-docked .c3-search .btn { padding: 11px 24px; }
 
 .c3-hero__controls { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; }
 .c3-hero__note { color: rgba(233,233,237,.62); font-size: 13px; }
