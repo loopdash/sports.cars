@@ -153,11 +153,12 @@
 .c3-nav__link.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; background: var(--c3-red); }
 .c3-nav__link:hover { color: #fff; }
 .c3-nav__actions { display: flex; align-items: center; gap: 14px; font-family: var(--c3-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-.c3-nav__search { display: inline-flex; align-items: center; gap: 8px; color: var(--c3-text); border: 1px solid rgba(233, 233, 237, .42); border-radius: 4px; padding: 8px 15px; transition: border-color .2s ease, color .2s ease; }
+/* the nav search is the primary button, sized to sit in the bar —
+   colour and shape come from .btn.btn--primary */
+.c3-nav__search { padding: 8px 16px; font-size: 11px; letter-spacing: .1em; }
 .c3-nav__search svg { flex-shrink: 0; }
-.c3-nav__search:hover { border-color: #fff; color: #fff; }
 .c3-nav__signin { background: #fff; color: #14151c; border: 1px solid #fff; border-radius: 4px; padding: 8px 18px; transition: background .2s ease, border-color .2s ease, color .2s ease; }
-.c3-nav__signin:hover { background: var(--c3-red); border-color: var(--c3-red); color: #fff; }
+.c3-nav__signin:hover { background: rgba(255,255,255,.78); border-color: rgba(255,255,255,.78); color: #14151c; }
 
 /* ---------- hero ---------- */
 .c3-hero { position: relative; min-height: 740px; height: 94vh; display: flex; flex-direction: column; justify-content: flex-end; background: var(--c3-ink); }
