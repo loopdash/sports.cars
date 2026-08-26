@@ -5,21 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sell a Car — Sports.Cars</title>
   <meta name="description" content="Reach serious buyers worldwide. Get the best offer for your sports car or exotic." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/concept3.css" />
+  <link rel="stylesheet" href="assets/css/concept3-pages.css" />
 </head>
-<body data-page="sell">
-  <div data-include="header"></div>
+<body data-page="sell" class="c3">
 
-  <!-- HERO -->
-  <section class="subhero subhero--tall">
-    <div class="subhero__media">
-      <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=2000&q=75" alt="Silver sports car" />
+  <header class="c3-nav">
+    <div class="c3__container c3-nav__inner">
+      <a href="index.html" class="c3-wordmark" aria-label="Sports.Cars home"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+      <nav class="c3-nav__links" aria-label="Primary">
+        <a href="index.html" class="c3-nav__link">Buy a Car</a>
+        <a href="sell.html" class="c3-nav__link is-active">Sell a Car</a>
+        <a href="dealers.html" class="c3-nav__link">Dealers</a>
+        <a href="resources.html" class="c3-nav__link">Journal</a>
+        <a href="company.html" class="c3-nav__link">Company</a>
+      </nav>
+      <div class="c3-nav__actions">
+        <a href="search.html" class="c3-nav__search"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg><span>Search</span></a>
+        <a href="#" class="c3-nav__signin">Sign in</a>
+      </div>
     </div>
-    <div class="subhero__inner">
-      <div class="container">
-        <h1 class="subhero__title">Sell your car.</h1>
-        <p class="subhero__sub">Reach serious buyers worldwide and get the offer your car deserves — simple, transparent, rewarding.</p>
-        <div class="subhero__actions">
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="c3-subhero c3-subhero--tall">
+    <div class="c3-subhero__media"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=2000&q=75" alt="Silver sports car" /></div>
+    <div class="c3-subhero__scrim"></div>
+    <div class="c3-subhero__inner">
+      <div class="c3__container">
+        <h1 class="c3-subhero__title">Sell your car.</h1>
+        <p class="c3-subhero__sub">Reach serious buyers worldwide and get the offer your car deserves — simple, transparent, rewarding.</p>
+        <div class="c3-subhero__actions">
           <a href="#options" class="btn btn--primary btn--lg">List your car</a>
           <a href="#how" class="btn btn--ghost-light btn--lg">See how it works</a>
         </div>
@@ -27,112 +46,157 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">The process</p>
-        <h2 class="h2">Selling made effortless.</h2>
+  <!-- ============ PROCESS ============ -->
+  <section class="c3-section" id="how">
+    <div class="c3__container">
+      <div class="c3-section-head reveal">
+        <p class="c3-kicker c3-eyebrow">The process</p>
+        <h2 class="c3-h2">Selling made effortless.</h2>
       </div>
-      <div class="steps reveal">
-        <div class="step"><div class="step__num">Step 01</div><div class="step__title">Tell us about your car</div><p class="step__text">Share your car's details, photos, and history in a few minutes.</p></div>
-        <div class="step"><div class="step__num">Step 02</div><div class="step__title">We market it worldwide</div><p class="step__text">Your listing is showcased to serious, qualified buyers globally.</p></div>
-        <div class="step"><div class="step__num">Step 03</div><div class="step__title">Get serious offers</div><p class="step__text">Receive competitive offers from verified, ready buyers.</p></div>
-        <div class="step"><div class="step__num">Step 04</div><div class="step__title">Close with confidence</div><p class="step__text">We guide you through a safe, secure, and smooth sale.</p></div>
+      <div class="c3-steps reveal">
+        <div class="c3-step"><div class="c3-step__num">Step 01</div><div class="c3-step__title">Tell us about your car</div><p class="c3-step__text">Share your car's details, photos, and history in a few minutes.</p></div>
+        <div class="c3-step"><div class="c3-step__num">Step 02</div><div class="c3-step__title">We market it worldwide</div><p class="c3-step__text">Your listing is showcased to serious, qualified buyers globally.</p></div>
+        <div class="c3-step"><div class="c3-step__num">Step 03</div><div class="c3-step__title">Get serious offers</div><p class="c3-step__text">Receive competitive offers from verified, ready buyers.</p></div>
+        <div class="c3-step"><div class="c3-step__num">Step 04</div><div class="c3-step__title">Close with confidence</div><p class="c3-step__text">We guide you through a safe, secure, and smooth sale.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- WHY SELL (split) -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="split">
+  <!-- ============ WHY SELL (split) ============ -->
+  <section class="c3-section c3-section--alt">
+    <div class="c3__container">
+      <div class="c3-split2">
         <div class="reveal">
-          <p class="eyebrow">Why Sports.Cars</p>
-          <h2 class="h2">Your passion, on the world's stage.</h2>
+          <p class="c3-kicker c3-eyebrow">Why Sports.Cars</p>
+          <h2 class="c3-h2">Your passion, on the world's stage.</h2>
           <div class="prose">
             <p>Your car is seen by thousands of qualified enthusiasts and dealers worldwide, backed by verified buyers and secure transactions from start to finish.</p>
             <p>Our data-driven marketing and expert positioning help you reach the right buyer — and the best price — while specialists guide every step from listing to close.</p>
           </div>
           <div style="margin-top:28px"><a href="#options" class="btn btn--primary btn--lg">Choose a plan</a></div>
         </div>
-        <div class="split__media reveal">
+        <div class="c3-split2__media reveal">
           <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1100&q=75" alt="Red sports car" />
-          <span class="split__media-caption">Your passion. Our platform.</span>
+          <span class="c3-split2__caption">Your passion. Our platform.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- LISTING OPTIONS -->
-  <section class="section" id="options">
-    <div class="container">
-      <div class="section-head center reveal">
-        <p class="eyebrow">Listing options</p>
-        <h2 class="h2">Choose the package that's right for you.</h2>
+  <!-- ============ LISTING OPTIONS ============ -->
+  <section class="c3-section" id="options">
+    <div class="c3__container">
+      <div class="c3-section-head c3-section-head--center reveal">
+        <p class="c3-kicker c3-eyebrow">Listing options</p>
+        <h2 class="c3-h2">Choose the package that's right for you.</h2>
       </div>
-      <div class="tiers reveal">
-        <div class="tier">
-          <div class="tier__name">Standard</div>
-          <div class="tier__tagline">Great visibility. Solid results.</div>
-          <div class="tier__price">$129</div>
-          <div class="tier__note">One-time listing fee</div>
-          <ul class="tier__list">
+      <div class="c3-tiers reveal">
+        <div class="c3-tier">
+          <div class="c3-tier__name">Standard</div>
+          <div class="c3-tier__tagline">Great visibility. Solid results.</div>
+          <div class="c3-tier__price">$129</div>
+          <div class="c3-tier__note">One-time listing fee</div>
+          <ul class="c3-tier__list">
             <li>30-day listing duration</li><li>Up to 25 photos</li>
             <li>Basic listing features</li><li>Email support</li>
           </ul>
           <a href="#" class="btn btn--ghost btn--block btn--lg">Choose Standard</a>
         </div>
-        <div class="tier tier--featured" data-badge="Most popular">
-          <div class="tier__name">Premium</div>
-          <div class="tier__tagline">Maximum exposure. More offers.</div>
-          <div class="tier__price">$249</div>
-          <div class="tier__note">One-time listing fee</div>
-          <ul class="tier__list">
+        <div class="c3-tier c3-tier--featured" data-badge="Most popular">
+          <div class="c3-tier__name">Premium</div>
+          <div class="c3-tier__tagline">Maximum exposure. More offers.</div>
+          <div class="c3-tier__price">$249</div>
+          <div class="c3-tier__note">One-time listing fee</div>
+          <ul class="c3-tier__list">
             <li>60-day listing duration</li><li>Up to 50 photos</li>
             <li>Featured placement</li><li>Marketing to our network</li><li>Priority support</li>
           </ul>
           <a href="#" class="btn btn--primary btn--block btn--lg">Choose Premium</a>
         </div>
-        <div class="tier">
-          <div class="tier__name">Concierge</div>
-          <div class="tier__tagline">Hands-off selling. Maximum results.</div>
-          <div class="tier__price">$499<span> + 2.5%</span></div>
-          <div class="tier__note">Success fee on final sale price</div>
-          <ul class="tier__list">
+        <div class="c3-tier">
+          <div class="c3-tier__name">Concierge</div>
+          <div class="c3-tier__tagline">Hands-off selling. Maximum results.</div>
+          <div class="c3-tier__price">$499<span> + 2.5%</span></div>
+          <div class="c3-tier__note">Success fee on final sale price</div>
+          <ul class="c3-tier__list">
             <li>Concierge listing service</li><li>Professional photoshoot</li>
             <li>Market analysis &amp; pricing</li><li>Negotiation assistance</li><li>Transaction management</li>
           </ul>
           <a href="#" class="btn btn--ghost btn--block btn--lg">Choose Concierge</a>
         </div>
       </div>
-      <p class="tier__disclaimer">Success fee is calculated on the final sale price. No upfront surprises.</p>
+      <p class="c3-tier__disclaimer">Success fee is calculated on the final sale price. No upfront surprises.</p>
     </div>
   </section>
 
-  <!-- SUCCESS STORIES -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-bar reveal">
-        <div><p class="eyebrow">Proven results</p><h2>Recent success stories</h2></div>
-        <a href="#" class="link-arrow">View all sold cars</a>
+  <!-- ============ SUCCESS STORIES ============ -->
+  <section class="c3-section c3-section--alt">
+    <div class="c3__container c3__container--wide">
+      <div class="c3-section__bar reveal">
+        <div><p class="c3-kicker c3-eyebrow">Proven results</p><h2 class="c3-h2">Recent success stories</h2></div>
+        <a href="#" class="c3-link-arrow">View all sold cars →</a>
       </div>
-      <div class="car-grid car-grid--3 reveal">
-        <div class="sold-card"><span class="sold-card__tag">Sold</span><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt="McLaren 720S"><div class="sold-card__body"><div class="sold-card__name">2020 McLaren 720S</div><div class="sold-card__loc">Los Angeles, CA</div><div class="sold-card__label">Sold for</div><div class="sold-card__price">$242,500</div></div></div>
-        <div class="sold-card"><span class="sold-card__tag">Sold</span><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=70" alt="Ferrari 488 Pista"><div class="sold-card__body"><div class="sold-card__name">2018 Ferrari 488 Pista</div><div class="sold-card__loc">Miami, FL</div><div class="sold-card__label">Sold for</div><div class="sold-card__price">$449,000</div></div></div>
-        <div class="sold-card"><span class="sold-card__tag">Sold</span><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=70" alt="Porsche 911 GT3"><div class="sold-card__body"><div class="sold-card__name">2021 Porsche 911 GT3</div><div class="sold-card__loc">Atlanta, GA</div><div class="sold-card__label">Sold for</div><div class="sold-card__price">$178,000</div></div></div>
+      <div class="c3-cars c3-cars--3 reveal">
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <span class="c3-car__tag">Sold</span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&q=75" alt="2019 BMW M4 Competition" />
+            <div class="c3-car__scrim"></div>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2019 BMW M4 Competition</span>
+              <span class="c3-car__meta">Los Angeles, CA</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Sold for</span>
+            <span class="c3-car__price">$68,995</span>
+          </div>
+        </a>
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <span class="c3-car__tag">Sold</span>
+            <img class="c3-car__img" src="assets/img/listing/ferrari-488-1.jpg" alt="2022 Ferrari 488 Pista" />
+            <div class="c3-car__scrim"></div>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2022 Ferrari 488 Pista</span>
+              <span class="c3-car__meta">Miami, FL</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Sold for</span>
+            <span class="c3-car__price">$449,000</span>
+          </div>
+        </a>
+        <a href="listing.html" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <span class="c3-car__tag">Sold</span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=75" alt="2015 Ferrari 458 Speciale" />
+            <div class="c3-car__scrim"></div>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2015 Ferrari 458 Speciale</span>
+              <span class="c3-car__meta">Atlanta, GA</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Sold for</span>
+            <span class="c3-car__price">$412,000</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CLOSING CTA -->
-  <section class="cta-band">
-    <div class="cta-band__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=75" alt=""></div>
-    <div class="container">
-      <div class="cta-band__inner reveal">
-        <h2 class="cta-band__title">Ready to sell your car?</h2>
-        <p class="cta-band__text">Join thousands of enthusiasts who've sold with confidence on the world's premier marketplace.</p>
-        <div class="cta-band__actions">
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="c3-cta">
+    <div class="c3-cta__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=75" alt="" /></div>
+    <div class="c3-cta__scrim"></div>
+    <div class="c3__container">
+      <div class="c3-cta__inner c3-cta__inner--close">
+        <div>
+          <h2 class="c3-h3">Ready to sell your car?</h2>
+          <p class="c3-cta__text">Join enthusiasts who've sold with confidence on Sports.Cars.</p>
+        </div>
+        <div class="close-cta__actions">
           <a href="#options" class="btn btn--primary btn--lg">List your car</a>
           <a href="#how" class="btn btn--ghost-light btn--lg">Learn more</a>
         </div>
@@ -140,7 +204,27 @@
     </div>
   </section>
 
-  <div data-include="footer"></div>
+  <footer class="c3-footer">
+    <div class="c3__container">
+      <div class="c3-footer__top">
+        <div>
+          <a href="index.html" class="c3-wordmark"><span>SPORTS</span><span class="c3-wordmark__dot">.</span><span>CARS</span></a>
+          <p class="c3-footer__tagline">A marketplace and journal for people who love extraordinary cars.</p>
+        </div>
+        <div class="c3-footer__col"><h4>Buy</h4><a href="search.html">All inventory</a><a href="index.html#explore">By category</a><a href="search.html">By brand</a><a href="search.html">Search</a></div>
+        <div class="c3-footer__col"><h4>Sell</h4><a href="sell.html">Sell a car</a><a href="sell.html#how">How it works</a><a href="dealer-signup.html">Become a dealer</a></div>
+        <div class="c3-footer__col"><h4>Explore</h4><a href="index.html#explore">Categories</a><a href="resources.html">The Journal</a><a href="resources.html">Buying guides</a><a href="resources.html">Comparisons</a></div>
+        <div class="c3-footer__col"><h4>Sports.cars</h4><a href="about.html">About</a><a href="company.html">Company</a><a href="contact.html">Contact</a></div>
+        <div class="c3-footer__col"><h4>Legal</h4><a href="#">Terms</a><a href="privacy.html">Privacy</a><a href="#">Trust &amp; Accuracy</a><a href="contact.html">Report an Error</a></div>
+      </div>
+      <div class="c3-footer__bottom">
+        <span>Paid placement, sponsorship and advertising are labelled wherever they appear.</span>
+        <span>© 2026 Sports.cars</span>
+      </div>
+    </div>
+  </footer>
+
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/concept3.js"></script>
 </body>
 </html>

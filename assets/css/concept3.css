@@ -193,6 +193,7 @@
 .c3-car__frame { aspect-ratio: 16 / 10; }
 .c3-car__img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: lighten; transition: transform 1s var(--c3-ease), filter .6s ease; }
 .c3-car__scrim { position: absolute; inset: 0; opacity: .85; background: linear-gradient(to top, rgba(13,14,21,.88), rgba(13,14,21,0) 54%); transition: opacity .5s ease; }
+.c3-car__tag { position: absolute; top: 16px; left: 16px; z-index: 4; font-family: var(--c3-mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--c3-red); padding: 5px 10px; }
 .c3-car__fav { position: absolute; top: 16px; right: 16px; z-index: 4; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: rgba(13,14,21,.55); border: 1px solid rgba(233,233,237,.2); border-radius: 999px; cursor: pointer; color: rgba(233,233,237,.9); }
 .c3-car__fav svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 .c3-car__fav.is-active { color: var(--c3-lift); }
