@@ -1,0 +1,119 @@
+/* ============================================================
+   Sports.Cars — Concept #3 listing page
+   Reskins listing.html onto the Concept #3 design language.
+   Loaded after concept3.css (shares its tokens, reset, nav,
+   footer, .c3-frame corner marks, and .c3-cars/.c3-car grid).
+
+   Deliberately keeps every class/id main.js and marketcheck.js
+   hook into (#galleryMain, .gallery__*, .listing-title,
+   .listing-price, .spec-table, .seller__name, .btn--primary) so
+   the gallery carousel and the live "?id=" MarketCheck hydration
+   keep working untouched — only the visuals change here.
+   ============================================================ */
+
+.c3-section--alt { background: var(--c3-ink); }
+
+/* ---------- breadcrumb ---------- */
+.breadcrumb { background: var(--c3-ink); border-bottom: 1px solid var(--c3-line); }
+.breadcrumb__inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.breadcrumb__nav { display: flex; gap: 28px; }
+
+/* ---------- top: gallery + summary ---------- */
+.listing-top-section { padding: 40px 0 100px; }
+.listing-top { display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: start; }
+
+.c3-gallery .gallery__main { aspect-ratio: 16 / 11; }
+.c3-gallery .gallery__main img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s ease; }
+.gallery__count { position: absolute; right: 16px; bottom: 16px; z-index: 3; font-family: var(--c3-mono); font-size: 10px; letter-spacing: .14em; color: #fff; background: rgba(13,14,21,.6); padding: 6px 10px; border: 1px solid rgba(233,233,237,.2); }
+.gallery__nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(233,233,237,.25); background: rgba(13,14,21,.55); color: #fff; font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease, border-color .2s ease; }
+.gallery__nav:hover { background: rgba(13,14,21,.85); border-color: var(--c3-red); }
+.gallery__nav--prev { left: 16px; }
+.gallery__nav--next { right: 16px; }
+
+.gallery__thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 12px; }
+.gallery__thumb { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid var(--c3-line); cursor: pointer; opacity: .6; transition: opacity .2s ease, border-color .2s ease; background: var(--c3-charcoal); }
+.gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery__thumb:hover { opacity: .85; }
+.gallery__thumb.is-active { opacity: 1; border-color: var(--c3-red); }
+
+.listing-summary { padding-top: 4px; }
+.listing-title { max-width: 18ch; margin: 14px 0 18px; font-family: var(--c3-display); font-variation-settings: "wdth" 116; font-size: 38px; font-weight: 600; line-height: 1.08; letter-spacing: -.02em; color: #fff; }
+.listing-price-row { display: flex; align-items: baseline; gap: 12px; }
+.listing-price-row .c3-label { padding-bottom: 3px; }
+.listing-price { font-family: var(--c3-display); font-variation-settings: "wdth" 116; font-size: 32px; font-weight: 600; letter-spacing: -.015em; color: #fff; font-variant-numeric: tabular-nums; }
+
+.listing-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
+.listing-badge { display: inline-block; border: 1px solid var(--c3-line); padding: 6px 12px; font-family: var(--c3-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--c3-dim); }
+
+.spec-table { margin-top: 6px; border-top: 1px solid var(--c3-line); }
+.spec-table__row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 13px 0; border-bottom: 1px solid var(--c3-line); }
+.spec-table__row span:first-child { font-family: var(--c3-mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--c3-faint); }
+.spec-table__row span:last-child { font-size: 14.5px; color: var(--c3-text); text-align: right; }
+
+.listing-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.listing-actions .btn { flex: 1 1 auto; }
+.listing-actions .btn--block { flex-basis: 100%; }
+.listing-actions--tight { margin-top: 6px; }
+
+.listing-mini-actions { display: flex; gap: 26px; margin-top: 18px; }
+.listing-mini-actions button { background: none; border: 0; padding: 0; font-family: var(--c3-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--c3-dim); cursor: pointer; transition: color .2s ease; }
+.listing-mini-actions button:hover { color: #fff; }
+
+/* ---------- buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--c3-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; padding: 13px 26px; border: 1px solid transparent; border-radius: var(--radius-btn, 4px); cursor: pointer; text-align: center; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.btn--lg { padding: 15px 28px; font-size: 11px; }
+.btn--block { width: 100%; }
+.btn--primary { background: var(--c3-red); color: #fff; border-color: var(--c3-red); }
+.btn--primary:hover { background: var(--c3-lift); border-color: var(--c3-lift); }
+.btn--ghost { background: transparent; color: var(--c3-text); border-color: var(--c3-line); }
+.btn--ghost:hover { border-color: rgba(233,233,237,.4); color: #fff; }
+.btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
+.btn--ghost-light:hover { background: #fff; color: #14151c; border-color: #fff; }
+.btn--secondary { background: var(--c3-charcoal); color: var(--c3-text); border: 1px solid var(--c3-line); }
+.btn--secondary:hover { border-color: rgba(233,233,237,.4); color: #fff; }
+
+/* ---------- info cards (seller / highlights / about / financing) ---------- */
+.info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.info-cards--about { grid-template-columns: 1.2fr 1fr; }
+.info-card { background: var(--c3-charcoal); border: 1px solid var(--c3-line); padding: 36px; }
+.info-card--full { margin-top: 24px; }
+.info-card__title { margin-bottom: 24px; font-family: var(--c3-display); font-variation-settings: "wdth" 112; font-size: 21px; font-weight: 600; letter-spacing: -.015em; color: #fff; }
+
+.seller { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.seller__logo { flex-shrink: 0; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: var(--c3-bg); border: 1px solid var(--c3-line); font-family: var(--c3-mono); font-size: 8.5px; letter-spacing: .08em; line-height: 1.3; text-align: center; color: var(--c3-dim); }
+.seller__name { display: flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 600; color: #fff; }
+.seller__verify { font-family: var(--c3-mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--c3-red); border: 1px solid var(--c3-red); padding: 3px 8px; }
+.seller__rating { margin-top: 5px; font-size: 13px; color: var(--c3-dim); }
+.seller__stars { color: var(--c3-red); letter-spacing: 1px; }
+
+.feature-list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+.feature-list li { position: relative; padding-left: 16px; font-size: 14px; color: var(--c3-dim); }
+.feature-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--c3-red); }
+.feature-list--cols { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 24px; margin-top: 22px; }
+
+.highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 4px; }
+.highlight { padding: 20px 16px 4px 0; border-top: 1px solid var(--c3-line); }
+.highlight:not(:nth-child(3n+1)) { padding-left: 16px; border-left: 1px solid var(--c3-line); }
+.highlight__val { display: block; font-family: var(--c3-display); font-variation-settings: "wdth" 114; font-size: 19px; font-weight: 600; letter-spacing: -.01em; color: #fff; }
+.highlight__key { display: block; margin-top: 6px; font-family: var(--c3-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--c3-faint); }
+
+.prose p { font-size: 14.5px; line-height: 1.75; color: var(--c3-dim); margin-bottom: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+
+.financing-label { font-size: 13px; color: var(--c3-dim); margin-top: 2px; }
+.financing-payment { margin-top: 8px; font-family: var(--c3-display); font-variation-settings: "wdth" 116; font-size: 36px; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; }
+.financing-payment span { font-size: 16px; font-weight: 400; color: var(--c3-dim); }
+.financing-sub { margin-top: 4px; font-size: 13px; color: var(--c3-dim); }
+.financing-cta { margin-top: 24px; }
+.financing-disclaimer { margin-top: 12px; text-align: center; font-size: 11.5px; color: var(--c3-faint); }
+
+.confidence-card { margin-top: 24px; }
+.confidence-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 4px; }
+.confidence__num { font-family: var(--c3-mono); font-size: 11px; letter-spacing: .14em; color: var(--c3-red); }
+.confidence__title { margin-top: 12px; font-size: 15px; font-weight: 600; color: #fff; }
+.confidence__sub { margin-top: 4px; font-size: 12.5px; color: var(--c3-dim); }
+.confidence-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--c3-line); }
+
+/* ---------- closing CTA (reuses .c3-cta band, buttons instead of signup) ---------- */
+.c3-cta__inner--close { grid-template-columns: 1fr auto; }
+.close-cta__actions { display: flex; gap: 14px; }
