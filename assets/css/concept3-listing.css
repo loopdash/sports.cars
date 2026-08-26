@@ -11,7 +11,6 @@
    keep working untouched — only the visuals change here.
    ============================================================ */
 
-.c3-section--alt { background: var(--c3-ink); }
 
 /* ---------- breadcrumb ---------- */
 .breadcrumb { background: var(--c3-ink); border-bottom: 1px solid var(--c3-line); }

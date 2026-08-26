@@ -108,6 +108,11 @@
 .c3-section--light .c3-exprow.is-active .c3-exprow__idx { color: var(--c3-red); }
 
 /* fading rule — this system never stops a long rule cleanly */
+/* alternating tonal band. Lived in concept3-listing.css, so the four
+   pages that use it but don't load that file (company, dealers, sell,
+   resources) rendered no band at all and ran together. */
+.c3-section--alt { background: var(--c3-ink); }
+
 .c3-rule { height: 1px; border: 0; margin: 0; background: linear-gradient(90deg, transparent, var(--c3-line) 6%, var(--c3-line) 94%, transparent); }
 
 /* ---------- corner marks (the signature detail) ---------- */
