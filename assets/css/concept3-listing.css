@@ -15,7 +15,7 @@
 
 /* ---------- breadcrumb ---------- */
 .breadcrumb { background: var(--c3-ink); border-bottom: 1px solid var(--c3-line); }
-.breadcrumb__inner { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+.breadcrumb__inner { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; padding-bottom: 24px; }
 .breadcrumb__nav { display: flex; gap: 28px; }
 
 /* ---------- top: gallery + summary ---------- */
