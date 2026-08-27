@@ -19,6 +19,8 @@
     var slides = [].slice.call(hero.querySelectorAll(".c3-hero__slide"));
     var dots = [].slice.call(hero.querySelectorAll("[data-c3-dot]"));
     var cur = hero.querySelector("[data-c3-current]");
+    var total = hero.querySelector("[data-c3-total]");
+    if (total) total.textContent = pad(slides.length);
     if (slides.length < 2) return;
 
     var idx = 0, timer = null, DELAY = 3000;
@@ -135,6 +137,63 @@
     });
   }
 
+  /* ---------- Search dock: the hero search clips under the nav ---------- */
+  function initSearchDock() {
+    var dock = document.querySelector("[data-c3-searchdock]");
+    if (!dock) return;
+    var form = dock.querySelector(".c3-search");
+    var nav = document.querySelector(".c3-nav");
+    if (!form || !nav) return;
+
+    var docked = false;
+    var restH = 0;     // the form's height in its resting (hero) state
+    var restTop = 0;   // its document offset, measured while undocked
+    var ticking = false;
+
+    function measure() {
+      if (docked) return;
+      restH = form.offsetHeight;
+      restTop = dock.getBoundingClientRect().top + window.pageYOffset;
+      dock.style.setProperty("--c3-dock-h", restH + "px");
+    }
+
+    function update() {
+      ticking = false;
+      var navH = nav.offsetHeight;
+      // Dock once the resting position would slide up under the nav; undock a
+      // little later so the two states can't fight over a single pixel.
+      var shouldDock = window.pageYOffset > restTop - navH + (docked ? -2 : 0);
+      if (shouldDock === docked) return;
+      docked = shouldDock;
+      dock.classList.toggle("is-docked", docked);
+      document.body.classList.toggle("is-search-docked", docked);
+      // Publish the docked bar's height so sticky elements can clear it.
+      document.documentElement.style.setProperty(
+        "--c3-dock-bar-h", (docked ? form.offsetHeight : 0) + "px"
+      );
+      if (!docked) measure();
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    measure();
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      if (docked) {
+        // Re-measure from the resting state, then re-apply.
+        dock.classList.remove("is-docked");
+        docked = false;
+        measure();
+      }
+      update();
+    });
+  }
+
   /* ---------- Favourites ---------- */
   function initFavorites() {
     document.addEventListener("click", function (e) {
@@ -164,6 +223,7 @@
     initFields();
     initFilterForm();
     initExplore();
+    initSearchDock();
     initFavorites();
     initSignup();
   }

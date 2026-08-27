@@ -45,10 +45,11 @@
     return (
       '<a href="' + link + '" class="car-card">' +
       '<div class="car-card__media c3-frame"><span class="c3-frame__mark"></span>' + media + fav +
-      '<div class="car-card__overlay">' +
+      "</div>" +
+      '<div class="car-card__body">' +
       '<span class="car-card__name">' + esc(v.title || "Vehicle") + "</span>" +
       '<span class="car-card__meta">' + metaBits + "</span>" +
-      "</div></div>" +
+      "</div>" +
       '<div class="car-card__footer">' +
       '<span class="car-card__plabel">Price</span>' +
       '<span class="car-card__price">' + money(v.price) + "</span>" +
