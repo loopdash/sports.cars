@@ -11,7 +11,6 @@
    keep working untouched — only the visuals change here.
    ============================================================ */
 
-.c3-section--alt { background: var(--c3-ink); }
 
 /* ---------- breadcrumb ---------- */
 .breadcrumb { background: var(--c3-ink); border-bottom: 1px solid var(--c3-line); }
@@ -62,17 +61,6 @@
 .listing-mini-actions button:hover { color: #fff; }
 
 /* ---------- buttons ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--c3-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; padding: 13px 26px; border: 1px solid transparent; border-radius: var(--radius-btn, 4px); cursor: pointer; text-align: center; transition: background .2s ease, border-color .2s ease, color .2s ease; }
-.btn--lg { padding: 15px 28px; font-size: 11px; }
-.btn--block { width: 100%; }
-.btn--primary { background: var(--c3-red); color: #fff; border-color: var(--c3-red); }
-.btn--primary:hover { background: var(--c3-lift); border-color: var(--c3-lift); }
-.btn--ghost { background: transparent; color: var(--c3-text); border-color: var(--c3-line); }
-.btn--ghost:hover { border-color: rgba(233,233,237,.4); color: #fff; }
-.btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.5); }
-.btn--ghost-light:hover { background: #fff; color: #14151c; border-color: #fff; }
-.btn--secondary { background: var(--c3-charcoal); color: var(--c3-text); border: 1px solid var(--c3-line); }
-.btn--secondary:hover { border-color: rgba(233,233,237,.4); color: #fff; }
 
 /* ---------- info cards (seller / highlights / about / financing) ---------- */
 .info-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
