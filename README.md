@@ -8,6 +8,63 @@ WordPress templates later.
 
 No framework, no build step, no backend — open the files and click through.
 
+## WordPress build (`theme/sportscars/`)
+
+The static build has been ported to a WordPress theme in **`theme/sportscars/`**
+and is live on the WP Engine staging install **`sportscars1`**
+(`https://sportscars1.wpenginepowered.com`, staging password `ShapeTomorrow`).
+
+- `node build-theme.mjs` ports the concept3 static pages into theme templates
+  and emits `assets/data/taxonomy.json` for the PHP proxy.
+- MarketCheck runs server-side as a PHP REST proxy
+  (`/wp-json/sportscars/v1/*`); the key is admin-editable at
+  **Settings → Sports.Cars** (never in this repo).
+- CMS: `vehicle` + `sc_article` post types, `make`/`sc_model`/`generation`/
+  `vehicle_category` taxonomies, an ACF field group (specs + citations +
+  confidence + last-verified), and a `Researcher` role — all in `inc/cms.php`.
+- `wp` on the box needs `--skip-plugins=wp-password` (the staging gate
+  intercepts CLI).
+
+### Curated search filtering (only sports cars show)
+
+MarketCheck's feed is every car; the marketplace must only surface enthusiast
+models. The proxy (`inc/marketcheck.php`) enforces this in two ways:
+
+- **Keyword → make/model resolution.** A model keyword like `911` becomes a
+  precise `make=Porsche&model=911` query instead of MarketCheck's broad
+  full-text match (which also hit "911 Assist" on unrelated trucks/SUVs).
+- **Curated post-filter.** Broad searches (make-only, free browse, hp/generation)
+  are filtered to make+model pairs that exist in the taxonomy, so SUVs/pickups
+  (Cayenne, Macan, Avalanche, Outlander…) never appear.
+
+MarketCheck query constraints (verified against the live API):
+
+- `model=911` is exact and pushed to the backend (fast, uncapped). ✓
+- **Comma-separated models are NOT OR'd** — `model=911,718 Cayman` returns the
+  same count as `911` alone, so a make's curated models can't be listed in one
+  query (would need one query per model).
+- `body_type=Coupe,Convertible,Roadster,Targa` **does** filter server-side
+  (Porsche 27,133 → 7,643) — the one clean backend lever to drop most
+  SUVs/pickups/sedans at the source. **Recommended next step:** add this as a
+  backend pre-filter on broad searches, keeping the taxonomy post-filter on top
+  for the few body_type can't exclude (e.g. a Cayenne *Coupe*).
+
+**Direction — the filter belongs on the WordPress backend.** Today the curated
+allow-list is the static `assets/data/taxonomy.json`. The intended architecture
+is for the **`vehicle` post type + `make`/`sc_model` taxonomies to be the source
+of truth**: editors control which make+model pairs are "sports cars" from
+wp-admin, and search constrains MarketCheck queries to exactly those pairs
+(one query per curated model, merged) — giving exact counts, no capping, and no
+hardcoded list. The static taxonomy becomes a seed/fallback.
+
+### GitHub
+
+The full WordPress build (theme, `build-theme.mjs`, SEO files, front-end fixes)
+is committed to the **`wordpress`** branch of `github.com/loopdash/sports.cars`.
+Next: open a PR and wire a theme-only GitHub Actions deploy to WP Engine
+(`sportscars1`), matching the standard Loopdash flow. The theme also stays in
+sync on the WPE box via `rsync` over SSH during active development.
+
 ## Quick start
 
 **Option A — just open it.** Double-click `index.html` (or any page). The shared

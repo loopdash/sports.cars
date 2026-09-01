@@ -4,12 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2022 Ferrari 488 Pista — Sports.Cars</title>
-  <meta name="description" content="2022 Ferrari 488 Pista — 1,950 miles, Rosso Corsa over Nero Alcantara. Verified listing from Rosso Performance." />
+  <meta name="description" content="2022 Ferrari 488 Pista — 1,950 miles, Rosso Corsa over Nero Alcantara. Listed on Sports.Cars." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/concept3.css" />
   <link rel="stylesheet" href="assets/css/concept3-listing.css" />
+  <!-- Vehicle structured data. Static values describe the demo listing;
+       marketcheck.js rewrites this node from live MarketCheck fields when a
+       ?id= listing is hydrated, so the schema always matches what's shown. -->
+  <script type="application/ld+json" id="vehicle-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    "name": "2022 Ferrari 488 Pista",
+    "manufacturer": { "@type": "Organization", "name": "Ferrari" },
+    "model": "488 Pista",
+    "vehicleModelDate": "2022",
+    "bodyType": "Coupe",
+    "vehicleTransmission": "Dual-clutch",
+    "driveWheelConfiguration": "https://schema.org/RearWheelDriveConfiguration",
+    "mileageFromOdometer": { "@type": "QuantitativeValue", "value": 1950, "unitCode": "SMI" },
+    "offers": {
+      "@type": "Offer",
+      "price": 449995,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
 </head>
 <body data-page="buy" class="c3">
 
@@ -72,11 +95,15 @@
             <span class="c3-label">Price</span>
             <span class="listing-price">$449,995</span>
           </div>
-          <div class="listing-badges">
-            <span class="listing-badge listing-badge--verified"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.2l2.6 2.6L16.5 9"/></svg>Verified listing</span>
-            <span class="listing-badge">Clean history</span>
-            <span class="listing-badge">Low miles</span>
-            <span class="listing-badge">Rare spec</span>
+          <!-- Badges are factual descriptors drawn from the live listing
+               (body / transmission / drivetrain / mileage). No "verified"
+               or history claim is shown unless a data source backs it —
+               see marketcheck.js initListingPage(). -->
+          <div class="listing-badges" data-listing-badges>
+            <span class="listing-badge">Coupe</span>
+            <span class="listing-badge">Dual-clutch</span>
+            <span class="listing-badge">RWD</span>
+            <span class="listing-badge">1,950 mi</span>
           </div>
 
           <div class="spec-table">
@@ -114,8 +141,8 @@
           <div class="seller">
             <div class="seller__logo">ROSSO<br>PERF.</div>
             <div>
-              <div class="seller__name">Rosso Performance <span class="seller__verify">Verified</span></div>
-              <div class="seller__rating"><span class="seller__stars">★★★★★</span> 4.9 · 128 reviews</div>
+              <div class="seller__name">Rosso Performance</div>
+              <div class="seller__rating" data-seller-meta>Franchise &amp; independent dealers</div>
             </div>
           </div>
           <ul class="feature-list">
@@ -154,7 +181,7 @@
       <div class="info-cards info-cards--about">
         <div class="info-card">
           <div class="info-card__title">About this car</div>
-          <div class="prose">
+          <div class="prose" data-about>
             <p>This 2022 Ferrari 488 Pista is a low-mileage, single-owner example finished in Rosso Corsa over Nero Alcantara with Rosso stitching. Powered by a 3.9L twin-turbo V8 producing 710 horsepower, this Pista delivers track-focused performance with everyday usability.</p>
             <p>The car comes with a clean title, full Ferrari service history, and is in exceptional condition inside and out — always garage kept, never tracked, and meticulously maintained. A rare opportunity to own one of Ferrari's most celebrated limited-production models.</p>
           </div>
@@ -169,17 +196,23 @@
         </div>
       </div>
 
+      <!-- Documentation & source. Every cell here is sourced from the live
+           MarketCheck listing (VIN, days-listed, seller, generation/spec from
+           our taxonomy) — no accident/title/inspection claim is asserted.
+           Title, accident, and service history populate per-VIN from a
+           MarketCheck Car-History subscription when one is connected; until
+           then those cells are intentionally absent rather than fabricated. -->
       <div class="info-card info-card--full confidence-card">
-        <div class="info-card__title">Vehicle history &amp; confidence</div>
-        <div class="confidence-grid">
-          <div class="confidence"><div class="confidence__num">01</div><div class="confidence__title">No reported accidents</div><div class="confidence__sub">Verified</div></div>
-          <div class="confidence"><div class="confidence__num">02</div><div class="confidence__title">Service records</div><div class="confidence__sub">12 records</div></div>
-          <div class="confidence"><div class="confidence__num">03</div><div class="confidence__title">Clean title verified</div><div class="confidence__sub">Verified</div></div>
-          <div class="confidence"><div class="confidence__num">04</div><div class="confidence__title">Inspection completed</div><div class="confidence__sub">Passed 150-point</div></div>
+        <div class="info-card__title">Vehicle documentation</div>
+        <div class="confidence-grid" data-confidence-grid>
+          <div class="confidence"><div class="confidence__num">01</div><div class="confidence__title" data-doc-vin>VIN on file</div><div class="confidence__sub">Decoded</div></div>
+          <div class="confidence"><div class="confidence__num">02</div><div class="confidence__title" data-doc-listed>Recently listed</div><div class="confidence__sub">On Sports.Cars</div></div>
+          <div class="confidence"><div class="confidence__num">03</div><div class="confidence__title" data-doc-spec>Generation &amp; spec</div><div class="confidence__sub">Matched to our database</div></div>
+          <div class="confidence"><div class="confidence__num">04</div><div class="confidence__title" data-doc-seller>Selling dealer</div><div class="confidence__sub">Contact on file</div></div>
         </div>
         <div class="confidence-footer">
-          <span class="listing-badge">VIN: ZFF90HLA2N0271234</span>
-          <a href="#" class="btn btn--ghost">View full history report</a>
+          <span class="listing-badge" data-vin-badge>VIN: —</span>
+          <a href="#" class="btn btn--ghost" data-source-link>View original listing</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,14 @@
+# Sports.Cars — robots
+# Production origin is https://sports.cars (the cutover target). If this
+# build is served from another host, update the Sitemap URL below.
+
+User-agent: *
+Allow: /
+
+# The JSON proxy endpoints are not content — keep them out of the index.
+Disallow: /api/
+
+# Design-concept-only page (not a live feature).
+Disallow: /dashboard.html
+
+Sitemap: https://sports.cars/sitemap.xml

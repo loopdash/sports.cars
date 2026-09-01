@@ -1,0 +1,280 @@
+<?php
+/**
+ * Template Name: Listing
+ * @package sportscars
+ */
+get_header();
+?>
+<!-- ============ BREADCRUMB ============ -->
+  <div class="breadcrumb">
+    <div class="c3__container breadcrumb__inner">
+      <a href="<?php echo esc_url( home_url( '/search/' ) ); ?>" class="c3-mono-link breadcrumb__back">← Back to search results</a>
+      <div class="breadcrumb__nav">
+        <a href="#" class="c3-mono-link">‹ Prev car</a>
+        <a href="#" class="c3-mono-link">Next car ›</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GALLERY + SUMMARY ============ -->
+  <section class="c3-section listing-top-section">
+    <div class="c3__container">
+      <div class="listing-top">
+
+        <!-- Gallery -->
+        <div class="c3-gallery">
+          <div class="gallery__main c3-frame"><span class="c3-frame__mark"></span>
+            <img id="galleryMain" src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-1.jpg" alt="2022 Ferrari 488 Pista" />
+            <span class="gallery__count">1 / 6</span>
+            <button class="gallery__nav gallery__nav--prev" aria-label="Previous photo">‹</button>
+            <button class="gallery__nav gallery__nav--next" aria-label="Next photo">›</button>
+          </div>
+          <div class="gallery__thumbs">
+            <div class="gallery__thumb is-active"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-1.jpg" alt=""></div>
+            <div class="gallery__thumb"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-2.jpg" alt=""></div>
+            <div class="gallery__thumb"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-3.jpg" alt=""></div>
+            <div class="gallery__thumb"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-4.jpg" alt=""></div>
+            <div class="gallery__thumb"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-5.jpg" alt=""></div>
+            <div class="gallery__thumb"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-6.jpg" alt=""></div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="listing-summary">
+          <p class="c3-kicker c3-eyebrow">Exotics · Coupe</p>
+          <h1 class="listing-title">2022 Ferrari 488 Pista</h1>
+          <div class="listing-price-row">
+            <span class="c3-label">Price</span>
+            <span class="listing-price">$449,995</span>
+          </div>
+          <!-- Badges are factual descriptors drawn from the live listing
+               (body / transmission / drivetrain / mileage). No "verified"
+               or history claim is shown unless a data source backs it —
+               see marketcheck.js initListingPage(). -->
+          <div class="listing-badges" data-listing-badges>
+            <span class="listing-badge">Coupe</span>
+            <span class="listing-badge">Dual-clutch</span>
+            <span class="listing-badge">RWD</span>
+            <span class="listing-badge">1,950 mi</span>
+          </div>
+
+          <div class="spec-table">
+            <div class="spec-table__row"><span>Mileage</span><span>1,950 miles</span></div>
+            <div class="spec-table__row"><span>Exterior color</span><span>Rosso Corsa</span></div>
+            <div class="spec-table__row"><span>Interior color</span><span>Nero Alcantara</span></div>
+            <div class="spec-table__row"><span>Transmission</span><span>7-Speed Dual-Clutch</span></div>
+            <div class="spec-table__row"><span>Drivetrain</span><span>RWD</span></div>
+            <div class="spec-table__row"><span>Engine</span><span>3.9L Twin-Turbo V8</span></div>
+            <div class="spec-table__row"><span>Horsepower</span><span>710 hp @ 8,000 rpm</span></div>
+            <div class="spec-table__row"><span>Location</span><span>Miami, FL</span></div>
+          </div>
+
+          <div class="listing-actions">
+            <a href="#" class="btn btn--primary btn--lg">Contact seller</a>
+            <a href="#" class="btn btn--ghost btn--lg">Make offer</a>
+            <a href="#" class="btn btn--secondary btn--lg btn--block">♡ Save listing</a>
+          </div>
+          <div class="listing-mini-actions">
+            <button>Share</button>
+            <button>Compare</button>
+            <button>Watchlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELLER + HIGHLIGHTS ============ -->
+  <section class="c3-section c3-section--alt">
+    <div class="c3__container">
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card__title">Seller / dealer</div>
+          <div class="seller">
+            <div class="seller__logo">ROSSO<br>PERF.</div>
+            <div>
+              <div class="seller__name">Rosso Performance</div>
+              <div class="seller__rating" data-seller-meta>Franchise &amp; independent dealers</div>
+            </div>
+          </div>
+          <ul class="feature-list">
+            <li>Financing available</li><li>Shipping available</li>
+            <li>Trade-ins welcome</li><li>Concierge delivery</li>
+          </ul>
+          <div class="listing-actions listing-actions--tight">
+            <a href="<?php echo esc_url( home_url( '/dealer-premier/' ) ); ?>" class="btn btn--ghost btn--lg">Message dealer</a>
+            <a href="<?php echo esc_url( home_url( '/dealer-premier/' ) ); ?>" class="btn btn--ghost btn--lg">View dealership</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__title">Vehicle highlights</div>
+          <div class="highlight-grid">
+            <div class="highlight"><span class="highlight__val">710 hp</span><span class="highlight__key">Max power</span></div>
+            <div class="highlight"><span class="highlight__val">7-Speed DCT</span><span class="highlight__key">Transmission</span></div>
+            <div class="highlight"><span class="highlight__val">2.8 sec</span><span class="highlight__key">0–60 mph</span></div>
+            <div class="highlight"><span class="highlight__val">1,950 mi</span><span class="highlight__key">Low mileage</span></div>
+            <div class="highlight"><span class="highlight__val">211 mph</span><span class="highlight__key">Top speed</span></div>
+            <div class="highlight"><span class="highlight__val">RWD</span><span class="highlight__key">Drivetrain</span></div>
+          </div>
+          <ul class="feature-list feature-list--cols">
+            <li>Carbon fiber racing package</li><li>20&quot; forged wheels</li>
+            <li>Racing seats</li><li>Front lift system</li>
+            <li>Sport exhaust system</li><li>Red brake calipers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT + HISTORY + FINANCING ============ -->
+  <section class="c3-section">
+    <div class="c3__container">
+      <div class="info-cards info-cards--about">
+        <div class="info-card">
+          <div class="info-card__title">About this car</div>
+          <div class="prose" data-about>
+            <p>This 2022 Ferrari 488 Pista is a low-mileage, single-owner example finished in Rosso Corsa over Nero Alcantara with Rosso stitching. Powered by a 3.9L twin-turbo V8 producing 710 horsepower, this Pista delivers track-focused performance with everyday usability.</p>
+            <p>The car comes with a clean title, full Ferrari service history, and is in exceptional condition inside and out — always garage kept, never tracked, and meticulously maintained. A rare opportunity to own one of Ferrari's most celebrated limited-production models.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__title">Financing estimate</div>
+          <p class="financing-label">Estimated payment</p>
+          <div class="financing-payment">$6,872<span> /mo</span></div>
+          <p class="financing-sub">at 6.49% APR for 72 months</p>
+          <a href="#" class="btn btn--primary btn--block btn--lg financing-cta">Pre-qualify now</a>
+          <p class="financing-disclaimer">Does not affect your credit score.</p>
+        </div>
+      </div>
+
+      <!-- Documentation & source. Every cell here is sourced from the live
+           MarketCheck listing (VIN, days-listed, seller, generation/spec from
+           our taxonomy) — no accident/title/inspection claim is asserted.
+           Title, accident, and service history populate per-VIN from a
+           MarketCheck Car-History subscription when one is connected; until
+           then those cells are intentionally absent rather than fabricated. -->
+      <div class="info-card info-card--full confidence-card">
+        <div class="info-card__title">Vehicle documentation</div>
+        <div class="confidence-grid" data-confidence-grid>
+          <div class="confidence"><div class="confidence__num">01</div><div class="confidence__title" data-doc-vin>VIN on file</div><div class="confidence__sub">Decoded</div></div>
+          <div class="confidence"><div class="confidence__num">02</div><div class="confidence__title" data-doc-listed>Recently listed</div><div class="confidence__sub">On Sports.Cars</div></div>
+          <div class="confidence"><div class="confidence__num">03</div><div class="confidence__title" data-doc-spec>Generation &amp; spec</div><div class="confidence__sub">Matched to our database</div></div>
+          <div class="confidence"><div class="confidence__num">04</div><div class="confidence__title" data-doc-seller>Selling dealer</div><div class="confidence__sub">Contact on file</div></div>
+        </div>
+        <div class="confidence-footer">
+          <span class="listing-badge" data-vin-badge>VIN: —</span>
+          <a href="#" class="btn btn--ghost" data-source-link>View original listing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIMILAR LISTINGS ============ -->
+  <section class="c3-section c3-section--alt" id="similar">
+    <div class="c3__container c3__container--wide">
+      <div class="c3-section__bar">
+        <div>
+          <p class="c3-kicker c3-eyebrow">You might also like</p>
+          <h2 class="c3-h2">Similar listings</h2>
+        </div>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="c3-mono-link">View all similar cars →</a>
+      </div>
+      <div class="c3-cars">
+        <a href="<?php echo esc_url( home_url( '/listing/' ) ); ?>" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1400&q=75" alt="2015 Ferrari LaFerrari" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2015 Ferrari LaFerrari</span>
+              <span class="c3-car__meta">1,200 mi · Chicago, IL</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$3,495,000</span>
+          </div>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/listing/' ) ); ?>" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=75" alt="2015 Ferrari 458 Speciale" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2015 Ferrari 458 Speciale</span>
+              <span class="c3-car__meta">2,100 mi · Atlanta, GA</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$429,995</span>
+          </div>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/listing/' ) ); ?>" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1400&q=75" alt="2019 Lamborghini Huracán" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2019 Lamborghini Huracán</span>
+              <span class="c3-car__meta">3,100 mi · Dallas, TX</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$219,995</span>
+          </div>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/listing/' ) ); ?>" class="c3-car">
+          <div class="c3-frame c3-car__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-car__img" src="<?php echo SC_URI; ?>/assets/img/hero/porsche-911-gts-mountain.jpg" alt="2021 Porsche 911 GTS" />
+            <div class="c3-car__scrim"></div>
+            <button type="button" class="c3-car__fav" aria-label="Save this car"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+            <div class="c3-car__overlay">
+              <span class="c3-car__name">2021 Porsche 911 GTS</span>
+              <span class="c3-car__meta">4,800 mi · Dallas, TX</span>
+            </div>
+          </div>
+          <div class="c3-car__footer">
+            <span class="c3-label">Price</span>
+            <span class="c3-car__price">$149,995</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="c3-cta">
+    <div class="c3-cta__media"><img src="<?php echo SC_URI; ?>/assets/img/listing/ferrari-488-2.jpg" alt="" /></div>
+    <div class="c3-cta__scrim"></div>
+    <div class="c3__container">
+      <div class="c3-cta__inner c3-cta__inner--close">
+        <div>
+          <h2 class="c3-h3">Ready to own this Ferrari?</h2>
+          <p class="c3-cta__text">Serious about this car? Contact the seller today to schedule a viewing or make an offer.</p>
+        </div>
+        <div class="close-cta__actions">
+          <a href="#" class="btn btn--primary btn--lg">Contact seller</a>
+          <a href="#" class="btn btn--ghost-light btn--lg">Make an offer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="c3-split" id="sell">
+    <div class="c3__container c3-split__grid">
+      <div class="c3-half">
+        <h3 class="c3-h3 c3-half__title">Sell your car</h3>
+        <p class="c3-half__text">List with the people who already know what your car is worth.</p>
+        <a href="<?php echo esc_url( home_url( '/sell/' ) ); ?>" class="c3-half__cta">Start a listing →</a>
+      </div>
+      <div class="c3-half">
+        <h3 class="c3-h3 c3-half__title">For dealers</h3>
+        <p class="c3-half__text">Put your inventory in front of buyers who came here to shop.</p>
+        <a href="<?php echo esc_url( home_url( '/dealer-signup/' ) ); ?>" class="c3-half__cta">Dealer enquiries →</a>
+      </div>
+    </div>
+  </div>
+<?php get_footer();

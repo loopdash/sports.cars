@@ -1,0 +1,134 @@
+<?php
+/**
+ * Template Name: Journal
+ * @package sportscars
+ */
+get_header();
+?>
+<!-- ============ HERO + SEARCH ============ -->
+  <section class="c3-subhero">
+    <div class="c3-subhero__media"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=2000&q=75" alt="Sports car on a mountain road" /></div>
+    <div class="c3-subhero__scrim"></div>
+    <div class="c3-subhero__inner">
+      <div class="c3__container">
+        <h1 class="c3-subhero__title">The Journal.</h1>
+        <p class="c3-subhero__sub">Expert guides, market insights, buyer knowledge, and the culture of sports cars.</p>
+        <form class="c3-subhero__search" data-filter-form>
+          <input type="text" placeholder="Search articles, guides, and more…" />
+          <button type="submit" class="btn btn--primary btn--lg">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOPICS ============ -->
+  <section class="c3-section">
+    <div class="c3__container">
+      <div class="c3-section-head reveal">
+        <p class="c3-kicker c3-eyebrow">Explore</p>
+        <h2 class="c3-h2">Browse by topic.</h2>
+      </div>
+      <div class="c3-topics reveal">
+        <a href="#" class="c3-topic"><div class="c3-topic__num">01</div><div class="c3-topic__title">Car reviews</div><p class="c3-topic__text">In-depth sports car reviews.</p></a>
+        <a href="#" class="c3-topic"><div class="c3-topic__num">02</div><div class="c3-topic__title">Buyer guides</div><p class="c3-topic__text">Expert advice to help you buy the right car.</p></a>
+        <a href="#" class="c3-topic"><div class="c3-topic__num">03</div><div class="c3-topic__title">Maintenance</div><p class="c3-topic__text">Care tips, fixes, and performance advice.</p></a>
+        <a href="#" class="c3-topic"><div class="c3-topic__num">04</div><div class="c3-topic__title">Market insights</div><p class="c3-topic__text">Trends, values, and analysis from the market.</p></a>
+        <a href="#" class="c3-topic"><div class="c3-topic__num">05</div><div class="c3-topic__title">Specifications</div><p class="c3-topic__text">Detailed specs and performance data.</p></a>
+        <a href="#" class="c3-topic"><div class="c3-topic__num">06</div><div class="c3-topic__title">Events</div><p class="c3-topic__text">Upcoming events and motorsport experiences.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ARTICLES ============ -->
+  <section class="c3-section c3-section--alt">
+    <div class="c3__container">
+      <div class="c3-section__bar reveal">
+        <div><p class="c3-kicker c3-eyebrow">Editorial</p><h2 class="c3-h2">Featured articles</h2></div>
+        <a href="#" class="c3-link-arrow">View all articles →</a>
+      </div>
+      <div class="c3-posts c3-posts--feature reveal">
+        <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Reviews</p>
+          <h3 class="c3-post__title">2024 Ferrari 296 GTB Review: The Perfect Balance</h3>
+          <p class="c3-post__dek">May 12, 2024 · 6 min read</p>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Buyer guides</p>
+          <h3 class="c3-post__title">Porsche 911 Buyer's Guide: Which Model Is Right for You?</h3>
+          <p class="c3-post__dek">May 6, 2024 · 8 min read</p>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Market insight</p>
+          <h3 class="c3-post__title">Exotic Car Market Report Q2 2024: Prices &amp; Trends</h3>
+          <p class="c3-post__dek">April 28, 2024 · 7 min read</p>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-post">
+          <div class="c3-frame c3-post__frame"><span class="c3-frame__mark"></span>
+            <img class="c3-post__img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=70" alt="" />
+            <span class="c3-post__sweep"></span>
+          </div>
+          <p class="c3-post__kicker">Maintenance</p>
+          <h3 class="c3-post__title">How to Keep Your Sports Car Running at Its Best</h3>
+          <p class="c3-post__dek">April 20, 2024 · 6 min read</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUIDES + MARKET SNAPSHOT ============ -->
+  <section class="c3-section">
+    <div class="c3__container">
+      <div class="c3-res-cols">
+        <div class="reveal">
+          <div class="c3-section__bar"><h2 class="c3-h3">Popular guides</h2><a href="#" class="c3-link-arrow">View all →</a></div>
+          <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-guide-row"><div class="c3-guide-row__thumb"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=200&q=60" alt=""></div><div class="c3-guide-row__body"><div class="c3-guide-row__title">How to Buy Your Dream Sports Car</div><div class="c3-guide-row__meta">Apr 15, 2024 · 7 min read</div></div><span class="c3-guide-row__arrow">›</span></a>
+          <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-guide-row"><div class="c3-guide-row__thumb"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=200&q=60" alt=""></div><div class="c3-guide-row__body"><div class="c3-guide-row__title">Understanding Supercar Depreciation</div><div class="c3-guide-row__meta">Apr 8, 2024 · 6 min read</div></div><span class="c3-guide-row__arrow">›</span></a>
+          <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-guide-row"><div class="c3-guide-row__thumb"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=200&q=60" alt=""></div><div class="c3-guide-row__body"><div class="c3-guide-row__title">Track Day 101: Prepare Your Car</div><div class="c3-guide-row__meta">Mar 30, 2024 · 5 min read</div></div><span class="c3-guide-row__arrow">›</span></a>
+          <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-guide-row"><div class="c3-guide-row__thumb"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=200&q=60" alt=""></div><div class="c3-guide-row__body"><div class="c3-guide-row__title">Top 10 Modern Classic Cars</div><div class="c3-guide-row__meta">Mar 22, 2024 · 6 min read</div></div><span class="c3-guide-row__arrow">›</span></a>
+          <a href="<?php echo esc_url( home_url( '/article/' ) ); ?>" class="c3-guide-row"><div class="c3-guide-row__thumb"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=200&q=60" alt=""></div><div class="c3-guide-row__body"><div class="c3-guide-row__title">The Ultimate Sports Car Interior Guide</div><div class="c3-guide-row__meta">Mar 15, 2024 · 5 min read</div></div><span class="c3-guide-row__arrow">›</span></a>
+        </div>
+
+        <div class="reveal">
+          <div class="c3-section__bar"><h2 class="c3-h3">Market snapshot</h2><a href="#" class="c3-link-arrow">Market insights →</a></div>
+          <div class="c3-market">
+            <div class="c3-market-row"><div class="c3-market-row__car"><div class="c3-market-row__thumb"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=150&q=60" alt=""></div><div><div class="c3-market-row__name">Porsche 911 Carrera S</div><div class="c3-market-row__yr">2022</div></div></div><div class="c3-market-row__price">$126,450</div><div class="c3-market-row__trend c3-market-row__trend--up">+2.4% ↑</div></div>
+            <div class="c3-market-row"><div class="c3-market-row__car"><div class="c3-market-row__thumb"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=150&q=60" alt=""></div><div><div class="c3-market-row__name">Ferrari F8 Tributo</div><div class="c3-market-row__yr">2021</div></div></div><div class="c3-market-row__price">$285,000</div><div class="c3-market-row__trend c3-market-row__trend--up">+1.7% ↑</div></div>
+            <div class="c3-market-row"><div class="c3-market-row__car"><div class="c3-market-row__thumb"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=150&q=60" alt=""></div><div><div class="c3-market-row__name">Lamborghini Huracán EVO</div><div class="c3-market-row__yr">2020</div></div></div><div class="c3-market-row__price">$214,990</div><div class="c3-market-row__trend c3-market-row__trend--down">-1.3% ↓</div></div>
+            <div class="c3-market-row"><div class="c3-market-row__car"><div class="c3-market-row__thumb"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=150&q=60" alt=""></div><div><div class="c3-market-row__name">McLaren 720S</div><div class="c3-market-row__yr">2019</div></div></div><div class="c3-market-row__price">$228,500</div><div class="c3-market-row__trend c3-market-row__trend--up">+0.8% ↑</div></div>
+            <div class="c3-market-row"><div class="c3-market-row__car"><div class="c3-market-row__thumb"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=150&q=60" alt=""></div><div><div class="c3-market-row__name">Chevrolet Corvette Z06</div><div class="c3-market-row__yr">2023</div></div></div><div class="c3-market-row__price">$112,900</div><div class="c3-market-row__trend c3-market-row__trend--up">+3.2% ↑</div></div>
+          </div>
+          <p class="c3-market-foot">Prices updated daily based on market data. <a href="#">View full report →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="c3-cta">
+    <div class="c3-cta__media"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=2000&q=75" alt="" /></div>
+    <div class="c3-cta__scrim"></div>
+    <div class="c3__container">
+      <div class="c3-cta__inner c3-cta__inner--close">
+        <div>
+          <h2 class="c3-h3">The knowledge base.</h2>
+          <p class="c3-cta__text">Built for enthusiasts, driven by expertise. Your complete resource for everything sports cars.</p>
+        </div>
+        <div class="close-cta__actions">
+          <a href="#" class="btn btn--primary btn--lg">Explore all resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php get_footer();

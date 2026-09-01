@@ -8,7 +8,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap" rel="stylesheet" />
+  <link rel="canonical" href="https://sports.cars/" />
   <link rel="stylesheet" href="assets/css/concept3.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sports.cars/#org",
+        "name": "Sports.Cars",
+        "url": "https://sports.cars/",
+        "description": "A curated marketplace of exotics and performance machines — documented, and ready to drive."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sports.cars/#site",
+        "url": "https://sports.cars/",
+        "name": "Sports.Cars",
+        "publisher": { "@id": "https://sports.cars/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://sports.cars/search.html?keyword={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-page="home" class="c3">
 
