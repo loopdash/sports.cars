@@ -285,6 +285,11 @@ function sc_rest_search( WP_REST_Request $req ) {
 	// which enforces the curated catalog (only taxonomy sports models appear) and
 	// keeps count + pagination honest.
 	if ( ! $precise || null !== $hp_min || null !== $hp_max || $gen ) {
+		// Backend pre-filter: sports-car body styles only. Shrinks the candidate
+		// set at MarketCheck (~4x) so pickups/most SUVs never enter the pool.
+		// Safe because the curated taxonomy has no sedans; the post-filter below
+		// still removes the few body_type can't (e.g. a Cayenne Coupe).
+		if ( empty( $p['body_type'] ) ) { $p['body_type'] = 'Coupe,Convertible,Roadster,Targa'; }
 		$pool = array();
 		$num_found_upstream = 0;
 		for ( $s = 0; $s < SC_MC_POOL_CAP; $s += 50 ) {
