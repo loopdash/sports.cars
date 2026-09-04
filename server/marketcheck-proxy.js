@@ -25,12 +25,14 @@ const { URL } = require("url");
 const PORT = process.env.PORT || 8080;
 const ROOT = path.resolve(__dirname, "..");
 const API_KEY = process.env.MARKETCHECK_API_KEY;
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 const MC_BASE = process.env.MC_BASE || "https://mc-api.marketcheck.com/v2";
 const CACHE_TTL_MS = 60 * 1000; // short-lived cache
 
 // Stored spec / taxonomy layer (Phase 1). Merged into live inventory at
 // request time to add the generation + horsepower the basic feed lacks.
 const TAX = require("../assets/data/taxonomy.js");
+const EXTERIOR = require("./lib/exterior-first.js");
 const CURRENT_YEAR = TAX.currentYear || 2026;
 
 // Curated default marques so the marketplace reads as sports/exotic cars.
@@ -58,6 +60,21 @@ function cacheGet(key) {
 function cacheSet(key, value) {
   cache.set(key, { value, expires: Date.now() + CACHE_TTL_MS });
 }
+
+/* ---------- exterior-first photo ordering (Claude vision, cached by VIN) ----------
+ * MarketCheck leads with whatever photo the dealer uploaded first, which is
+ * sometimes an interior shot. We classify a listing's photos once, cache the
+ * first-exterior index by VIN (persists past the 60s listing cache so a car is
+ * only ever classified once), and move that photo to the front. No API key ->
+ * this is a no-op and the original MarketCheck order is served unchanged. */
+const exteriorIndexByVin = new Map();
+const exteriorCache = {
+  get: (k) => exteriorIndexByVin.get(k),
+  set: (k, v) => void exteriorIndexByVin.set(k, v),
+};
+const classifyExterior = ANTHROPIC_API_KEY
+  ? EXTERIOR.createAnthropicClassifier({ apiKey: ANTHROPIC_API_KEY })
+  : null;
 
 /* ---------- upstream fetch (returns parsed JSON) ---------- */
 function mcFetch(pathAndQuery) {
@@ -302,6 +319,15 @@ async function handleListing(req, res, id) {
   try {
     const data = await mcFetch(`/listing/car/${encodeURIComponent(id)}`);
     const out = mergeSpec(normalizeListing(data, Infinity));
+    if (classifyExterior && Array.isArray(out.photos) && out.photos.length > 1) {
+      const idx = await EXTERIOR.resolveExteriorIndex({
+        vin: out.vin,
+        photos: out.photos,
+        cache: exteriorCache,
+        classify: classifyExterior,
+      });
+      Object.assign(out, EXTERIOR.applyExteriorFirst(out, idx));
+    }
     cacheSet(cacheKey, out);
     sendJSON(res, 200, out);
   } catch (e) {
