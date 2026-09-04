@@ -1,0 +1,17 @@
+{
+  "target": "Node caching proxy (localhost)",
+  "requests": 50000,
+  "concurrency": 100,
+  "duration_s": 2.2,
+  "rps": 22655,
+  "ok": 50000,
+  "errors": 0,
+  "latency_ms": {
+    "p50": 3,
+    "p95": 9,
+    "p99": 12,
+    "max": 39
+  },
+  "marketcheck_upstream_calls_total": 6,
+  "marketcheck_calls_during_50k_burst": 0
+}

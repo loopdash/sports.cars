@@ -60,7 +60,9 @@ function cacheSet(key, value) {
 }
 
 /* ---------- upstream fetch (returns parsed JSON) ---------- */
+let upstreamCalls = 0; // real MarketCheck calls (cache misses) — for load-test proof
 function mcFetch(pathAndQuery) {
+  upstreamCalls++;
   return new Promise((resolve, reject) => {
     const url = `${MC_BASE}${pathAndQuery}${
       pathAndQuery.includes("?") ? "&" : "?"
@@ -458,7 +460,7 @@ const server = http.createServer((req, res) => {
   const m = p.match(/^\/api\/listing\/(.+)$/);
   if (m) return handleListing(req, res, m[1]);
   if (p === "/api/health") {
-    return sendJSON(res, 200, { ok: true, key: Boolean(API_KEY) });
+    return sendJSON(res, 200, { ok: true, key: Boolean(API_KEY), upstream_calls: upstreamCalls });
   }
   return serveStatic(req, res, p);
 });
