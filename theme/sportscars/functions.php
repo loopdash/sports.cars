@@ -44,6 +44,20 @@ add_filter( 'body_class', function ( $classes ) {
 	return $classes;
 } );
 
+/* Load the Saira webfont without blocking render (system/local fonts show
+   immediately, Saira swaps in) — a Lighthouse render-blocking win. */
+add_filter( 'style_loader_tag', function ( $tag, $handle ) {
+	if ( 'sc-saira' === $handle ) {
+		$tag = str_replace(
+			"rel='stylesheet'",
+			"rel='preload' as='style' onload=\"this.onload=null;this.rel='stylesheet'\"",
+			$tag
+		);
+		$tag .= "<noscript><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,400..800&display=swap'></noscript>";
+	}
+	return $tag;
+}, 10, 2 );
+
 /* Legacy static URLs → WordPress permalinks. The prototype used *.html URLs
    (search.html, listing.html?id=…); redirect them 301 so old links, bookmarks,
    and stale-cached pages resolve instead of 404ing. Query string preserved. */

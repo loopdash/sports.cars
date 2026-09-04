@@ -17,6 +17,14 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+/* Hard dependency: ACF powers the vehicle spec/citation/gallery fields. Warn
+   loudly in admin if it's inactive so the fields don't silently disappear. */
+add_action( 'admin_notices', function () {
+	if ( ! class_exists( 'ACF' ) && current_user_can( 'activate_plugins' ) ) {
+		echo '<div class="notice notice-error"><p><strong>Sports.Cars:</strong> Advanced Custom Fields (ACF) is not active — vehicle spec, citation, and gallery fields will not appear until it is enabled.</p></div>';
+	}
+} );
+
 /* -------------------------------------------------------------------------
  * Post types
  * ---------------------------------------------------------------------- */
@@ -105,6 +113,7 @@ add_action( 'acf/init', function () {
 			$txt( 'years', 'Years', 'Production year range (e.g. 2019–2023).' ),
 			array( 'key' => 'field_sc_rarity', 'label' => 'Rarity', 'name' => 'rarity', 'type' => 'select', 'choices' => array( 'Standard' => 'Standard', 'Special' => 'Special' ), 'default_value' => 'Standard' ),
 			array( 'key' => 'field_sc_production_count', 'label' => 'Production count', 'name' => 'production_count', 'type' => 'number', 'instructions' => 'Only when the source states a number — never estimated.' ),
+			array( 'key' => 'field_sc_gallery', 'label' => 'Gallery', 'name' => 'gallery', 'type' => 'gallery', 'instructions' => 'Additional images beyond the featured image.', 'return_format' => 'array' ),
 
 			// Specs (Pass 1/2 enrichment)
 			array( 'key' => 'field_sc_tab_spec', 'label' => 'Specifications', 'type' => 'tab' ),

@@ -22,6 +22,15 @@ add_action( 'admin_init', function () {
 		'default'           => '',
 		'show_in_rest'      => false,
 	) );
+	register_setting( 'sc_settings', 'sc_ga4_id', array(
+		'type'              => 'string',
+		'sanitize_callback' => function ( $new ) {
+			$new = trim( (string) $new );
+			return preg_match( '/^G-[A-Z0-9]{6,}$/', $new ) ? $new : '';
+		},
+		'default'           => '',
+		'show_in_rest'      => false,
+	) );
 } );
 
 add_action( 'admin_menu', function () {
@@ -71,8 +80,16 @@ function sc_render_settings_page() {
 						<p class="description">Stored server-side; never exposed to the browser. Leave blank to keep the existing key.</p>
 					</td>
 				</tr>
+				<tr>
+					<th scope="row"><label for="sc_ga4_id">GA4 Measurement ID</label></th>
+					<td>
+						<input type="text" id="sc_ga4_id" name="sc_ga4_id" value="<?php echo esc_attr( get_option( 'sc_ga4_id', '' ) ); ?>"
+							class="regular-text" placeholder="G-XXXXXXXXXX" />
+						<p class="description">Enables GA4 + event tracking site-wide. Leave blank to disable analytics.</p>
+					</td>
+				</tr>
 			</table>
-			<?php submit_button( 'Save key' ); ?>
+			<?php submit_button( 'Save settings' ); ?>
 		</form>
 
 		<hr />
