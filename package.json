@@ -4,7 +4,8 @@
   "private": true,
   "description": "Sports.Cars marketplace prototype + dependency-free MarketCheck proxy",
   "scripts": {
-    "start": "node server/marketcheck-proxy.js"
+    "start": "node server/marketcheck-proxy.js",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=18"
